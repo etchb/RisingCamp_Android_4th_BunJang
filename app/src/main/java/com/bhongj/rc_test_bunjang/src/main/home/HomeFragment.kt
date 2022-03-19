@@ -1,14 +1,14 @@
-package com.bhongj.rc_week6.src.main.home
+package com.bhongj.rc_test_bunjang.src.main.home
 
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import com.bhongj.rc_week6.R
-import com.bhongj.rc_week6.config.BaseFragment
-import com.bhongj.rc_week6.databinding.FragmentHomeBinding
-import com.bhongj.rc_week6.src.main.home.models.PostSignUpRequest
-import com.bhongj.rc_week6.src.main.home.models.SignUpResponse
-import com.bhongj.rc_week6.src.main.home.models.UserResponse
+import com.bhongj.rc_test_bunjang.R
+import com.bhongj.rc_test_bunjang.config.BaseFragment
+import com.bhongj.rc_test_bunjang.databinding.FragmentHomeBinding
+import com.bhongj.rc_test_bunjang.src.main.home.models.PostSignUpRequest
+import com.bhongj.rc_test_bunjang.src.main.home.models.SignUpResponse
+import com.bhongj.rc_test_bunjang.src.main.home.models.UserResponse
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home),
     HomeFragmentInterface {

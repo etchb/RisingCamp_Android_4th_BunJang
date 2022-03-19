@@ -1,7 +1,7 @@
-package com.bhongj.rc_week6.config
+package com.bhongj.rc_test_bunjang.config
 
-import com.bhongj.rc_week6.config.ApplicationClass.Companion.X_ACCESS_TOKEN
-import com.bhongj.rc_week6.config.ApplicationClass.Companion.sSharedPreferences
+import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.X_ACCESS_TOKEN
+import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.sSharedPreferences
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response

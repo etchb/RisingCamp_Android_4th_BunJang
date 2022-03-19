@@ -1,4 +1,4 @@
-package com.bhongj.rc_week6.config
+package com.bhongj.rc_test_bunjang.config
 
 import android.app.Application
 import android.content.SharedPreferences

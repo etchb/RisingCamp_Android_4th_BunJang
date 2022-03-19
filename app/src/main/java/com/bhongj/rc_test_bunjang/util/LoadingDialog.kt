@@ -1,11 +1,11 @@
-package com.bhongj.rc_week6.util
+package com.bhongj.rc_test_bunjang.util
 
 import android.app.Dialog
 import android.content.Context
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.Window
-import com.bhongj.rc_week6.databinding.DialogLoadingBinding
+import com.bhongj.rc_test_bunjang.databinding.DialogLoadingBinding
 
 class LoadingDialog(context: Context) : Dialog(context) {
     private lateinit var binding: DialogLoadingBinding

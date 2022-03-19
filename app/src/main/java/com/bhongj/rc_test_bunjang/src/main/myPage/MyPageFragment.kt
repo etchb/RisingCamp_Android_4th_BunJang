@@ -1,10 +1,10 @@
-package com.bhongj.rc_week6.src.main.myPage
+package com.bhongj.rc_test_bunjang.src.main.myPage
 
 import android.os.Bundle
 import android.view.View
-import com.bhongj.rc_week6.R
-import com.bhongj.rc_week6.config.BaseFragment
-import com.bhongj.rc_week6.databinding.FragmentMyPageBinding
+import com.bhongj.rc_test_bunjang.R
+import com.bhongj.rc_test_bunjang.config.BaseFragment
+import com.bhongj.rc_test_bunjang.databinding.FragmentMyPageBinding
 
 class MyPageFragment :
     BaseFragment<FragmentMyPageBinding>(FragmentMyPageBinding::bind, R.layout.fragment_my_page) {

@@ -1,4 +1,4 @@
-package com.bhongj.rc_week6
+package com.bhongj.rc_test_bunjang
 
 import org.junit.Test
 

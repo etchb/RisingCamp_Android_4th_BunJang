@@ -1,4 +1,4 @@
-package com.bhongj.rc_week6.config
+package com.bhongj.rc_test_bunjang.config
 
 import android.content.Context
 import android.os.Bundle
@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
-import com.bhongj.rc_week6.util.LoadingDialog
+import com.bhongj.rc_test_bunjang.util.LoadingDialog
 
 // 액티비티의 기본을 작성, 뷰 바인딩 활용
 abstract class BaseActivity<B : ViewBinding>(private val inflate: (LayoutInflater) -> B) :

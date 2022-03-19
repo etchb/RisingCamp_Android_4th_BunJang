@@ -1,7 +1,7 @@
-package com.bhongj.rc_week6.src.main.home
+package com.bhongj.rc_test_bunjang.src.main.home
 
-import com.bhongj.rc_week6.src.main.home.models.SignUpResponse
-import com.bhongj.rc_week6.src.main.home.models.UserResponse
+import com.bhongj.rc_test_bunjang.src.main.home.models.SignUpResponse
+import com.bhongj.rc_test_bunjang.src.main.home.models.UserResponse
 
 interface HomeFragmentInterface {
 

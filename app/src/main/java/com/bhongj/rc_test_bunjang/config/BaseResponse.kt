@@ -1,4 +1,4 @@
-package com.bhongj.rc_week6.config
+package com.bhongj.rc_test_bunjang.config
 
 import com.google.gson.annotations.SerializedName
 

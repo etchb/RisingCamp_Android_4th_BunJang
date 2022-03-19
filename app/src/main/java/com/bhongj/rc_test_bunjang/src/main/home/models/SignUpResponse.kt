@@ -1,6 +1,6 @@
-package com.bhongj.rc_week6.src.main.home.models
+package com.bhongj.rc_test_bunjang.src.main.home.models
 
-import com.bhongj.rc_week6.config.BaseResponse
+import com.bhongj.rc_test_bunjang.config.BaseResponse
 import com.google.gson.annotations.SerializedName
 
 data class SignUpResponse(

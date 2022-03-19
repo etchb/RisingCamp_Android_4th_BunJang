@@ -13,5 +13,5 @@ dependencyResolutionManagement {
         maven { url 'https://jitpack.io' } // add for Spinkit
     }
 }
-rootProject.name = "RC_Week6"
+rootProject.name = "RC_TEST_BunJang"
 include ':app'

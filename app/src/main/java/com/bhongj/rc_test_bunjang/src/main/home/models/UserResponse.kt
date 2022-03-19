@@ -1,4 +1,4 @@
-package com.bhongj.rc_week6.src.main.home.models
+package com.bhongj.rc_test_bunjang.src.main.home.models
 
 import com.google.gson.annotations.SerializedName
 

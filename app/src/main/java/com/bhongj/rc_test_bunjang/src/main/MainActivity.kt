@@ -1,11 +1,11 @@
-package com.bhongj.rc_week6.src.main
+package com.bhongj.rc_test_bunjang.src.main
 
 import android.os.Bundle
-import com.bhongj.rc_week6.R
-import com.bhongj.rc_week6.config.BaseActivity
-import com.bhongj.rc_week6.databinding.ActivityMainBinding
-import com.bhongj.rc_week6.src.main.home.HomeFragment
-import com.bhongj.rc_week6.src.main.myPage.MyPageFragment
+import com.bhongj.rc_test_bunjang.R
+import com.bhongj.rc_test_bunjang.config.BaseActivity
+import com.bhongj.rc_test_bunjang.databinding.ActivityMainBinding
+import com.bhongj.rc_test_bunjang.src.main.home.HomeFragment
+import com.bhongj.rc_test_bunjang.src.main.myPage.MyPageFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate) {
