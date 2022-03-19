@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#fcfcfc</color>
-    <color name="colorPrimaryDark">#889dfe</color>
+    <color name="colorPrimaryDark">@color/white</color>
     <color name="colorAccent">#889dfe</color>
 
     <!-- 기본 -->
@@ -11,5 +11,10 @@
     <color name="whiteForBackground">#FFFFFF</color>
     <color name="blackForText">#4a4a4a</color>
     <color name="redForText">#d9534f</color>
+
+    <!-- color high light -->
+    <color name="colorControlHighlight">#fd4381</color>
+
+    <color name="gray">#FF999999</color>
 
 </resources>

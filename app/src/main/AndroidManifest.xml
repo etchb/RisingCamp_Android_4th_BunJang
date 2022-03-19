@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="com.bhongj.rc_test_bunjang.config.ApplicationClass"
+        android:name=".config.ApplicationClass"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -15,10 +15,15 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
         <activity
-            android:name="com.bhongj.rc_test_bunjang.src.splash.SplashActivity"
+            android:name=".src.login.LoginActivity"
+            android:exported="false"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:exported="true" >
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".src.splash.SplashActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,10 +31,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.bhongj.rc_test_bunjang.src.main.MainActivity"
+            android:name=".src.main.MainActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:exported="true" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
+
 </manifest>

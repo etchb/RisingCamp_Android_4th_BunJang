@@ -3,7 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-hdpi/ripple_background.xml" value="0.2255" />
+        <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-hdpi/ripple_background_rec.xml" value="0.234" />
+        <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable/indi_black_radius.xml" value="0.234" />
+        <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/layout/activity_login.xml" value="0.21875" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/layout/activity_main.xml" value="0.18697916666666667" />
+        <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/layout/activity_splash.xml" value="0.21875" />
+        <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/layout/fragment_ad_slide.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/layout/fragment_des_slide.xml" value="0.36614583333333334" />
       </map>
     </option>
   </component>

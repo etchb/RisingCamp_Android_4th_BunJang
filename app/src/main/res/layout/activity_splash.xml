@@ -5,12 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:fitsSystemWindows="true"
     tools:context=".src.splash.SplashActivity">
 
     <ImageView
+        android:id="@+id/img_splash"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/softsquared_logo"
+        android:src="@drawable/splash_pic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

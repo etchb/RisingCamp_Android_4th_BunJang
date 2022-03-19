@@ -1,11 +1,17 @@
 package com.bhongj.rc_test_bunjang.config
 
 import android.content.Context
+import android.graphics.drawable.ColorDrawable
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.viewbinding.ViewBinding
+import com.bhongj.rc_test_bunjang.R
 import com.bhongj.rc_test_bunjang.util.LoadingDialog
 
 // 액티비티의 기본을 작성, 뷰 바인딩 활용
@@ -21,6 +27,29 @@ abstract class BaseActivity<B : ViewBinding>(private val inflate: (LayoutInflate
         super.onCreate(savedInstanceState)
         binding = inflate(layoutInflater)
         setContentView(binding.root)
+
+        makeTransparentStatusBar()
+    }
+
+    // 상태바를 투명으로 만들어준다.
+    // xml 최상위 그룹뷰에 백그라운드를 설정해주어야 한다.
+    private fun makeTransparentStatusBar() {
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.LOLLIPOP_MR1) {
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+            window.statusBarColor = ContextCompat.getColor(this, R.color.colorAccent)
+        } else {
+            //검정계열일 경우 주석처리
+            //흰색의 밝은 계열일 경우 주석해제
+            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+
+            //바인딩을 사용하지 않는다면
+//            window.statusBarColor =
+//                ((findViewById<ViewGroup>(android.R.id.content)).getChildAt(0).background as ColorDrawable).color
+
+            //바인딩을 사용한다면
+            window.statusBarColor = (binding.root.background as ColorDrawable).color
+        }
     }
 
     // 로딩 다이얼로그, 즉 로딩창을 띄워줌.
