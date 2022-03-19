@@ -10,4 +10,156 @@
     android:background="@color/white"
     tools:context=".src.login.other.RegisterActivity">
 
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:src="@drawable/img_angle_bragket_left_black"
+        android:scaleType="centerInside"
+        android:background="?attr/selectableItemBackground"
+        android:layout_marginVertical="10dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="입력한 정보를\n확인해주세요"
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/nanum_square_eb"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="15dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="휴대폰번호"
+        android:textAppearance="@style/other_small_text_gray"
+        android:layout_marginTop="25dp"
+        android:layout_marginHorizontal="10dp"/>
+    <androidx.appcompat.widget.AppCompatEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="01047293615"
+        android:maxLength="11"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/nanum_square_eb"
+        android:inputType="phone"
+        android:background="@drawable/other_login_textbox_border_bottom"
+        android:paddingBottom="15dp"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="10dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="통신사"
+        android:textAppearance="@style/other_small_text_gray"
+        android:layout_marginTop="25dp"
+        android:layout_marginHorizontal="10dp"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="KT"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/nanum_square_eb"
+        android:background="@drawable/other_login_textbox_border_bottom"
+        android:paddingBottom="15dp"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="10dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="생년월일"
+        android:textAppearance="@style/other_small_text_gray"
+        android:layout_marginTop="25dp"
+        android:layout_marginHorizontal="10dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="10dp">
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="911217"
+            android:maxLength="6"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/nanum_square_eb"
+            android:background="@drawable/other_login_textbox_border_bottom"
+            android:paddingBottom="15dp"
+            android:layout_marginVertical="10dp"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textSize="20sp"
+            android:textColor="@color/gray"
+            android:fontFamily="@font/nanum_square_eb"
+            android:paddingBottom="15dp"
+            android:layout_marginVertical="10dp"
+            android:layout_marginHorizontal="10dp"/>
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:text="1"
+            android:maxLength="1"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/nanum_square_eb"
+            android:background="@drawable/other_login_textbox_border_bottom"
+            android:paddingBottom="15dp"
+            android:layout_marginVertical="10dp"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="●●●●●●"
+            android:textSize="20sp"
+            android:textColor="@color/gray"
+            android:fontFamily="@font/nanum_square_eb"
+            android:paddingBottom="15dp"
+            android:layout_marginVertical="10dp"/>
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="이름"
+        android:textAppearance="@style/other_small_text_gray"
+        android:layout_marginTop="25dp"
+        android:layout_marginHorizontal="10dp"/>
+    <androidx.appcompat.widget.AppCompatEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="정홍배"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/nanum_square_eb"
+        android:background="@drawable/other_login_textbox_border_bottom"
+        android:paddingBottom="15dp"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="10dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="확인"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/nanum_square_eb"
+        android:gravity="center"
+        android:background="@drawable/other_login_next_button"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="40dp"
+        android:enabled="false" />
 </LinearLayout>

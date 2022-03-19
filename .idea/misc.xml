@@ -3,15 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-hdpi/other_login_next_bottom.xml" value="0.2255" />
+        <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-hdpi/other_login_next_bottom_black.xml" value="0.2255" />
+        <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-hdpi/other_login_next_button.xml" value="0.1955" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-hdpi/other_login_textbox_border_bottom.xml" value="0.1955" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-hdpi/other_login_textbox_border_bottom_black.xml" value="0.1955" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-hdpi/other_login_textbox_border_bottom_gray.xml" value="0.1955" />
+        <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-hdpi/other_next_button_background_round.xml" value="0.2255" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-hdpi/ripple_background.xml" value="0.2255" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-hdpi/ripple_background_kakao.xml" value="0.2255" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-hdpi/ripple_background_rec.xml" value="0.234" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-hdpi/ripple_background_round.xml" value="0.2255" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-hdpi/textbox_border_bottom_black.xml" value="0.1955" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-hdpi/textbox_border_bottom_gray.xml" value="0.1955" />
+        <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-v24/other_login_next_button.xml" value="0.1955" />
+        <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-v24/other_login_next_button_background_round.xml" value="0.1955" />
+        <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-v24/other_login_next_button_background_round_false.xml" value="0.1955" />
+        <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-v24/ripple_background_round.xml" value="0.1955" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable/indi_black_radius.xml" value="0.234" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable/other_login_facebook_resize.xml" value="0.2255" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable/other_login_naver_resize.xml" value="0.2255" />
