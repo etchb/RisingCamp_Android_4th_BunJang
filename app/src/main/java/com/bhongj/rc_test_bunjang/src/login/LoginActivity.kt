@@ -1,19 +1,12 @@
 package com.bhongj.rc_test_bunjang.src.login
 
-import android.content.Context
-import android.graphics.drawable.ColorDrawable
-import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.View
-import android.view.WindowManager
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
-import com.bhongj.rc_test_bunjang.R
 import com.bhongj.rc_test_bunjang.config.BaseActivity
 import com.bhongj.rc_test_bunjang.databinding.ActivityLoginBinding
 
@@ -46,6 +39,11 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
                 mIndicator.animatePageSelected(position % pagerAdapter.itemCount)
             }
         })
+
+        binding.btnOtherLogin.setOnClickListener {
+            val slidingLoginFragment = SlidingLoginFragment()
+            slidingLoginFragment.show(supportFragmentManager, slidingLoginFragment.tag)
+        }
 
         Thread() {
             var cnt = 0
