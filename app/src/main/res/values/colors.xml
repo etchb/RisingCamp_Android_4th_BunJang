@@ -16,5 +16,6 @@
     <color name="colorControlHighlight">#fd4381</color>
 
     <color name="gray">#FF999999</color>
+    <color name="bungaeRed">#D80C18</color>
 
 </resources>
