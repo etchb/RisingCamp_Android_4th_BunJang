@@ -2,7 +2,8 @@
 <resources>
     <color name="colorPrimary">#fcfcfc</color>
     <color name="colorPrimaryDark">@color/white</color>
-    <color name="colorAccent">#889dfe</color>
+<!--    <color name="colorAccent">#889dfe</color>-->
+    <color name="colorAccent">#000000</color>
 
     <!-- 기본 -->
     <color name="white">#FFFFFF</color>

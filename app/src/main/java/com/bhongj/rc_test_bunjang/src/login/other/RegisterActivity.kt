@@ -56,8 +56,8 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(ActivityRegisterB
             binding.btnOtherLoginNext.isEnabled =
                 phonCheck && registCheck1 && registCheck2 && nameCheck
             if (registCheck1 && registCheck2 && (binding.txtOtherLoginPhoneAgencyDes.visibility == View.GONE)) {
-                binding.txtOtherLoginPhoneAgencyDes.visibility = View.VISIBLE
-                binding.txtOtherLoginPhoneAgency.visibility = View.VISIBLE
+//                binding.txtOtherLoginPhoneAgencyDes.visibility = View.VISIBLE
+//                binding.txtOtherLoginPhoneAgency.visibility = View.VISIBLE
                 binding.edtOtherLoginPhoneNum.visibility = View.VISIBLE
                 binding.txtOtherLoginPhoneNum.visibility = View.VISIBLE
             }
@@ -68,8 +68,8 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(ActivityRegisterB
             binding.btnOtherLoginNext.isEnabled =
                 phonCheck && registCheck1 && registCheck2 && nameCheck
             if (registCheck1 && registCheck2 && (binding.txtOtherLoginPhoneAgencyDes.visibility == View.GONE)) {
-                binding.txtOtherLoginPhoneAgencyDes.visibility = View.VISIBLE
-                binding.txtOtherLoginPhoneAgency.visibility = View.VISIBLE
+//                binding.txtOtherLoginPhoneAgencyDes.visibility = View.VISIBLE
+//                binding.txtOtherLoginPhoneAgency.visibility = View.VISIBLE
                 binding.edtOtherLoginPhoneNum.visibility = View.VISIBLE
                 binding.txtOtherLoginPhoneNum.visibility = View.VISIBLE
 
@@ -117,6 +117,7 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(ActivityRegisterB
                 binding.txtOtherLoginCertify.visibility = View.VISIBLE
                 binding.layOtherLoginCertify.visibility = View.VISIBLE
                 binding.edtOtherLoginCertify.requestFocus()
+                showKeyboard(binding.edtOtherLoginCertify)
 
                 Thread() {
                     val handler = Handler(Looper.getMainLooper())

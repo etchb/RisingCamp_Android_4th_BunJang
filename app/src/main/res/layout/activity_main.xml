@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".src.main.MainActivity">
 
     <FrameLayout
@@ -17,7 +18,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        app:itemBackground="@color/white"
         app:itemIconTint="@drawable/main_btm_nav_item_color"
         app:itemTextColor="@drawable/main_btm_nav_item_color"
         app:labelVisibilityMode="labeled"

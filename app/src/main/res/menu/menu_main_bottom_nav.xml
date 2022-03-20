@@ -3,18 +3,39 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/menu_main_btm_nav_home"
-        android:icon="@drawable/ic_total_view_unselected"
+        android:id="@+id/menu_main_btm_home"
+        android:icon="@drawable/img_btm_home"
         app:showAsAction="always"
         android:enabled="true"
         android:checkable="true"
-        android:title="@string/main_btm_nav_home_title" />
+        android:title="홈" />
 
     <item
-        android:id="@+id/menu_main_btm_nav_my_page"
-        android:icon="@drawable/ic_setting_view_unselected"
+        android:id="@+id/menu_main_btm_search"
+        android:icon="@drawable/img_btm_search"
         app:showAsAction="always"
         android:enabled="true"
-        android:title="@string/main_btm_nav_my_page_title" />
+        android:title="검색" />
+
+    <item
+        android:id="@+id/menu_main_btm_add"
+        android:icon="@drawable/img_btm_add"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:title="등록" />
+
+    <item
+        android:id="@+id/menu_main_btm_chat"
+        android:icon="@drawable/img_btm_chat"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:title="번개톡" />
+
+    <item
+        android:id="@+id/menu_main_btm_my"
+        android:icon="@drawable/img_btm_my"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:title="MY" />
 
 </menu>
