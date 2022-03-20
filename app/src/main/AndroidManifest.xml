@@ -16,6 +16,7 @@
         tools:ignore="AllowBackup">
         <activity
             android:name=".src.login.other.RegisterActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">

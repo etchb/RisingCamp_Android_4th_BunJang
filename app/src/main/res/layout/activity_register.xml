@@ -6,40 +6,43 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingVertical="10dp"
-    android:paddingHorizontal="20dp"
+    android:paddingHorizontal="10dp"
     android:background="@color/white"
     tools:context=".src.login.other.RegisterActivity">
 
     <androidx.appcompat.widget.AppCompatImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:src="@drawable/img_angle_bragket_left_black"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/other_login_left_angle_braket_resize"
         android:scaleType="centerInside"
-        android:background="?attr/selectableItemBackground"
+        android:background="@drawable/ripple_background_oval"
         android:layout_marginVertical="10dp"/>
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_other_login_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="입력한 정보를\n확인해주세요"
-        android:textSize="30sp"
+        android:textSize="28sp"
         android:textColor="@color/black"
         android:fontFamily="@font/nanum_square_eb"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="15dp"/>
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_other_login_phone_num"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="휴대폰번호"
         android:textAppearance="@style/other_small_text_gray"
         android:layout_marginTop="25dp"
-        android:layout_marginHorizontal="10dp"/>
+        android:layout_marginHorizontal="20dp"/>
     <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edt_other_login_phone_num"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="01047293615"
+        android:text=""
         android:maxLength="11"
         android:textSize="20sp"
         android:textColor="@color/black"
@@ -48,16 +51,18 @@
         android:background="@drawable/other_login_textbox_border_bottom"
         android:paddingBottom="15dp"
         android:layout_marginVertical="10dp"
-        android:layout_marginHorizontal="10dp"/>
+        android:layout_marginHorizontal="20dp"/>
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_other_login_phone_agency_des"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="통신사"
         android:textAppearance="@style/other_small_text_gray"
         android:layout_marginTop="25dp"
-        android:layout_marginHorizontal="10dp"/>
+        android:layout_marginHorizontal="20dp"/>
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_other_login_phone_agency"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="KT"
@@ -65,30 +70,35 @@
         android:textColor="@color/black"
         android:fontFamily="@font/nanum_square_eb"
         android:background="@drawable/other_login_textbox_border_bottom"
+        android:drawableRight="@drawable/other_login_down_angle_braket_resize"
         android:paddingBottom="15dp"
         android:layout_marginVertical="10dp"
-        android:layout_marginHorizontal="10dp"/>
+        android:layout_marginHorizontal="20dp"/>
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_other_login_regist_num"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="생년월일"
         android:textAppearance="@style/other_small_text_gray"
         android:layout_marginTop="25dp"
-        android:layout_marginHorizontal="10dp"/>
+        android:layout_marginHorizontal="20dp"/>
     <LinearLayout
+        android:id="@+id/lay_other_login_regist_num"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginHorizontal="10dp">
+        android:layout_marginHorizontal="20dp">
         <androidx.appcompat.widget.AppCompatEditText
-            android:layout_width="wrap_content"
+            android:id="@+id/edt_other_login_regist_num_fr"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="911217"
+            android:text=""
             android:maxLength="6"
             android:textSize="20sp"
             android:textColor="@color/black"
+            android:inputType="number"
             android:fontFamily="@font/nanum_square_eb"
             android:background="@drawable/other_login_textbox_border_bottom"
             android:paddingBottom="15dp"
@@ -104,14 +114,16 @@
             android:layout_marginVertical="10dp"
             android:layout_marginHorizontal="10dp"/>
         <androidx.appcompat.widget.AppCompatEditText
-            android:layout_width="wrap_content"
+            android:id="@+id/edt_other_login_regist_num_rr"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.1"
-            android:text="1"
+            android:layout_weight="0.05"
+            android:text=""
             android:maxLength="1"
             android:textSize="20sp"
             android:textColor="@color/black"
             android:fontFamily="@font/nanum_square_eb"
+            android:inputType="number"
             android:background="@drawable/other_login_textbox_border_bottom"
             android:paddingBottom="15dp"
             android:layout_marginVertical="10dp"/>
@@ -127,23 +139,25 @@
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_other_login_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="이름"
         android:textAppearance="@style/other_small_text_gray"
         android:layout_marginTop="25dp"
-        android:layout_marginHorizontal="10dp"/>
+        android:layout_marginHorizontal="20dp"/>
     <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edt_other_login_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="정홍배"
+        android:text=""
         android:textSize="20sp"
         android:textColor="@color/black"
         android:fontFamily="@font/nanum_square_eb"
         android:background="@drawable/other_login_textbox_border_bottom"
         android:paddingBottom="15dp"
         android:layout_marginVertical="10dp"
-        android:layout_marginHorizontal="10dp"/>
+        android:layout_marginHorizontal="20dp"/>
 
     <View
         android:layout_width="match_parent"
@@ -151,6 +165,7 @@
         android:layout_weight="1" />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_other_login_next"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="확인"
@@ -159,7 +174,7 @@
         android:fontFamily="@font/nanum_square_eb"
         android:gravity="center"
         android:background="@drawable/other_login_next_button"
-        android:layout_marginHorizontal="10dp"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginBottom="40dp"
         android:enabled="false" />
 </LinearLayout>
