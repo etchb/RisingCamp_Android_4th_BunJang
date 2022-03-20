@@ -11,6 +11,7 @@
     tools:context=".src.login.other.RegisterActivity">
 
     <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btn_other_login_back"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:src="@drawable/other_login_left_angle_braket_resize"
@@ -28,7 +29,66 @@
         android:fontFamily="@font/nanum_square_eb"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="15dp"/>
+        android:layout_marginBottom="5dp"/>
+    <LinearLayout
+        android:id="@+id/lay_other_login_main_sub"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="1dp"
+        android:visibility="invisible">
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_other_login_main_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="01047293615"
+            android:textAppearance="@style/other_small_text_gray"
+            android:textColor="@color/black"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="에 인증번호를 보냈어요"
+            android:textAppearance="@style/other_small_text_gray" />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_other_login_certify"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="인증번호 입력"
+        android:textAppearance="@style/other_small_text_gray"
+        android:layout_marginTop="25dp"
+        android:layout_marginHorizontal="20dp"
+        android:visibility="gone"/>
+    <FrameLayout
+        android:id="@+id/lay_other_login_certify"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="20dp"
+        android:visibility="gone">
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edt_other_login_certify"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/nanum_square_eb"
+            android:inputType="phone"
+            android:background="@drawable/other_login_textbox_border_bottom"
+            android:paddingBottom="15dp"/>
+        <TextView
+            android:id="@+id/txt_other_login_certify_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="03:00"
+            android:textSize="13sp"
+            android:textColor="@color/bungaeRed"
+            android:gravity="center"
+            android:layout_gravity="right|center_vertical"/>
+    </FrameLayout>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/txt_other_login_phone_num"
