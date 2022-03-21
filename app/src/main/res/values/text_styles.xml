@@ -14,4 +14,9 @@
         <item name="android:textSize">11sp</item>
         <item name="android:fontFamily">@font/nanum_square_eb</item>
     </style>
+    <style name="home_tbl_title_gray">
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">@font/nanum_square_eb</item>
+    </style>
 </resources>
