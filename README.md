@@ -10,3 +10,8 @@
 1. Login Activity
 2. 누끼 따기
 3. MainActivity Bottom Navigation
+
+## 22.03.21
+
+1. Home ad viewpager and change transparent statusbar
+2. add home sub category scrollview

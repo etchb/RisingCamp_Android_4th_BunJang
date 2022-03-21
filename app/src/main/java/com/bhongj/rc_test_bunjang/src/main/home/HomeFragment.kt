@@ -1,5 +1,6 @@
 package com.bhongj.rc_test_bunjang.src.main.home
 
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -15,6 +16,10 @@ import com.bhongj.rc_test_bunjang.databinding.FragmentHomeBinding
 import com.bhongj.rc_test_bunjang.src.login.DesDataList
 import com.bhongj.rc_test_bunjang.src.main.home.models.SignUpResponse
 import com.bhongj.rc_test_bunjang.src.main.home.models.UserResponse
+import com.google.android.material.appbar.AppBarLayout
+import kotlin.math.abs
+import kotlin.math.max
+import kotlin.math.min
 
 class HomeFragment :
     BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home),
@@ -62,6 +67,25 @@ class HomeFragment :
                 }
             }
         }.start()
+
+        binding.appbarlayHome.addOnOffsetChangedListener(object : AppBarLayout.OnOffsetChangedListener {
+            override fun onOffsetChanged(appBarLayout: AppBarLayout, verticalOffset: Int) {
+                Log.d("TEST Offset", verticalOffset.toString())
+                val alpha = min(abs(verticalOffset/3),255)
+                binding.tlbHome.setBackgroundColor(Color.argb(alpha,255,255,255))
+                if (alpha > 255/2) {
+                    Log.d("TEST alpha > 255/2", alpha.toString())
+                    binding.tlbBtnHomeMenu.setColorFilter(Color.rgb(0,0,0))
+                    binding.tlbBtnHomeSearch.setColorFilter(Color.rgb(0,0,0))
+                    binding.tlbBtnHomeNoti.setColorFilter(Color.rgb(0,0,0))
+                } else {
+                    Log.d("TEST alpha <>> 255/2", alpha.toString())
+                    binding.tlbBtnHomeMenu.setColorFilter(Color.rgb(255,255,255))
+                    binding.tlbBtnHomeSearch.setColorFilter(Color.rgb(255,255,255))
+                    binding.tlbBtnHomeNoti.setColorFilter(Color.rgb(255,255,255))
+                }
+            }
+        })
     }
 
     override fun onGetUserSuccess(response: UserResponse) {
