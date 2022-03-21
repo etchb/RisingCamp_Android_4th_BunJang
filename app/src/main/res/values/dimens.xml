@@ -6,4 +6,8 @@
     <!-- Custom BottomNavigationView TextSize -->
     <dimen name="design_bottom_navigation_text_size">12sp</dimen>
     <dimen name="design_bottom_navigation_active_text_size">12sp</dimen>
+
+    <!-- Home Sub Category IconSize -->
+    <dimen name="img_sub_category_icon_w">50dp</dimen>
+    <dimen name="img_sub_category_icon_h">30dp</dimen>
 </resources>

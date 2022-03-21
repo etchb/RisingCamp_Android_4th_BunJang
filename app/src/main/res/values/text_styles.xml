@@ -9,4 +9,9 @@
         <item name="android:textSize">20sp</item>
         <item name="android:fontFamily">@font/nanum_square_eb</item>
     </style>
+    <style name="home_sub_category_black">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:fontFamily">@font/nanum_square_eb</item>
+    </style>
 </resources>
