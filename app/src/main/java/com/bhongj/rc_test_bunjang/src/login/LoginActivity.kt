@@ -69,5 +69,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
                 else -> DesSlideFragment(DesDataList[0])
             }
         }
+
     }
 }

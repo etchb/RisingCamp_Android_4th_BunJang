@@ -8,6 +8,7 @@
     android:paddingVertical="10dp"
     android:paddingHorizontal="10dp"
     android:background="@color/white"
+    android:fitsSystemWindows="true"
     tools:context=".src.login.other.RegisterActivity">
 
     <androidx.appcompat.widget.AppCompatImageButton

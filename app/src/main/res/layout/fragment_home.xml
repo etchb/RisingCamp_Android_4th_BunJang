@@ -1,37 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".src.main.home.HomeFragment">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/home_button_try_get_jwt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/home_btn_try_get_http_method" />
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/home_et_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:hint="@string/home_et_id" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/home_et_pw"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="@string/home_et_pw" />
+            <FrameLayout
+                android:id="@+id/frmlay_home_ad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintVertical_bias="0">
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/vp_home_ad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </FrameLayout>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/home_btn_try_post_http_method"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:text="@string/home_btn_try_post_http_method" />
-</LinearLayout>
+            <TextView
+                android:id="@+id/txt_home_ad_idx"
+                android:layout_width="55dp"
+                android:layout_height="35dp"
+                android:text="1/8"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:fontFamily="@font/nanum_square_eb"
+                android:gravity="center"
+                android:background="@drawable/translucent_background_round"
+                app:layout_constraintTop_toTopOf="@+id/frmlay_home_ad"
+                app:layout_constraintBottom_toBottomOf="@+id/frmlay_home_ad"
+                app:layout_constraintLeft_toLeftOf="@+id/frmlay_home_ad"
+                app:layout_constraintRight_toRightOf="@+id/frmlay_home_ad"
+                app:layout_constraintVertical_bias="0.92"
+                app:layout_constraintHorizontal_bias="0.95"/>
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/frmlay_home_ad"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/tlb_home"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:fitsSystemWindows="true">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/tlb_img_menu_resize"
+            android:scaleType="centerInside"
+            android:background="@drawable/ripple_background_oval"
+            android:clickable="true"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/tlb_img_search_resize"
+            android:scaleType="centerInside"
+            android:background="@drawable/ripple_background_oval"
+            android:clickable="true"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/tlb_img_noti_resize"
+            android:scaleType="centerInside"
+            android:background="@drawable/ripple_background_oval"
+            android:clickable="true"/>
+    </LinearLayout>
+
+</FrameLayout>

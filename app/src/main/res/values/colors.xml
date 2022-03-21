@@ -19,5 +19,7 @@
     <color name="gray">#FF999999</color>
     <color name="lightGray">#B3B3B3</color>
     <color name="bungaeRed">#D80C18</color>
+    <color name="translucent_30">#4D000000</color>
+    <color name="translucent_10">#1A000000</color>
 
 </resources>
