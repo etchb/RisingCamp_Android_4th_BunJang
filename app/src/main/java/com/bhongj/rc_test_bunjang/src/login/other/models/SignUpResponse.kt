@@ -1,4 +1,4 @@
-package com.bhongj.rc_test_bunjang.src.main.home.models
+package com.bhongj.rc_test_bunjang.src.login.other.models
 
 import com.bhongj.rc_test_bunjang.config.BaseResponse
 import com.google.gson.annotations.SerializedName

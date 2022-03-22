@@ -14,8 +14,6 @@ import com.bhongj.rc_test_bunjang.R
 import com.bhongj.rc_test_bunjang.config.BaseFragment
 import com.bhongj.rc_test_bunjang.databinding.FragmentHomeBinding
 import com.bhongj.rc_test_bunjang.src.main.home.brand.BrandFragment
-import com.bhongj.rc_test_bunjang.src.main.home.models.SignUpResponse
-import com.bhongj.rc_test_bunjang.src.main.home.models.UserResponse
 import com.bhongj.rc_test_bunjang.src.main.home.recmnd.RecmndFragment
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -23,8 +21,7 @@ import kotlin.math.abs
 import kotlin.math.min
 
 class HomeFragment :
-    BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home),
-    HomeFragmentInterface {
+    BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home) {
 
     val AdResourseData = mutableListOf(
         R.drawable.img_home_ad1,
@@ -114,15 +111,6 @@ class HomeFragment :
 
     }
 
-    override fun onGetUserSuccess(response: UserResponse) {
-        dismissLoadingDialog()
-        for (User in response.result) {
-            Log.d("HomeFragment", User.toString())
-        }
-//        binding.homeButtonTryGetJwt.text = response.message
-//        showCustomToast("Get JWT 성공")
-    }
-
     private inner class AdSlidePagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
         override fun getItemCount(): Int = AdResourseData.size
 
@@ -144,21 +132,5 @@ class HomeFragment :
         override fun createFragment(position: Int): Fragment {
             return fragmentList[position]
         }
-    }
-
-    override fun onGetUserFailure(message: String) {
-        dismissLoadingDialog()
-        showCustomToast("오류 : $message")
-    }
-
-    override fun onPostSignUpSuccess(response: SignUpResponse) {
-        dismissLoadingDialog()
-//        binding.homeBtnTryPostHttpMethod.text = response.message
-//        response.message?.let { showCustomToast(it) }
-    }
-
-    override fun onPostSignUpFailure(message: String) {
-        dismissLoadingDialog()
-        showCustomToast("오류 : $message")
     }
 }

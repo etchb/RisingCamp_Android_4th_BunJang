@@ -4,20 +4,27 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.core.widget.addTextChangedListener
 import com.bhongj.rc_test_bunjang.config.BaseActivity
 import com.bhongj.rc_test_bunjang.databinding.ActivityRegisterBinding
-import com.bhongj.rc_test_bunjang.src.login.DesDataList
+import com.bhongj.rc_test_bunjang.src.login.other.models.LoginResponse
+import com.bhongj.rc_test_bunjang.src.login.other.models.PostLoginRequest
+import com.bhongj.rc_test_bunjang.src.login.other.models.PostSignUpRequest
+import com.bhongj.rc_test_bunjang.src.login.other.models.SignUpResponse
 import java.util.concurrent.TimeUnit
 
-class RegisterActivity : BaseActivity<ActivityRegisterBinding>(ActivityRegisterBinding::inflate) {
+class RegisterActivity : BaseActivity<ActivityRegisterBinding>(ActivityRegisterBinding::inflate),
+    OtherLoginActivityInterface {
     var btnClickCnt = 0
     var phonCheck = false
     var nameCheck = false
     var registCheck1 = false
     var registCheck2 = false
+
+    val handler = Handler(Looper.getMainLooper())
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -121,31 +128,137 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(ActivityRegisterB
 
                 Thread() {
                     val handler = Handler(Looper.getMainLooper())
-                    var seconds : Long = 180
-                    var minute = TimeUnit.SECONDS.toMinutes(seconds) - TimeUnit.SECONDS.toHours(seconds) * 60
-                    var second = TimeUnit.SECONDS.toSeconds(seconds) - TimeUnit.SECONDS.toMinutes(seconds) * 60
-                    while(true) {
+                    var seconds: Long = 180
+                    var minute =
+                        TimeUnit.SECONDS.toMinutes(seconds) - TimeUnit.SECONDS.toHours(seconds) * 60
+                    var second =
+                        TimeUnit.SECONDS.toSeconds(seconds) - TimeUnit.SECONDS.toMinutes(seconds) * 60
+                    while (true) {
                         Thread.sleep(1000)
                         handler.post {
-                            binding.txtOtherLoginCertifyTime.text = "${String.format("%02d", minute)}:${String.format("%02d", second)}"
+                            binding.txtOtherLoginCertifyTime.text =
+                                "${String.format("%02d", minute)}:${String.format("%02d", second)}"
                         }
                         if (seconds == 0L) {
                             break
                         } else {
                             seconds--
-                            minute = TimeUnit.SECONDS.toMinutes(seconds) - TimeUnit.SECONDS.toHours(seconds) * 60
-                            second = TimeUnit.SECONDS.toSeconds(seconds) - TimeUnit.SECONDS.toMinutes(seconds) * 60
+                            minute = TimeUnit.SECONDS.toMinutes(seconds) - TimeUnit.SECONDS.toHours(
+                                seconds
+                            ) * 60
+                            second =
+                                TimeUnit.SECONDS.toSeconds(seconds) - TimeUnit.SECONDS.toMinutes(
+                                    seconds
+                                ) * 60
                         }
                     }
                 }.start()
-            }
-            else {
-
+            } else if (btnClickCnt == 2) {
+                btnClickCnt++
+//                showLoadingDialog(this)
+                tryLogin()
+            } else if (btnClickCnt == 3) {
+                btnClickCnt++
+                trySignUp()
             }
         }
 
         binding.edtOtherLoginCertify.addTextChangedListener {
-            binding.btnOtherLoginNext.isEnabled = binding.edtOtherLoginCertify.text?.isNotEmpty() ?: false
+            binding.btnOtherLoginNext.isEnabled =
+                binding.edtOtherLoginCertify.text?.isNotEmpty() ?: false
         }
+
+        binding.edtOtherLoginShopName.addTextChangedListener {
+            binding.btnOtherLoginNext.isEnabled =
+                binding.edtOtherLoginCertify.text?.isNotEmpty() ?: false
+        }
+    }
+
+    fun tryLogin() {
+        OtherLoginService(this).tryPostLogin(
+            PostLoginRequest(
+//                phoneNumber = binding.edtOtherLoginPhoneNum.text.toString(),
+//                userName = binding.edtOtherLoginName.text.toString(),
+//                userBirth = binding.edtOtherLoginRegistNumFr.text.toString(),
+//                userPwd = binding.edtOtherLoginCertify.text.toString()
+
+//                phoneNumber = "01012312348",
+//                userName = "가나다",
+//                userBirth = "123489",
+//                userPwd = "123584"
+
+                phoneNumber = "01011111112",
+                userName = "김김김",
+                userBirth = "111111",
+                userPwd = "111112"
+            )
+        )
+    }
+
+    fun trySignUp() {
+        OtherLoginService(this).tryPostSignUp(
+            PostSignUpRequest(
+//                shopName = binding.edtOtherLoginShopName.text.toString(),
+//                phoneNumber = binding.edtOtherLoginPhoneNum.text.toString(),
+//                userName = binding.edtOtherLoginName.text.toString(),
+//                userBirth = binding.edtOtherLoginRegistNumFr.text.toString(),
+//                userPwd = binding.edtOtherLoginCertify.text.toString()
+                shopName = "가나다라",
+                phoneNumber = "01012312321",
+                userName = "가나다",
+                userBirth = "123489",
+                userPwd = "123584"
+            )
+        )
+    }
+
+    fun setShopName() {
+        binding.txtOtherLoginMain.text = "마지막 단계입니다!\n상점명을 입력해주세요"
+        binding.layOtherLoginMainSub.visibility = View.INVISIBLE
+        binding.txtOtherLoginCertify.visibility = View.GONE
+        binding.layOtherLoginCertify.visibility = View.GONE
+        binding.btnOtherLoginNext.isEnabled = false
+
+        binding.edtOtherLoginShopName.visibility = View.VISIBLE
+        binding.txtOtherLoginShopNameDes.visibility = View.VISIBLE
+        binding.txtOtherLoginShopName.visibility = View.VISIBLE
+        binding.edtOtherLoginShopName.requestFocus()
+        showKeyboard(binding.edtOtherLoginCertify)
+    }
+
+    override fun onPostLoginSuccess(response: LoginResponse) {
+//        dismissLoadingDialog()
+        showCustomToast("onPostLoginSuccess")
+        if (response.isSuccess) {
+        } else {
+//            setShopName()
+        }
+    }
+
+    override fun onPostLoginFailure(message: String) {
+//        dismissLoadingDialog()
+        showCustomToast("onPostLoginFailure")
+        Log.d("TEST onPostLoginFailure", message)
+//        Thread() {
+//            handler.post {
+            setShopName()
+//            }
+//        }
+        showCustomToast("로그인 요청이 실패하였습니다.\n 다시 시도해주세요.")
+    }
+
+    override fun onPostSignUpSuccess(response: SignUpResponse) {
+//        dismissLoadingDialog()
+        showCustomToast("onPostSignUpSuccess")
+        if (response.isSuccess) {
+        } else {
+        }
+    }
+
+    override fun onPostSignUpFailure(message: String) {
+//        dismissLoadingDialog()
+        showCustomToast("onPostSignUpFailure")
+        Log.d("TEST onPostSignUpFailure", message)
+        showCustomToast("회원가입 요청이 실패하였습니다.\n 다시 시도해주세요.")
     }
 }

@@ -15,3 +15,8 @@
 
 1. Home ad viewpager and change transparent statusbar
 2. add home sub category scrollview
+
+## 22.03.22
+
+1. add home CoordinatorLayout, use btmNavi layout_constraintDimensionRatio
+2. add recommend product rcyView 50%
