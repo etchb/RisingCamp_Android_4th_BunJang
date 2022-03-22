@@ -26,14 +26,14 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(ActivitySplashBinding
         super.onCreate(savedInstanceState)
 
         /* init sharedPreferences */
-        val editor: SharedPreferences.Editor = sSharedPreferences.edit()
-        editor.putString(ApplicationClass.X_ACCESS_TOKEN, "None")
-        editor.putInt("userIdx", 0)
-        editor.putString("phoneNumber", "None")
-        editor.putString("userName", "None")
-        editor.putString("userBirth", "None")
-        editor.putString("userPwd", "None")
-        editor.commit()
+//        val editor: SharedPreferences.Editor = sSharedPreferences.edit()
+//        editor.putString(ApplicationClass.X_ACCESS_TOKEN, "None")
+//        editor.putInt("userIdx", 0)
+//        editor.putString("phoneNumber", "None")
+//        editor.putString("userName", "None")
+//        editor.putString("userBirth", "None")
+//        editor.putString("userPwd", "None")
+//        editor.commit()
         /* init sharedPreferences */
 
         val window = window

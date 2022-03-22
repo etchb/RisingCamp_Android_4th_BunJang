@@ -33,24 +33,27 @@ class RecmndFragment :
 
         productList.add(Product(img = R.drawable.img_home_ad1,
             bungaePayEnabled = true,
-            title = "이거팝니다.1",
-            price = "60,000원",
-            region = "화성시1",
-            time = 123,
+            title = "갤럭시 GTX970",
+            price = "150,000원",
+            region = "지역정보 없음",
+            time = 1,
+            heartCnt = 0
         ))
         productList.add(Product(img = R.drawable.img_home_ad2,
             bungaePayEnabled = true,
-            title = "이거팝니다.2",
+            title = "이거팝니다이거팝니다이거팝니다.2",
             price = "80,000원",
             region = "화성시2",
             time = 123,
+            heartCnt = 0
         ))
         productList.add(Product(img = R.drawable.img_home_ad3,
             bungaePayEnabled = false,
-            title = "이거팝니다.3",
+            title = "이거팝니다이거팝니다이거팝니다.3",
             price = "30,000원",
             region = "화성시3",
             time = 123,
+            heartCnt = 0
         ))
         productList.add(Product(img = R.drawable.img_home_ad4,
             bungaePayEnabled = false,
