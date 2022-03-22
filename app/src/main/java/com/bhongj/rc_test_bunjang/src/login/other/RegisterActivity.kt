@@ -1,5 +1,6 @@
 package com.bhongj.rc_test_bunjang.src.login.other
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
@@ -14,6 +15,7 @@ import com.bhongj.rc_test_bunjang.src.login.other.models.LoginResponse
 import com.bhongj.rc_test_bunjang.src.login.other.models.PostLoginRequest
 import com.bhongj.rc_test_bunjang.src.login.other.models.PostSignUpRequest
 import com.bhongj.rc_test_bunjang.src.login.other.models.SignUpResponse
+import com.bhongj.rc_test_bunjang.src.main.MainActivity
 import java.util.concurrent.TimeUnit
 
 class RegisterActivity : BaseActivity<ActivityRegisterBinding>(ActivityRegisterBinding::inflate),
@@ -159,6 +161,7 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(ActivityRegisterB
                 tryLogin()
             } else if (btnClickCnt == 3) {
                 btnClickCnt++
+//                showLoadingDialog(this)
                 trySignUp()
             }
         }
@@ -177,20 +180,10 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(ActivityRegisterB
     fun tryLogin() {
         OtherLoginService(this).tryPostLogin(
             PostLoginRequest(
-//                phoneNumber = binding.edtOtherLoginPhoneNum.text.toString(),
-//                userName = binding.edtOtherLoginName.text.toString(),
-//                userBirth = binding.edtOtherLoginRegistNumFr.text.toString(),
-//                userPwd = binding.edtOtherLoginCertify.text.toString()
-
-//                phoneNumber = "01012312348",
-//                userName = "가나다",
-//                userBirth = "123489",
-//                userPwd = "123584"
-
-                phoneNumber = "01011111112",
-                userName = "김김김",
-                userBirth = "111111",
-                userPwd = "111112"
+                phoneNumber = binding.edtOtherLoginPhoneNum.text.toString(),
+                userName = binding.edtOtherLoginName.text.toString(),
+                userBirth = binding.edtOtherLoginRegistNumFr.text.toString(),
+                userPwd = binding.edtOtherLoginCertify.text.toString()
             )
         )
     }
@@ -198,21 +191,16 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(ActivityRegisterB
     fun trySignUp() {
         OtherLoginService(this).tryPostSignUp(
             PostSignUpRequest(
-//                shopName = binding.edtOtherLoginShopName.text.toString(),
-//                phoneNumber = binding.edtOtherLoginPhoneNum.text.toString(),
-//                userName = binding.edtOtherLoginName.text.toString(),
-//                userBirth = binding.edtOtherLoginRegistNumFr.text.toString(),
-//                userPwd = binding.edtOtherLoginCertify.text.toString()
-                shopName = "가나다라",
-                phoneNumber = "01012312321",
-                userName = "가나다",
-                userBirth = "123489",
-                userPwd = "123584"
+                shopName = binding.edtOtherLoginShopName.text.toString(),
+                phoneNumber = binding.edtOtherLoginPhoneNum.text.toString(),
+                userName = binding.edtOtherLoginName.text.toString(),
+                userBirth = binding.edtOtherLoginRegistNumFr.text.toString(),
+                userPwd = binding.edtOtherLoginCertify.text.toString()
             )
         )
     }
 
-    fun setShopName() {
+    fun editShopName() {
         binding.txtOtherLoginMain.text = "마지막 단계입니다!\n상점명을 입력해주세요"
         binding.layOtherLoginMainSub.visibility = View.INVISIBLE
         binding.txtOtherLoginCertify.visibility = View.GONE
@@ -228,37 +216,40 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(ActivityRegisterB
 
     override fun onPostLoginSuccess(response: LoginResponse) {
 //        dismissLoadingDialog()
-        showCustomToast("onPostLoginSuccess")
         if (response.isSuccess) {
+//            showCustomToast("로그인 성공")
+            val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            finish()
         } else {
-//            setShopName()
+            if (response.code == 2023) {
+                editShopName()
+            } else {
+                btnClickCnt--
+                showCustomToast("${response.message?:""}\n처음부터 다시 시도해주세요.")
+            }
         }
     }
 
     override fun onPostLoginFailure(message: String) {
 //        dismissLoadingDialog()
-        showCustomToast("onPostLoginFailure")
-        Log.d("TEST onPostLoginFailure", message)
-//        Thread() {
-//            handler.post {
-            setShopName()
-//            }
-//        }
-        showCustomToast("로그인 요청이 실패하였습니다.\n 다시 시도해주세요.")
+        btnClickCnt--
+        showCustomToast("로그인 요청이 실패하였습니다.\n다시 시도해주세요.")
     }
 
     override fun onPostSignUpSuccess(response: SignUpResponse) {
 //        dismissLoadingDialog()
-        showCustomToast("onPostSignUpSuccess")
         if (response.isSuccess) {
-        } else {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            finish()
         }
     }
 
     override fun onPostSignUpFailure(message: String) {
 //        dismissLoadingDialog()
-        showCustomToast("onPostSignUpFailure")
-        Log.d("TEST onPostSignUpFailure", message)
-        showCustomToast("회원가입 요청이 실패하였습니다.\n 다시 시도해주세요.")
+        showCustomToast("회원가입 요청이 실패하였습니다.\n다시 시도해주세요.")
     }
 }
