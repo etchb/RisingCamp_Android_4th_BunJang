@@ -1,6 +1,7 @@
 package com.bhongj.rc_test_bunjang.src.login.other
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
@@ -9,6 +10,8 @@ import android.util.Log
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.core.widget.addTextChangedListener
+import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.X_ACCESS_TOKEN
+import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.sSharedPreferences
 import com.bhongj.rc_test_bunjang.config.BaseActivity
 import com.bhongj.rc_test_bunjang.databinding.ActivityRegisterBinding
 import com.bhongj.rc_test_bunjang.src.login.other.models.LoginResponse
@@ -218,6 +221,16 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(ActivityRegisterB
 //        dismissLoadingDialog()
         if (response.isSuccess) {
 //            showCustomToast("로그인 성공")
+
+            val editor: SharedPreferences.Editor = sSharedPreferences.edit()
+            editor.putString(X_ACCESS_TOKEN, response.result.jwt)
+            editor.putInt("userIdx", response.result.userIdx)
+            editor.putString("phoneNumber", binding.edtOtherLoginPhoneNum.text.toString())
+            editor.putString("userName", binding.edtOtherLoginName.text.toString())
+            editor.putString("userBirth", binding.edtOtherLoginRegistNumFr.text.toString())
+            editor.putString("userPwd", binding.edtOtherLoginCertify.text.toString())
+            editor.commit()
+
             val intent = Intent(this, MainActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
@@ -241,6 +254,14 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(ActivityRegisterB
     override fun onPostSignUpSuccess(response: SignUpResponse) {
 //        dismissLoadingDialog()
         if (response.isSuccess) {
+            val editor: SharedPreferences.Editor = sSharedPreferences.edit()
+            editor.putString(X_ACCESS_TOKEN, response.result.jwt)
+            editor.putInt("userIdx", response.result.idx)
+            editor.putString("phoneNumber", binding.edtOtherLoginPhoneNum.text.toString())
+            editor.putString("userName", binding.edtOtherLoginName.text.toString())
+            editor.putString("userBirth", binding.edtOtherLoginRegistNumFr.text.toString())
+            editor.putString("userPwd", binding.edtOtherLoginCertify.text.toString())
+
             val intent = Intent(this, MainActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
