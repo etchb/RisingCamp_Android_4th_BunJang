@@ -20,3 +20,8 @@
 
 1. add home CoordinatorLayout, use btmNavi layout_constraintDimensionRatio
 2. add recommend product rcyView 50%
+
+## 22.03.23
+
+1. add Login API, Auto Login
+2. update home product  rcyview layout

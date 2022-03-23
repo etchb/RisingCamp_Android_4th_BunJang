@@ -418,11 +418,48 @@
                     app:tabSelectedTextColor="@color/black"
                     app:tabTextAppearance="@style/home_tbl_title_gray"/>
             </com.google.android.material.appbar.CollapsingToolbarLayout>
+            <HorizontalScrollView
+                android:id="@+id/scr_brand_tab"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="15dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:text="추가"
+                        android:textSize="13sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/nanum_square_eb"
+                        android:paddingVertical="4dp"
+                        android:paddingHorizontal="17dp"
+                        android:gravity="center"
+                        android:background="@drawable/background_round_black"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:text="편집"
+                        android:textSize="13sp"
+                        android:textColor="@color/gray"
+                        android:fontFamily="@font/nanum_square_eb"
+                        android:layout_marginLeft="7dp"
+                        android:paddingVertical="4dp"
+                        android:paddingHorizontal="17dp"
+                        android:gravity="center"
+                        android:background="@drawable/background_round_light_gray"/>
+                </LinearLayout>
+            </HorizontalScrollView>
         </com.google.android.material.appbar.AppBarLayout>
         <androidx.core.widget.NestedScrollView
             android:id="@+id/scr_home_product"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -431,7 +468,7 @@
             app:layout_constraintTop_toBottomOf="@+id/txt_home_tab_des">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/vp_home_product"

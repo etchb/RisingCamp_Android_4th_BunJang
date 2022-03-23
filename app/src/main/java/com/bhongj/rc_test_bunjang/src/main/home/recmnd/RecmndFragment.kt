@@ -31,44 +31,54 @@ class RecmndFragment :
         savedInstanceState: Bundle?
     ): View? {
 
-        productList.add(Product(img = R.drawable.img_home_ad1,
+        productList.add(
+            Product(img = R.drawable.img_home_ad1,
             bungaePayEnabled = true,
             title = "갤럭시 GTX970",
             price = "150,000원",
             region = "지역정보 없음",
             time = 1,
             heartCnt = 0
-        ))
-        productList.add(Product(img = R.drawable.img_home_ad2,
+        )
+        )
+        productList.add(
+            Product(img = R.drawable.img_home_ad2,
             bungaePayEnabled = true,
             title = "이거팝니다이거팝니다이거팝니다.2",
             price = "80,000원",
             region = "화성시2",
             time = 123,
             heartCnt = 0
-        ))
-        productList.add(Product(img = R.drawable.img_home_ad3,
+        )
+        )
+        productList.add(
+            Product(img = R.drawable.img_home_ad3,
             bungaePayEnabled = false,
             title = "이거팝니다이거팝니다이거팝니다.3",
             price = "30,000원",
             region = "화성시3",
             time = 123,
             heartCnt = 0
-        ))
-        productList.add(Product(img = R.drawable.img_home_ad4,
+        )
+        )
+        productList.add(
+            Product(img = R.drawable.img_home_ad4,
             bungaePayEnabled = false,
             title = "이거팝니다.4",
             price = "90,000원",
             region = "화성시4",
             time = 123,
-        ))
-        productList.add(Product(img = R.drawable.img_home_ad5,
+        )
+        )
+        productList.add(
+            Product(img = R.drawable.img_home_ad5,
             bungaePayEnabled = true,
             title = "이거팝니다.5",
             price = "90,000원",
             region = "화성시5",
             time = 123,
-        ))
+        )
+        )
         productList.add(Product())
         productList.add(Product())
         productList.add(Product())

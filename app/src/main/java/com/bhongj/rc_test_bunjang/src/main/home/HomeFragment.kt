@@ -92,12 +92,14 @@ class HomeFragment :
         mPagerProduct.adapter = pagerAdapterProduct
         mPagerProduct.orientation = ViewPager2.ORIENTATION_HORIZONTAL
         mPagerProduct.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-//            override fun onPageSelected(position: Int) {
-//                binding.txtHomeAdIdx.text = "${binding.vpHomeAd.currentItem+1}/${AdResourseData.size}"
-//                adPageCnt = binding.vpHomeAd.currentItem
-//                pageChanged = true
-//                super.onPageSelected(position)
-//            }
+            override fun onPageSelected(position: Int) {
+                if (position == 0) {
+                    binding.scrBrandTab.visibility = View.GONE
+                } else if (position == 1) {
+                    binding.scrBrandTab.visibility = View.VISIBLE
+                }
+                super.onPageSelected(position)
+            }
         })
 
         val tabTitleArray = arrayOf(
