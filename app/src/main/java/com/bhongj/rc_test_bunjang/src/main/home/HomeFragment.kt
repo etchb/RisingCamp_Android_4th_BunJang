@@ -6,6 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -19,6 +20,7 @@ import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlin.math.abs
 import kotlin.math.min
+
 
 class HomeFragment :
     BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home) {
@@ -93,12 +95,13 @@ class HomeFragment :
         mPagerProduct.orientation = ViewPager2.ORIENTATION_HORIZONTAL
         mPagerProduct.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+
                 if (position == 0) {
                     binding.scrBrandTab.visibility = View.GONE
                 } else if (position == 1) {
                     binding.scrBrandTab.visibility = View.VISIBLE
                 }
-                super.onPageSelected(position)
             }
         })
 

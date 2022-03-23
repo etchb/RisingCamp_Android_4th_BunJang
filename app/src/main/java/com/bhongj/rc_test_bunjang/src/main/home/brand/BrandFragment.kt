@@ -23,6 +23,19 @@ class BrandFragment :
         val samsungRcyView = binding.brandRcySamsung
         samsungRcyView.adapter = adapter
 
+        val appleRcyView = binding.brandRcyApple
+        appleRcyView.adapter = adapter
+
+        val lgRcyView = binding.brandRcyLg
+        lgRcyView.adapter = adapter
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        binding.root.requestLayout()
+
     }
 
     override fun onCreateView(
