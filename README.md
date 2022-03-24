@@ -33,4 +33,4 @@
 
 ## 22.03.25
 
-1. add search page layout
+1. add search front page layout
