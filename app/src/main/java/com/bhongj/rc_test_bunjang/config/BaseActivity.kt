@@ -96,6 +96,7 @@ abstract class BaseActivity<B : ViewBinding>(private val inflate: (LayoutInflate
     }
 
     fun showKeyboard(view: View) {
+        view.requestFocus()
         val inputMethodManager =
             getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)

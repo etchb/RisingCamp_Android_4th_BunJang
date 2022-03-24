@@ -25,3 +25,12 @@
 
 1. add Login API, Auto Login
 2. update home product  rcyview layout
+
+## 22.03.24
+
+1. add brand layout
+2. handle different ViewPager2 height 
+
+## 22.03.25
+
+1. add search page layout

@@ -15,6 +15,12 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
         <activity
+            android:name=".src.main.search.SearchActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/SearchActivityTheme">
+        </activity>
+        <activity
             android:name=".src.splash.SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait"
@@ -27,16 +33,15 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".src.login.other.RegisterActivity"
-            android:windowSoftInputMode="adjustResize"
-            android:exported="true"
+            android:exported="false"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name=".src.main.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

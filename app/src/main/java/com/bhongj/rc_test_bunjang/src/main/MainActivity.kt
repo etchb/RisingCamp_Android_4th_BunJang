@@ -1,5 +1,6 @@
 package com.bhongj.rc_test_bunjang.src.main
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.bhongj.rc_test_bunjang.R
@@ -8,6 +9,7 @@ import com.bhongj.rc_test_bunjang.databinding.ActivityMainBinding
 import com.bhongj.rc_test_bunjang.src.main.chat.ChatFragment
 import com.bhongj.rc_test_bunjang.src.main.home.HomeFragment
 import com.bhongj.rc_test_bunjang.src.main.myPage.MyPageFragment
+import com.bhongj.rc_test_bunjang.src.main.search.SearchActivity
 
 class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate) {
 
@@ -44,6 +46,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                         .replace(R.id.main_frm, fragmentList[2])
                         .commitAllowingStateLoss()
                     return@setOnItemSelectedListener true
+                }
+
+                R.id.menu_main_btm_search -> {
+                    startActivity(Intent(this, SearchActivity::class.java))
+                    return@setOnItemSelectedListener false
                 }
             }
             false
