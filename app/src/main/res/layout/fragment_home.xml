@@ -10,12 +10,13 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appbarlay_home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:elevation="0dp"
-            android:background="@color/white">
+            android:background="@color/white"
+            app:elevation="0dp">
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:layout_width="match_parent"
@@ -25,6 +26,7 @@
                 app:toolbarId="@+id/tlb_dummy">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/home_conlay_body"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:minHeight="180dp">
@@ -45,16 +47,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
                     </FrameLayout>
+
                     <HorizontalScrollView
                         android:id="@+id/scr_sub_category"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="20dp"
-                        android:fadeScrollbars="false"
-                        android:scrollbarSize="2dp"
-                        android:scrollbarThumbHorizontal="@drawable/scr_bar_shape_tracker"
-                        android:scrollbarTrackHorizontal="@drawable/scr_bar_shape"
-                        android:scrollbars="horizontal"
+                        android:scrollbarSize="0dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
@@ -69,9 +68,10 @@
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginVertical="10dp"
                                 android:layout_marginLeft="10dp"
+                                android:layout_marginTop="10dp"
                                 android:layout_marginRight="5dp"
+                                android:layout_marginBottom="20dp"
                                 android:orientation="vertical">
 
                                 <androidx.appcompat.widget.AppCompatImageView
@@ -354,6 +354,29 @@
                             </LinearLayout>
                         </LinearLayout>
                     </HorizontalScrollView>
+
+                    <View
+                        android:id="@+id/scrollbar_back"
+                        android:layout_width="50dp"
+                        android:layout_height="3dp"
+                        android:background="@drawable/background_round_light_gray"
+                        app:layout_constraintBottom_toBottomOf="@+id/scr_sub_category"
+                        app:layout_constraintLeft_toLeftOf="@+id/scr_sub_category"
+                        app:layout_constraintRight_toRightOf="@+id/scr_sub_category"
+                        app:layout_constraintTop_toTopOf="@+id/scr_sub_category"
+                        app:layout_constraintVertical_bias="1"></View>
+
+                    <View
+                        android:id="@+id/scrollbar_front"
+                        android:layout_width="18dp"
+                        android:layout_height="3dp"
+                        android:background="@drawable/background_round_gray"
+                        app:layout_constraintBottom_toBottomOf="@+id/scrollbar_back"
+                        app:layout_constraintHorizontal_bias="0"
+                        app:layout_constraintLeft_toLeftOf="@+id/scrollbar_back"
+                        app:layout_constraintRight_toRightOf="@+id/scrollbar_back"
+                        app:layout_constraintTop_toTopOf="@+id/scrollbar_back"></View>
+
                     <TextView
                         android:id="@+id/txt_home_ad_idx"
                         android:layout_width="55dp"
@@ -376,18 +399,19 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="20dp"
-                        android:layout_marginTop="15dp"
+                        android:layout_marginTop="20dp"
                         android:fontFamily="@font/nanum_square_eb"
                         android:text="다팔래요다님 위한\n추천 상품 보고 가세요👀👇"
                         android:textColor="@color/black"
                         android:textSize="22sp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/scr_sub_category"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/scr_sub_category"
                         app:layout_constraintVertical_bias="0" />
 
                     <View
+                        android:id="@+id/view_emtpy_1"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -397,6 +421,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/txt_home_tab_des"
                         app:layout_constraintVertical_bias="0.0" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/tlb_dummy"
                     android:layout_width="match_parent"
@@ -404,58 +429,64 @@
                     android:background="#00000000"
                     android:fitsSystemWindows="true"
                     app:layout_collapseMode="pin" />
+
                 <com.google.android.material.tabs.TabLayout
                     android:id="@+id/tablay_home_product"
                     android:layout_width="170dp"
                     android:layout_height="?attr/actionBarSize"
                     android:layout_gravity="bottom"
                     android:layout_marginHorizontal="13dp"
-                    app:tabPaddingStart="0dp"
-                    app:tabPaddingEnd="0dp"
-                    app:tabIndicatorFullWidth="false"
                     android:clipToPadding="true"
+                    app:tabIndicatorFullWidth="false"
                     app:tabIndicatorHeight="3dp"
+                    app:tabPaddingEnd="0dp"
+                    app:tabPaddingStart="0dp"
                     app:tabSelectedTextColor="@color/black"
-                    app:tabTextAppearance="@style/home_tbl_title_gray"/>
+                    app:tabTextAppearance="@style/home_tbl_title_gray" />
             </com.google.android.material.appbar.CollapsingToolbarLayout>
+
             <HorizontalScrollView
                 android:id="@+id/scr_brand_tab"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginVertical="15dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_horizontal"
+                        android:background="@drawable/background_round_black"
+                        android:fontFamily="@font/nanum_square_eb"
+                        android:gravity="center"
+                        android:paddingHorizontal="17dp"
+                        android:paddingVertical="4dp"
                         android:text="추가"
-                        android:textSize="13sp"
                         android:textColor="@color/white"
-                        android:fontFamily="@font/nanum_square_eb"
-                        android:paddingVertical="4dp"
-                        android:paddingHorizontal="17dp"
-                        android:gravity="center"
-                        android:background="@drawable/background_round_black"/>
+                        android:textSize="13sp" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_horizontal"
-                        android:text="편집"
-                        android:textSize="13sp"
-                        android:textColor="@color/gray"
-                        android:fontFamily="@font/nanum_square_eb"
                         android:layout_marginLeft="7dp"
-                        android:paddingVertical="4dp"
-                        android:paddingHorizontal="17dp"
+                        android:background="@drawable/background_round_light_gray"
+                        android:fontFamily="@font/nanum_square_eb"
                         android:gravity="center"
-                        android:background="@drawable/background_round_light_gray"/>
+                        android:paddingHorizontal="17dp"
+                        android:paddingVertical="4dp"
+                        android:text="편집"
+                        android:textColor="@color/gray"
+                        android:textSize="13sp" />
                 </LinearLayout>
             </HorizontalScrollView>
         </com.google.android.material.appbar.AppBarLayout>
+
         <androidx.core.widget.NestedScrollView
             android:id="@+id/scr_home_product"
             android:layout_width="match_parent"
@@ -466,10 +497,12 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_home_tab_des">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
                 <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/vp_home_product"
                     android:layout_width="match_parent"
@@ -477,49 +510,54 @@
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
     <LinearLayout
         android:id="@+id/tlb_home"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:orientation="horizontal"
-        android:fitsSystemWindows="true">
+        android:fitsSystemWindows="true"
+        android:orientation="horizontal">
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/tlb_btn_home_menu"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="15dp"
-            android:src="@drawable/tlb_img_menu_resize"
-            android:tint="@color/white"
-            android:scaleType="centerInside"
             android:background="@drawable/ripple_background_oval"
-            android:clickable="true"/>
+            android:clickable="true"
+            android:scaleType="centerInside"
+            android:src="@drawable/tlb_img_menu_resize"
+            android:tint="@color/white" />
+
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/tlb_btn_home_search"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center_vertical"
             android:layout_marginRight="5dp"
-            android:src="@drawable/tlb_img_search_resize"
-            android:tint="@color/white"
-            android:scaleType="centerInside"
             android:background="@drawable/ripple_background_oval"
-            android:clickable="true"/>
+            android:clickable="true"
+            android:scaleType="centerInside"
+            android:src="@drawable/tlb_img_search_resize"
+            android:tint="@color/white" />
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/tlb_btn_home_noti"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center_vertical"
             android:layout_marginRight="15dp"
-            android:src="@drawable/tlb_img_noti_resize"
-            android:tint="@color/white"
-            android:scaleType="centerInside"
             android:background="@drawable/ripple_background_oval"
-            android:clickable="true"/>
+            android:clickable="true"
+            android:scaleType="centerInside"
+            android:src="@drawable/tlb_img_noti_resize"
+            android:tint="@color/white" />
     </LinearLayout>
 </FrameLayout>
 

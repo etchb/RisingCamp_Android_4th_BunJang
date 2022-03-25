@@ -19,6 +19,8 @@ class ProductDetailActivity :
     val DetailItemImg = mutableListOf(
         R.drawable.img_home_ad5,
         R.drawable.img_home_ad6,
+        R.drawable.img_home_ad7,
+        R.drawable.img_home_ad8,
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -93,6 +95,5 @@ class ProductDetailActivity :
     override fun onBackPressed() {
         super.onBackPressed()
         this.overridePendingTransition(R.anim.transition_none, R.anim.horizon_exit_right)
-
     }
 }

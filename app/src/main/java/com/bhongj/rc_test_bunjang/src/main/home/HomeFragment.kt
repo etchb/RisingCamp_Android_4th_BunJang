@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -38,6 +39,18 @@ class HomeFragment :
         super.onViewCreated(view, savedInstanceState)
         var adPageCnt = 0
         var pageChanged = false
+
+        binding.scrSubCategory.setOnScrollChangeListener { view, i, i2, i3, i4 ->
+            val maxWidthScroll =
+                binding.scrSubCategory.getChildAt(0).width - binding.scrSubCategory.width
+            if (maxWidthScroll > 0) {
+                val pos: Float = i / maxWidthScroll.toFloat()
+                val set = ConstraintSet()
+                set.clone(binding.homeConlayBody)
+                set.setHorizontalBias(R.id.scrollbar_front, pos)
+                set.applyTo(binding.homeConlayBody)
+            }
+        }
 
         val pagerAdapter = AdSlidePagerAdapter(requireActivity())
         val mPager = binding.vpHomeAd

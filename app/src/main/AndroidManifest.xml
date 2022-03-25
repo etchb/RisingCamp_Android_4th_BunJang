@@ -19,14 +19,17 @@
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/SearchActivityTheme">
-
         </activity>
+        <activity
+            android:name=".src.main.search.SearchResultActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/SearchActivityTheme" />
         <activity
             android:name=".src.splash.SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
-
         </activity>
         <activity
             android:name=".src.login.LoginActivity"
@@ -54,8 +57,7 @@
             android:name=".src.main.detail.ProductDetailActivity"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/SearchActivityTheme">
-        </activity>
+            android:theme="@style/SearchActivityTheme"></activity>
     </application>
 
 </manifest>
