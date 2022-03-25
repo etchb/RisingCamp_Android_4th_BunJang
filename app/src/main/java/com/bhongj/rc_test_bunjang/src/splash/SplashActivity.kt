@@ -9,6 +9,11 @@ import android.os.Looper
 import android.view.View
 import android.view.WindowManager
 import com.bhongj.rc_test_bunjang.config.ApplicationClass
+import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.MY_BIRTH
+import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.MY_IDX
+import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.MY_NAME
+import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.MY_PASSWORD
+import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.MY_PHONE_NUMBER
 import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.sSharedPreferences
 import com.bhongj.rc_test_bunjang.config.BaseActivity
 import com.bhongj.rc_test_bunjang.databinding.ActivitySplashBinding
@@ -28,11 +33,11 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(ActivitySplashBinding
         /* init sharedPreferences */
 //        val editor: SharedPreferences.Editor = sSharedPreferences.edit()
 //        editor.putString(ApplicationClass.X_ACCESS_TOKEN, "None")
-//        editor.putInt("userIdx", 0)
-//        editor.putString("phoneNumber", "None")
-//        editor.putString("userName", "None")
-//        editor.putString("userBirth", "None")
-//        editor.putString("userPwd", "None")
+//        editor.putInt(MY_IDX, 0)
+//        editor.putString(MY_PHONE_NUMBER, "None")
+//        editor.putString(MY_NAME, "None")
+//        editor.putString(MY_BIRTH, "None")
+//        editor.putString(MY_PASSWORD, "None")
 //        editor.commit()
         /* init sharedPreferences */
 
@@ -59,10 +64,10 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(ActivitySplashBinding
         Handler(Looper.getMainLooper()).postDelayed({
             OtherLoginService(this).tryPostLogin(
                 PostLoginRequest(
-                    phoneNumber = sSharedPreferences.getString("phoneNumber", "None") ?: "None",
-                    userName = sSharedPreferences.getString("userName", "None") ?: "None",
-                    userBirth = sSharedPreferences.getString("userBirth", "None") ?: "None",
-                    userPwd = sSharedPreferences.getString("userPwd", "None") ?: "None"
+                    phoneNumber = sSharedPreferences.getString(MY_PHONE_NUMBER, "None") ?: "None",
+                    userName = sSharedPreferences.getString(MY_NAME, "None") ?: "None",
+                    userBirth = sSharedPreferences.getString(MY_BIRTH, "None") ?: "None",
+                    userPwd = sSharedPreferences.getString(MY_PASSWORD, "None") ?: "None"
                 )
             )
         }, 1000)

@@ -6,10 +6,14 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.core.widget.addTextChangedListener
+import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.MY_BIRTH
+import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.MY_IDX
+import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.MY_NAME
+import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.MY_PASSWORD
+import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.MY_PHONE_NUMBER
 import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.X_ACCESS_TOKEN
 import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.sSharedPreferences
 import com.bhongj.rc_test_bunjang.config.BaseActivity
@@ -224,11 +228,11 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(ActivityRegisterB
 
             val editor: SharedPreferences.Editor = sSharedPreferences.edit()
             editor.putString(X_ACCESS_TOKEN, response.result.jwt)
-            editor.putInt("userIdx", response.result.userIdx)
-            editor.putString("phoneNumber", binding.edtOtherLoginPhoneNum.text.toString())
-            editor.putString("userName", binding.edtOtherLoginName.text.toString())
-            editor.putString("userBirth", binding.edtOtherLoginRegistNumFr.text.toString())
-            editor.putString("userPwd", binding.edtOtherLoginCertify.text.toString())
+            editor.putInt(MY_IDX, response.result.userIdx)
+            editor.putString(MY_PHONE_NUMBER, binding.edtOtherLoginPhoneNum.text.toString())
+            editor.putString(MY_NAME, binding.edtOtherLoginName.text.toString())
+            editor.putString(MY_BIRTH, binding.edtOtherLoginRegistNumFr.text.toString())
+            editor.putString(MY_PASSWORD, binding.edtOtherLoginCertify.text.toString())
             editor.commit()
 
             val intent = Intent(this, MainActivity::class.java)
@@ -240,7 +244,7 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(ActivityRegisterB
                 editShopName()
             } else {
                 btnClickCnt--
-                showCustomToast("${response.message?:""}\n처음부터 다시 시도해주세요.")
+                showCustomToast("${response.message ?: ""}\n처음부터 다시 시도해주세요.")
             }
         }
     }
@@ -256,11 +260,12 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(ActivityRegisterB
         if (response.isSuccess) {
             val editor: SharedPreferences.Editor = sSharedPreferences.edit()
             editor.putString(X_ACCESS_TOKEN, response.result.jwt)
-            editor.putInt("userIdx", response.result.idx)
-            editor.putString("phoneNumber", binding.edtOtherLoginPhoneNum.text.toString())
-            editor.putString("userName", binding.edtOtherLoginName.text.toString())
-            editor.putString("userBirth", binding.edtOtherLoginRegistNumFr.text.toString())
-            editor.putString("userPwd", binding.edtOtherLoginCertify.text.toString())
+            editor.putInt(MY_IDX, response.result.idx)
+            editor.putString(MY_PHONE_NUMBER, binding.edtOtherLoginPhoneNum.text.toString())
+            editor.putString(MY_NAME, binding.edtOtherLoginName.text.toString())
+            editor.putString(MY_BIRTH, binding.edtOtherLoginRegistNumFr.text.toString())
+            editor.putString(MY_PASSWORD, binding.edtOtherLoginCertify.text.toString())
+            editor.commit()
 
             val intent = Intent(this, MainActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
