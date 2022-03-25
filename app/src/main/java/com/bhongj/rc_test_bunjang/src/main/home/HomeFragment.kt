@@ -4,9 +4,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -72,16 +70,13 @@ class HomeFragment :
         binding.appbarlayHome.addOnOffsetChangedListener(object :
             AppBarLayout.OnOffsetChangedListener {
             override fun onOffsetChanged(appBarLayout: AppBarLayout, verticalOffset: Int) {
-                Log.d("TEST Offset", verticalOffset.toString())
                 val alpha = min(abs(verticalOffset / 3), 255)
                 binding.tlbHome.setBackgroundColor(Color.argb(alpha, 255, 255, 255))
                 if (alpha > 255 / 2) {
-                    Log.d("TEST alpha > 255/2", alpha.toString())
                     binding.tlbBtnHomeMenu.setColorFilter(Color.rgb(0, 0, 0))
                     binding.tlbBtnHomeSearch.setColorFilter(Color.rgb(0, 0, 0))
                     binding.tlbBtnHomeNoti.setColorFilter(Color.rgb(0, 0, 0))
                 } else {
-                    Log.d("TEST alpha <>> 255/2", alpha.toString())
                     binding.tlbBtnHomeMenu.setColorFilter(Color.rgb(255, 255, 255))
                     binding.tlbBtnHomeSearch.setColorFilter(Color.rgb(255, 255, 255))
                     binding.tlbBtnHomeNoti.setColorFilter(Color.rgb(255, 255, 255))

@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
         <activity
-            android:name=".src.main.home.detail.ProductDetailActivity"
+            android:name=".src.main.detail.ProductDetailActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/SearchActivityTheme">
