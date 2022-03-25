@@ -22,6 +22,7 @@
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-v24/background_round_light_gray.xml" value="0.2055" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-v24/background_round_light_gray_3dp.xml" value="0.2055" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-v24/background_round_light_gray_5dp.xml" value="0.2055" />
+        <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-v24/background_round_light_red.xml" value="0.2055" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-v24/background_round_white_5dp.xml" value="0.2055" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-v24/cursor_drawable.xml" value="0.2055" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-v24/follow_button.xml" value="0.2055" />
@@ -49,6 +50,7 @@
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable/other_login_left_angle_braket_resize.xml" value="0.2255" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable/other_login_naver_resize.xml" value="0.2255" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable/other_login_phone_resize.xml" value="0.2255" />
+        <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable/pay_bungae_resize.xml" value="0.2055" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable/scr_bar_shape.xml" value="0.234" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable/scr_bar_shape_tracker.xml" value="0.1955" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable/tlb_img_angle_braket_left_resize.xml" value="0.2055" />
@@ -70,10 +72,11 @@
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/layout/fragment_chat.xml" value="0.1875" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/layout/fragment_des_slide.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/layout/fragment_detail_item_slide.xml" value="0.2015625" />
-        <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/layout/fragment_home.xml" value="0.33" />
+        <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/layout/fragment_my_page.xml" value="0.23958333333333334" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/layout/fragment_recmnd.xml" value="0.2015625" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/layout/fragment_sliding_login.xml" value="0.21875" />
+        <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/layout/fragment_sliding_pay.xml" value="0.25" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/layout/product_iem_recycler.xml" value="0.2015625" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/menu/menu_main_bottom_nav.xml" value="0.21875" />
       </map>

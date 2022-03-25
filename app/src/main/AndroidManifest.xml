@@ -43,7 +43,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".src.main.detail.ProductDetailActivity"
+            android:name=".src.main.detailPage.ProductDetailActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/SearchActivityTheme">

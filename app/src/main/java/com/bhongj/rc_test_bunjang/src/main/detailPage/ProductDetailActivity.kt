@@ -1,4 +1,4 @@
-package com.bhongj.rc_test_bunjang.src.main.detail
+package com.bhongj.rc_test_bunjang.src.main.detailPage
 
 import android.graphics.Color
 import android.os.Bundle
@@ -10,6 +10,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.bhongj.rc_test_bunjang.R
 import com.bhongj.rc_test_bunjang.config.BaseActivity
 import com.bhongj.rc_test_bunjang.databinding.ActivityProductDetailBinding
+import com.bhongj.rc_test_bunjang.src.main.detailPage.pay.SlidingPayFragment
 import kotlin.math.abs
 import kotlin.math.min
 
@@ -25,6 +26,11 @@ class ProductDetailActivity :
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding.detailBtnPayment.setOnClickListener {
+            val slidingPayFragment = SlidingPayFragment()
+            slidingPayFragment.show(supportFragmentManager, slidingPayFragment.tag)
+        }
 
         val pagerAdapter = ItemSlidePagerAdapter(this)
         val mPager = binding.detailVpMainItem

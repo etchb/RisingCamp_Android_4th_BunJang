@@ -1,10 +1,9 @@
-package com.bhongj.rc_test_bunjang.src.main.detail
+package com.bhongj.rc_test_bunjang.src.main.detailPage
 
 import android.os.Bundle
 import android.view.View
 import com.bhongj.rc_test_bunjang.R
 import com.bhongj.rc_test_bunjang.config.BaseFragment
-import com.bhongj.rc_test_bunjang.databinding.FragmentAdSlideBinding
 import com.bhongj.rc_test_bunjang.databinding.FragmentDetailItemSlideBinding
 
 class DetailItemSlideFragment(val image: Int) :

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:fitsSystemWindows="true"
-    tools:context=".src.main.detail.ProductDetailActivity">
+    tools:context=".src.main.detailPage.ProductDetailActivity">
     <androidx.core.widget.NestedScrollView
         android:id="@+id/detail_scr_main"
         android:layout_width="match_parent"
@@ -573,6 +573,7 @@
             android:clickable="true"
             android:background="@drawable/ripple_background_rect_white"/>
         <TextView
+            android:id="@+id/detail_btn_payment"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="1dp"

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".src.main.detailPage.pay.SlidingPayFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="24dp"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:drawableRight="@drawable/img_bungae_pay_qst"
+            android:drawablePadding="4dp"
+            android:fontFamily="@font/nanum_square_eb"
+            android:gravity="center"
+            android:text="안전결제"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/linlay_parcel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="20dp"
+            android:background="@drawable/ripple_background_rect_white"
+            android:clickable="true"
+            android:orientation="vertical" >
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="택배거래"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:fontFamily="@font/nanum_square_eb"
+                android:background="@drawable/ripple_background_round"
+                android:gravity="left|center_vertical"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="안전하게 상품을 받을 때까지,\n번개장터에서 결제금액을 보관해요"
+                android:textSize="13sp"
+                android:textColor="@color/gray"
+                android:textStyle="bold"
+                android:lineSpacingExtra="4dp"
+                android:fontFamily="@font/nanum_square_b"
+                android:background="@drawable/ripple_background_round"
+                android:gravity="left|center_vertical"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/lightGray" />
+        <LinearLayout
+            android:id="@+id/linlay_direct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="20dp"
+            android:background="@drawable/ripple_background_rect_white"
+            android:clickable="true"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:text="직거래"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/nanum_square_eb"
+                    android:background="@drawable/ripple_background_round"
+                    android:gravity="left|center_vertical"/>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:text="카드가능"
+                    android:textSize="10sp"
+                    android:textColor="@color/bungaeRed"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/nanum_square_eb"
+                    android:background="@drawable/background_round_light_red"
+                    android:paddingHorizontal="4dp"
+                    android:gravity="center"/>
+            </LinearLayout>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="직거래도 현금없이 간편하게 결제할 수 있어요"
+                android:textSize="13sp"
+                android:textColor="@color/gray"
+                android:textStyle="bold"
+                android:fontFamily="@font/nanum_square_b"
+                android:background="@drawable/ripple_background_round"
+                android:gravity="left|center_vertical"/>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

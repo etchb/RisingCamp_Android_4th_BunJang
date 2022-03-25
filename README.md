@@ -38,3 +38,8 @@
 3. add detail activity transition animation
 4. add custom scrollbar
 5. change edt color/highlight/handle
+6. bug fix - separate theme
+
+## 22.03.26
+
+1. 

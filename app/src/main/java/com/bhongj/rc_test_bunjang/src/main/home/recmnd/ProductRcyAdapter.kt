@@ -18,7 +18,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bhongj.rc_test_bunjang.R
 import com.bhongj.rc_test_bunjang.databinding.ProductIemRecyclerBinding
-import com.bhongj.rc_test_bunjang.src.main.detail.ProductDetailActivity
+import com.bhongj.rc_test_bunjang.src.main.detailPage.ProductDetailActivity
 import com.bhongj.rc_test_bunjang.src.main.home.recmnd.models.Product
 
 class ProductRcyAdapter(val rootActivity:Activity, private val productList: MutableList<Product>) :

@@ -364,7 +364,7 @@
                         app:layout_constraintLeft_toLeftOf="@+id/scr_sub_category"
                         app:layout_constraintRight_toRightOf="@+id/scr_sub_category"
                         app:layout_constraintTop_toTopOf="@+id/scr_sub_category"
-                        app:layout_constraintVertical_bias="1"></View>
+                        app:layout_constraintVertical_bias="1"/>
 
                     <View
                         android:id="@+id/scrollbar_front"
@@ -375,7 +375,7 @@
                         app:layout_constraintHorizontal_bias="0"
                         app:layout_constraintLeft_toLeftOf="@+id/scrollbar_back"
                         app:layout_constraintRight_toRightOf="@+id/scrollbar_back"
-                        app:layout_constraintTop_toTopOf="@+id/scrollbar_back"></View>
+                        app:layout_constraintTop_toTopOf="@+id/scrollbar_back"/>
 
                     <TextView
                         android:id="@+id/txt_home_ad_idx"
