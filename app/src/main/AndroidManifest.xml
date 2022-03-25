@@ -15,21 +15,15 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
         <activity
-            android:name=".src.main.search.SearchActivity"
-            android:exported="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/SearchActivityTheme">
-        </activity>
-        <activity
-            android:name=".src.main.search.SearchResultActivity"
-            android:exported="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/SearchActivityTheme" />
-        <activity
             android:name=".src.splash.SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".src.login.LoginActivity"
@@ -47,17 +41,24 @@
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".src.main.detail.ProductDetailActivity"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/SearchActivityTheme"></activity>
+            android:theme="@style/SearchActivityTheme">
+        </activity>
+        <activity
+            android:name=".src.main.search.SearchActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/SearchActivityTheme">
+        </activity>
+        <activity
+            android:name=".src.main.search.SearchResultActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/SearchActivityTheme" />
     </application>
 
 </manifest>

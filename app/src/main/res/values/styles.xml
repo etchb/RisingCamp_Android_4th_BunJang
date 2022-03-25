@@ -11,12 +11,8 @@
 
         <item name="colorControlHighlight">@color/gray</item>
 
-<!--        <item name="android:statusBarColor">@color/white</item>-->
-<!--        <item name="android:windowLightStatusBar">true</item>-->
-
-<!--        <item name="android:colorPrimaryDark">@android:color/transparent</item>-->
-<!--        <item name="android:windowTranslucentStatus">true</item>-->
-<!--        <item name="android:windowDrawsSystemBarBackgrounds">false</item>-->
+        <item name="android:textColorHighlight">@color/edtTextHandle_10</item>
+        <item name="android:textCursorDrawable">@drawable/cursor_drawable</item>
     </style>
 
     <!-- Search Activity theme. -->
@@ -29,6 +25,8 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="colorControlHighlight">@color/gray</item>
+
+        <item name="android:textColorHighlight">@color/edtTextHandle_10</item>
     </style>
 
     <style name="NoBackgroundDialogTheme" parent="Theme.AppCompat.Light.Dialog">
