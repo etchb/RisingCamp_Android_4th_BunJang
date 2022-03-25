@@ -2,7 +2,17 @@
     <style name="AppTheme" parent="Theme.AppCompat.DayNight">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.LoginTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <item name="colorControlHighlight">@color/gray</item>
+
+        <item name="colorAccent">#008476</item>
+        <item name="android:textColorHighlight">@color/edtTextHandle_10</item>
+        <item name="android:textCursorDrawable">@drawable/cursor_drawable</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -11,6 +21,7 @@
 
         <item name="colorControlHighlight">@color/gray</item>
 
+        <item name="colorAccent">#000000</item>
         <item name="android:textColorHighlight">@color/edtTextHandle_10</item>
         <item name="android:textCursorDrawable">@drawable/cursor_drawable</item>
     </style>
@@ -20,12 +31,12 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
 
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="colorControlHighlight">@color/gray</item>
 
+        <item name="colorAccent">#008476</item>
         <item name="android:textColorHighlight">@color/edtTextHandle_10</item>
     </style>
 

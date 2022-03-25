@@ -109,7 +109,7 @@
         android:textSize="20sp"
         android:textColor="@color/black"
         android:fontFamily="@font/nanum_square_eb"
-        android:inputType="phone"
+        android:inputType="text"
         android:background="@drawable/other_login_textbox_border_bottom"
         android:paddingBottom="15dp"
         android:layout_marginTop = "10dp"

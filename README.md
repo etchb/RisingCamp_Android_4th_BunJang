@@ -34,3 +34,7 @@
 ## 22.03.25
 
 1. add search front page layout
+2. add detail page 100%
+3. add detail activity transition animation
+4. add custom scrollbar
+5. change edt color/highlight/handle

@@ -3,7 +3,7 @@
     <color name="colorPrimary">#1d212a</color>
     <color name="colorPrimaryDark">@color/white</color>
 <!--    <color name="colorAccent">#778ae0</color>-->
-    <color name="colorAccent">#008476</color>
+    <color name="colorAccent">#000000</color>
 
     <!-- 기본 -->
     <color name="white">#FFFFFF</color>
