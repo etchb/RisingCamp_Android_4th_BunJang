@@ -15,17 +15,6 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
         <activity
-            android:name=".src.main.detail.ProductDetailActivity"
-            android:exported="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/SearchActivityTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".src.main.search.SearchActivity"
             android:exported="true"
             android:screenOrientation="portrait"
@@ -55,6 +44,17 @@
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".src.main.detail.ProductDetailActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/SearchActivityTheme">
         </activity>
     </application>
 

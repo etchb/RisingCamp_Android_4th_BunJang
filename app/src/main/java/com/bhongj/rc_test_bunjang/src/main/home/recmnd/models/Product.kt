@@ -1,6 +1,7 @@
 package com.bhongj.rc_test_bunjang.src.main.home.recmnd.models
 
 data class Product(
+    val idx: Int = 0,
     val img: Int = 0,
     val bungaePayEnabled: Boolean = true,
     var imgHeartCheck: Boolean = false,

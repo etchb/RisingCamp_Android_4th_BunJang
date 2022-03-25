@@ -1,24 +1,27 @@
 package com.bhongj.rc_test_bunjang.src.main.home.recmnd
 
+import android.app.Activity
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
 import android.text.style.StyleSpan
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bhongj.rc_test_bunjang.R
 import com.bhongj.rc_test_bunjang.databinding.ProductIemRecyclerBinding
+import com.bhongj.rc_test_bunjang.src.main.detail.ProductDetailActivity
 import com.bhongj.rc_test_bunjang.src.main.home.recmnd.models.Product
 
-class ProductRcyAdapter(private val productList: MutableList<Product>) :
+class ProductRcyAdapter(val rootActivity:Activity, private val productList: MutableList<Product>) :
     RecyclerView.Adapter<ProductRcyAdapter.ViewHolder>() {
     private lateinit var binding: ProductIemRecyclerBinding
 
@@ -89,8 +92,13 @@ class ProductRcyAdapter(private val productList: MutableList<Product>) :
                 holder.imgHeart.setImageResource(R.drawable.img_heart_checked)
                 holder.imgHeart.setColorFilter(Color.argb(0, 0, 0, 0))
             }
-            Log.d("TEST rcy imgHeartCheck", item.imgHeartCheck.toString())
-            Log.d("TEST rcy position", position.toString())
+        }
+
+        binding.rcyRootlay.setOnClickListener {
+            val intent = Intent(it.context, ProductDetailActivity::class.java)
+            intent.putExtra("itemIdx", item.idx)
+            ContextCompat.startActivity(it.context, intent, null)
+            rootActivity.overridePendingTransition(R.anim.horizon_enter_right, R.anim.transition_none)
         }
 
         holder.bind(item)

@@ -17,7 +17,7 @@ class RecmndFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = ProductRcyAdapter(productList)
+        val adapter = ProductRcyAdapter(requireActivity(), productList)
         val productRcyView = binding.rcyHomeProduct
         productRcyView.layoutManager = GridLayoutManager(context, 2)
         productRcyView.setHasFixedSize(true)

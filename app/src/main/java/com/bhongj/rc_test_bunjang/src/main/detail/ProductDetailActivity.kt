@@ -89,4 +89,10 @@ class ProductDetailActivity :
             }
         }
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        this.overridePendingTransition(R.anim.transition_none, R.anim.horizon_exit_right)
+
+    }
 }
