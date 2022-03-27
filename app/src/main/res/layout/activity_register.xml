@@ -269,6 +269,7 @@
         android:textColor="@color/white"
         android:fontFamily="@font/nanum_square_eb"
         android:gravity="center"
+        android:stateListAnimator="@null"
         android:background="@drawable/other_login_next_button"
         android:layout_marginHorizontal="20dp"
         android:layout_marginBottom="40dp"

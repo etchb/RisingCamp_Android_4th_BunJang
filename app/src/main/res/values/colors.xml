@@ -17,6 +17,7 @@
     <color name="colorControlHighlight">#fd4381</color>
 
     <color name="edtTextHandle_10">#80008476</color>
+    <color name="edtTextHandle">#008476</color>
 
     <color name="gray">#FF999999</color>
     <color name="lightGray">#B3B3B3</color>

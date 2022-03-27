@@ -27,6 +27,7 @@
             android:src="@drawable/ic_baseline_close_24"
             android:scaleType="centerInside"
             android:background="@drawable/ripple_background_oval"
+            android:tint="@color/black"
             android:clickable="true"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -34,9 +35,8 @@
             app:layout_constraintEnd_toEndOf="parent"/>
     </LinearLayout>
     <ScrollView
-        android:layout_marginHorizontal="20dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -44,6 +44,7 @@
                 android:id="@+id/pay_txt_main"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
                 android:text="택배거래, 안전결제로\n구매합니다"
                 android:textSize="30sp"
                 android:textColor="@color/black"
@@ -55,8 +56,10 @@
                 app:layout_constraintVertical_bias="0"/>
             <ImageView
                 android:id="@+id/pay_img_item"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/black"
                 android:src="@drawable/img_home_shoes"
                 app:layout_constraintTop_toBottomOf="@+id/pay_txt_main"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -69,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="150,000원"
-                android:textSize="15sp"
+                android:textSize="16sp"
                 android:textColor="@color/black"
                 android:fontFamily="@font/nanum_square_eb"
                 app:layout_constraintTop_toTopOf="@+id/pay_img_item"
@@ -81,7 +84,7 @@
                 android:id="@+id/pay_txt_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="셀모 헤드커버 셋트 (드라이버, 욷, 유틸)"
+                android:text="셀모 헤드커버 셋트 (드라이버, 우드, 유틸)"
                 android:textSize="12sp"
                 android:textColor="@color/gray"
                 android:fontFamily="@font/nanum_square_eb"
@@ -94,9 +97,9 @@
             <View
                 android:id="@+id/view_empty"
                 android:layout_width="match_parent"
-                android:layout_height="5dp"
+                android:layout_height="10dp"
                 android:background="@color/lightlightGray"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="40dp"
                 app:layout_constraintTop_toBottomOf="@+id/pay_img_item"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -105,30 +108,30 @@
 
             <TextView
                 android:id="@+id/pay_txt_des_delivery"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="60dp"
                 android:text="배송지"
                 android:textAppearance="@style/pay_main_des_black"
                 app:layout_constraintTop_toBottomOf="@+id/view_empty"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/pay_txt_main"
+                app:layout_constraintEnd_toEndOf="@+id/pay_txt_main"
                 app:layout_constraintVertical_bias="0"/>
 
             <View
                 android:id="@+id/pay_view_delivery"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="55dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/pay_textbox_border"
                 app:layout_constraintTop_toBottomOf="@+id/pay_txt_des_delivery"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/pay_txt_des_delivery"
+                app:layout_constraintEnd_toEndOf="@+id/pay_txt_des_delivery"
                 app:layout_constraintVertical_bias="0"/>
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="15dp"
                 android:text="배송지를 등록해주세요"
@@ -139,20 +142,492 @@
                 app:layout_constraintBottom_toBottomOf="@+id/pay_view_delivery"
                 app:layout_constraintStart_toStartOf="@+id/pay_view_delivery"
                 app:layout_constraintRight_toRightOf="@+id/pay_view_delivery"
-                app:layout_constraintWidth_percent="0.8"/>
+                app:layout_constraintWidth_percent="0.7"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_marginHorizontal="15dp"
+                android:layout_marginHorizontal="20dp"
                 android:text="등록"
-                android:textSize="12sp"
-                android:textColor="@color/colorAccent"
+                android:textSize="13sp"
+                android:textColor="@color/edtTextHandle"
                 android:fontFamily="@font/nanum_square_eb"
                 android:gravity="center"
                 app:layout_constraintTop_toTopOf="@+id/pay_view_delivery"
                 app:layout_constraintBottom_toBottomOf="@+id/pay_view_delivery"
                 app:layout_constraintLeft_toLeftOf="@+id/pay_view_delivery"
                 app:layout_constraintEnd_toEndOf="@+id/pay_view_delivery"/>
+
+            <View
+                android:id="@+id/pay_view_delivery_request"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/pay_textbox_border"
+                app:layout_constraintTop_toBottomOf="@+id/pay_view_delivery"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/pay_view_delivery"
+                app:layout_constraintEnd_toEndOf="@+id/pay_view_delivery"
+                app:layout_constraintVertical_bias="0"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:text="배송 요청사항 (선택)"
+                android:textAppearance="@style/pay_main_des_gray"
+                android:gravity="center_vertical"
+                android:background="@color/white"
+                app:layout_constraintTop_toTopOf="@+id/pay_view_delivery_request"
+                app:layout_constraintBottom_toBottomOf="@+id/pay_view_delivery_request"
+                app:layout_constraintStart_toStartOf="@+id/pay_view_delivery_request"
+                app:layout_constraintRight_toRightOf="@+id/pay_view_delivery_request"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="20dp"
+                android:src="@drawable/other_login_down_angle_braket_resize"
+                android:gravity="center"
+                app:layout_constraintTop_toTopOf="@+id/pay_view_delivery_request"
+                app:layout_constraintBottom_toBottomOf="@+id/pay_view_delivery_request"
+                app:layout_constraintLeft_toLeftOf="@+id/pay_view_delivery_request"
+                app:layout_constraintEnd_toEndOf="@+id/pay_view_delivery_request"/>
+
+
+
+            <TextView
+                android:id="@+id/pay_txt_des_bungae_point"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:text="번개포인트"
+                android:textAppearance="@style/pay_main_des_black"
+                app:layout_constraintTop_toBottomOf="@+id/pay_view_delivery_request"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/pay_txt_main"
+                app:layout_constraintEnd_toEndOf="@+id/pay_txt_main"
+                app:layout_constraintVertical_bias="0"/>
+
+            <View
+                android:id="@+id/pay_view_bungae_point"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/pay_textbox_border"
+                app:layout_constraintTop_toBottomOf="@+id/pay_txt_des_bungae_point"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/pay_txt_des_bungae_point"
+                app:layout_constraintEnd_toEndOf="@+id/pay_txt_des_bungae_point"
+                app:layout_constraintVertical_bias="0"/>
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:hint="0"
+                android:textColorHint="@color/gray"
+                android:maxLines="1"
+                android:textSize="15sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/nanum_square_eb"
+                android:gravity="center_vertical"
+                android:background="@color/white"
+                android:inputType="number"
+                app:layout_constraintTop_toTopOf="@+id/pay_view_bungae_point"
+                app:layout_constraintBottom_toBottomOf="@+id/pay_view_bungae_point"
+                app:layout_constraintStart_toStartOf="@+id/pay_view_bungae_point"
+                app:layout_constraintRight_toRightOf="@+id/pay_view_bungae_point"
+                app:layout_constraintWidth_percent="0.7"/>
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="7dp"
+                android:text="전액사용"
+                android:textSize="13sp"
+                android:textColor="@color/gray"
+                android:fontFamily="@font/nanum_square_eb"
+                android:background="@drawable/background_round_light_gray_5dp"
+                android:gravity="center"
+                app:layout_constraintTop_toTopOf="@+id/pay_view_bungae_point"
+                app:layout_constraintBottom_toBottomOf="@+id/pay_view_bungae_point"
+                app:layout_constraintLeft_toLeftOf="@+id/pay_view_bungae_point"
+                app:layout_constraintEnd_toEndOf="@+id/pay_view_bungae_point"/>
+            <TextView
+                android:id="@+id/pay_txt_sub_des_bungae_point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="사용 가능한 번개 포인트"
+                android:textSize="13sp"
+                android:textColor="@color/gray"
+                android:fontFamily="@font/nanum_square_b"
+                android:gravity="center_vertical"
+                android:background="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/pay_view_bungae_point"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/pay_view_bungae_point"
+                app:layout_constraintRight_toRightOf="@+id/pay_view_bungae_point"
+                app:layout_constraintVertical_bias="0"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
+                android:text="750"
+                android:textSize="13sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/nanum_square_eb"
+                android:gravity="center_vertical"
+                android:background="@color/white"
+                app:layout_constraintTop_toTopOf="@+id/pay_txt_sub_des_bungae_point"
+                app:layout_constraintBottom_toBottomOf="@+id/pay_txt_sub_des_bungae_point"
+                app:layout_constraintStart_toEndOf="@+id/pay_txt_sub_des_bungae_point"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+            <TextView
+                android:id="@+id/pay_txt_des_pay_amount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:text="결제금액"
+                android:textAppearance="@style/pay_main_des_black"
+                app:layout_constraintTop_toBottomOf="@+id/pay_txt_sub_des_bungae_point"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/pay_txt_main"
+                app:layout_constraintEnd_toEndOf="@+id/pay_txt_main"
+                app:layout_constraintVertical_bias="0"/>
+
+            <LinearLayout
+                android:id="@+id/pay_linlay_pay_amount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="10dp"
+                android:background="@drawable/pay_textbox_border"
+                app:layout_constraintTop_toBottomOf="@+id/pay_txt_des_pay_amount"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/pay_txt_des_pay_amount"
+                app:layout_constraintEnd_toEndOf="@+id/pay_txt_des_pay_amount"
+                app:layout_constraintVertical_bias="0">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="상품금액"
+                        android:textAppearance="@style/pay_main_des_price_gray"
+                        android:gravity="center_vertical"
+                        android:background="@color/white"/>
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="130,000원"
+                        android:textAppearance="@style/pay_main_des_price_black"
+                        android:gravity="center"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="안심 수수료"
+                        android:textAppearance="@style/pay_main_des_price_gray"
+                        android:gravity="center_vertical"
+                        android:background="@color/white"/>
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+4,550원"
+                        android:textAppearance="@style/pay_main_des_price_black"
+                        android:gravity="center"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="결제금액"
+                        android:textAppearance="@style/pay_main_des_price_gray"
+                        android:gravity="center_vertical"
+                        android:background="@color/white"/>
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="134,550원"
+                        android:textAppearance="@style/pay_main_des_price_black"
+                        android:gravity="center"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="번개 포인트 사용"
+                        android:textAppearance="@style/pay_main_des_price_gray"
+                        android:gravity="center_vertical"
+                        android:background="@color/white"/>
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0원"
+                        android:textAppearance="@style/pay_main_des_price_black"
+                        android:gravity="center"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="배송비"
+                        android:textAppearance="@style/pay_main_des_price_gray"
+                        android:gravity="center_vertical"
+                        android:background="@color/white"/>
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="배송비별도"
+                        android:textAppearance="@style/pay_main_des_price_black"
+                        android:gravity="center"/>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="12dp"
+                    android:background="@color/lightlightGray"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="총 결제금액"
+                        android:textSize="16sp"
+                        android:textColor="@color/gray"
+                        android:fontFamily="@font/nanum_square_eb"
+                        android:gravity="center_vertical"
+                        android:background="@color/white"/>
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="134,550 원"
+                        android:textSize="18sp"
+                        android:textColor="@color/bungaeRed"
+                        android:fontFamily="@font/nanum_square_eb"
+                        android:gravity="center"/>
+                </LinearLayout>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/pay_txt_des_pay_type"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:text="결제수단"
+                android:textAppearance="@style/pay_main_des_black"
+                app:layout_constraintTop_toBottomOf="@+id/pay_linlay_pay_amount"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/pay_txt_main"
+                app:layout_constraintEnd_toEndOf="@+id/pay_txt_main"
+                app:layout_constraintVertical_bias="0"/>
+            <RadioGroup
+                android:id="@+id/pay_rdgrp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@+id/pay_txt_des_pay_type"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/pay_txt_main"
+                app:layout_constraintEnd_toEndOf="@+id/pay_txt_main"
+                app:layout_constraintVertical_bias="0">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="번개장터 간편결제"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nanum_square_eb"
+                    android:theme="@style/CustomRadioButton"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/pay_img_ad"
+                    android:adjustViewBounds="true"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="다른 결제수단"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nanum_square_eb"
+                    android:theme="@style/CustomRadioButton"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingVertical="30dp"
+                    android:paddingHorizontal="20dp"
+                    android:background="@drawable/pay_textbox_border">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="휴대폰결제"
+                        android:textSize="20dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/nanum_square_eb"
+                        android:gravity="center_vertical"
+                        android:background="@color/white"/>
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="변경"
+                        android:textSize="13sp"
+                        android:textColor="@color/edtTextHandle"
+                        android:fontFamily="@font/nanum_square_eb"
+                        android:gravity="center"/>
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="결제수단 다음에도 사용"
+                    android:textSize="13sp"
+                    android:textColor="@color/lightGray"
+                    android:fontFamily="@font/nanum_square_b"
+                    android:drawableLeft="@drawable/pay_check"
+                    android:drawablePadding="3dp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/ripple_background_rect_white"
+                    android:clickable="true"
+                    app:layout_constraintVertical_bias="0"/>
+                <View
+                    android:id="@+id/view_empty2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/lightlightGray"
+                    android:layout_marginTop="40dp"/>
+            </RadioGroup>
+            <ImageView
+                android:id="@+id/pay_img_ad"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/pay_img_ad2"
+                android:adjustViewBounds="true"
+                app:layout_constraintTop_toBottomOf="@+id/pay_rdgrp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/pay_txt_main"
+                app:layout_constraintEnd_toEndOf="@+id/pay_txt_main"
+                app:layout_constraintVertical_bias="0"/>
+            <LinearLayout
+                android:id="@+id/pay_linlay_agree"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="50dp"
+                android:orientation="horizontal"
+                android:clickable="true"
+                app:layout_constraintTop_toBottomOf="@+id/pay_img_ad"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/pay_txt_main"
+                app:layout_constraintEnd_toEndOf="@+id/pay_txt_main"
+                app:layout_constraintVertical_bias="0">
+                <CheckBox
+                    android:id="@+id/pay_checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_gravity="top"
+                    android:button="@drawable/img_agree_check"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:layout_marginLeft="10dp"
+                    android:text="개인정보 제 3자 제공동의와 결제대행\n서비스 이용약관에 동의합니다."
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:lineSpacingExtra="3dp"
+                    android:fontFamily="@font/nanum_square_eb"/>
+            </LinearLayout>
+            <ImageView
+                android:id="@+id/pay_img_agree_txt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/pay_img_agree_txt"
+                android:adjustViewBounds="true"
+                app:layout_constraintTop_toBottomOf="@+id/pay_linlay_agree"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/pay_txt_main"
+                app:layout_constraintEnd_toEndOf="@+id/pay_txt_main"
+                app:layout_constraintVertical_bias="0" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/pay_btn_payment"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="80dp"
+                android:text="결제하기"
+                android:textSize="15sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/nanum_square_eb"
+                android:gravity="center"
+                android:background="@drawable/other_login_next_button"
+                android:layout_marginHorizontal="20dp"
+                android:stateListAnimator="@null"
+                app:layout_constraintTop_toBottomOf="@+id/pay_img_agree_txt"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/pay_txt_main"
+                app:layout_constraintEnd_toEndOf="@+id/pay_txt_main"
+                app:layout_constraintVertical_bias="0"/>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>

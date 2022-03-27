@@ -10,7 +10,7 @@
 
         <item name="colorControlHighlight">@color/gray</item>
 
-        <item name="colorAccent">#008476</item>
+        <item name="colorAccent">@color/edtTextHandle</item>
         <item name="android:textColorHighlight">@color/edtTextHandle_10</item>
         <item name="android:textCursorDrawable">@drawable/cursor_drawable</item>
     </style>
@@ -42,5 +42,10 @@
 
     <style name="NoBackgroundDialogTheme" parent="Theme.AppCompat.Light.Dialog">
         <item name="android:windowBackground">@null</item>
+    </style>
+
+    <style name="CustomRadioButton" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">@color/bungaeRed</item>
+        <item name="colorControlNormal">@color/lightGray</item>
     </style>
 </resources>
