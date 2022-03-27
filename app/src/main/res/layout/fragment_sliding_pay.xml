@@ -80,7 +80,6 @@
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:fontFamily="@font/nanum_square_eb"
-                    android:background="@drawable/ripple_background_round"
                     android:gravity="left|center_vertical"/>
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"

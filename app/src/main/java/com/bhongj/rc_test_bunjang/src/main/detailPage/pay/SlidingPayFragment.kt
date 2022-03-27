@@ -1,11 +1,13 @@
 package com.bhongj.rc_test_bunjang.src.main.detailPage.pay
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bhongj.rc_test_bunjang.R
 import com.bhongj.rc_test_bunjang.databinding.FragmentSlidingPayBinding
+import com.bhongj.rc_test_bunjang.src.login.other.RegisterActivity
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 
@@ -25,11 +27,19 @@ class SlidingPayFragment() : BottomSheetDialogFragment() {
 
         binding.root.rootView.setBackgroundResource(R.drawable.ripple_background_round)
 
-//        binding.btnLoginPhone.setOnClickListener {
-//            val intent = Intent(requireContext(), RegisterActivity::class.java)
-//            startActivity(intent)
-//            this.dismiss()
-//        }
+        binding.linlayDirect.setOnClickListener {
+            val intent = Intent(requireContext(), PayActivity::class.java)
+            intent.putExtra("PAYMENT-TPYE", "DIRECT")
+            startActivity(intent)
+            this.dismiss()
+        }
+
+        binding.linlayParcel.setOnClickListener {
+            val intent = Intent(requireContext(), PayActivity::class.java)
+            intent.putExtra("PAYMENT-TPYE", "PARCEL")
+            startActivity(intent)
+            this.dismiss()
+        }
 
         return binding.root
     }
