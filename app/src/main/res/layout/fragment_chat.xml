@@ -5,11 +5,60 @@
     android:layout_height="match_parent"
     tools:context=".src.main.chat.ChatFragment">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Chatting"
-        android:textSize="30sp"
-        android:gravity="center"/>
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/tlb_home"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:fitsSystemWindows="true"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tlb_btn_home_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:text="번개톡"
+                android:textSize="19sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/nanum_square_eb"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/tlb_btn_home_search"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/ripple_background_oval"
+                android:clickable="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/img_chat_menu"/>
+        </LinearLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/img_chat_ad"
+            android:adjustViewBounds="true" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:text="번개톡을\n시작해보세요"
+            android:textSize="20sp"
+            android:textColor="@color/gray"
+            android:fontFamily="@font/nanum_square_eb"
+            android:lineSpacingExtra="5dp"
+            android:gravity="center"/>
+    </LinearLayout>
 
 </FrameLayout>
