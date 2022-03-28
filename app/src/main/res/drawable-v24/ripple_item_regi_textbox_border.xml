@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"
-    android:color="@color/white">
-    <!-- Background가 될 Item, 단순한 Rectangle Shape를 예시로 했다 -->
+    android:color="@color/gray">
     <item android:name="background">
         <shape xmlns:android="http://schemas.android.com/apk/res/android">
-            <solid
-                android:color="@color/bungaeRed"/>
+            <stroke android:width="1dp" android:color="@color/lightlightGray"/>
+            <solid android:color="@color/white"/>
             <corners
                 android:radius="5dp"/>
         </shape>

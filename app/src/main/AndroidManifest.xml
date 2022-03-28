@@ -18,7 +18,7 @@
             android:name=".src.splash.SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.LoginTheme">
         </activity>
         <activity
             android:name=".src.login.LoginActivity"
@@ -35,24 +35,30 @@
             android:name=".src.main.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:theme="@style/AppTheme.LoginTheme">
         </activity>
         <activity
             android:name=".src.main.detailPage.ProductDetailActivity"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/SearchActivityTheme">
+            android:theme="@style/AppTheme.LoginTheme">
         </activity>
         <activity
             android:name=".src.main.detailPage.pay.PayActivity"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.LoginTheme">
+        </activity>
+        <activity
+            android:name=".src.main.itemRegistration.ItemRegistrationActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.LoginTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".src.main.search.SearchActivity"
@@ -64,7 +70,7 @@
             android:name=".src.main.search.SearchResultActivity"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/SearchActivityTheme" />
+            android:theme="@style/AppTheme.LoginTheme" />
     </application>
 
 </manifest>

@@ -26,6 +26,10 @@
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-v24/background_round_white_5dp.xml" value="0.2055" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-v24/cursor_drawable.xml" value="0.2055" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-v24/follow_button.xml" value="0.2055" />
+        <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-v24/img_agree_check.xml" value="0.2055" />
+        <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-v24/img_item_regi_check.xml" value="0.2055" />
+        <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-v24/img_item_regi_sharp_check.xml" value="0.2015" />
+        <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-v24/img_item_regi_won_check.xml" value="0.2015" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-v24/other_login_next_button.xml" value="0.1955" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-v24/other_login_next_button_background_round.xml" value="0.1955" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-v24/other_login_next_button_background_round_false.xml" value="0.1955" />
@@ -38,6 +42,8 @@
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-v24/ripple_background_rect_red.xml" value="0.2055" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-v24/ripple_background_rect_white.xml" value="0.2055" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-v24/ripple_background_round.xml" value="0.1955" />
+        <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-v24/ripple_background_round_red.xml" value="0.2015" />
+        <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-v24/ripple_item_regi_textbox_border.xml" value="0.2015" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-v24/trans_background_round.xml" value="0.1955" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable-v24/translucent_background_round.xml" value="0.1955" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable/detail_img_small_eye_resize.xml" value="0.2055" />
@@ -61,6 +67,7 @@
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable/tlb_img_noti_resize.xml" value="0.1955" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable/tlb_img_search_resize.xml" value="0.1955" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/drawable/tlb_img_share_resize.xml" value="0.2055" />
+        <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/layout/activity_item_registration.xml" value="0.25" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/layout/activity_login.xml" value="0.21875" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/layout/activity_main.xml" value="0.18697916666666667" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/layout/activity_pay.xml" value="0.22" />
@@ -76,7 +83,7 @@
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/layout/fragment_des_slide.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/layout/fragment_detail_item_slide.xml" value="0.2015625" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/layout/fragment_home.xml" value="0.2" />
-        <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/layout/fragment_my_page.xml" value="0.23958333333333334" />
+        <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/layout/fragment_my_page.xml" value="0.25" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/layout/fragment_recmnd.xml" value="0.2015625" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/layout/fragment_sliding_login.xml" value="0.21875" />
         <entry key="..\:/Users/wanty/AndroidStudioProjects/RC_Test_Bunjang/app/src/main/res/layout/fragment_sliding_pay.xml" value="0.25" />
