@@ -12,9 +12,5 @@ class MyPageFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonChangeCounterText.setOnClickListener {
-            binding.textViewCounter.text =
-                resources.getString(R.string.my_page_tv_counter, ++mCount)
-        }
     }
 }
