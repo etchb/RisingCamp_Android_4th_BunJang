@@ -6,11 +6,9 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.view.WindowManager
+import android.view.*
 import android.view.inputmethod.InputMethodManager
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -92,7 +90,15 @@ abstract class BaseActivity<B : ViewBinding>(private val inflate: (LayoutInflate
 
     // 토스트를 쉽게 띄울 수 있게 해줌.
     fun showCustomToast(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+        val toast = Toast.makeText(this, message, Toast.LENGTH_SHORT)
+//        toast.setGravity(Gravity.BOTTOM or Gravity.START, 0, 0)
+
+        var v1 = layoutInflater.inflate(R.layout.custom_toast, null)
+        v1.findViewById<TextView>(R.id.tvToast).text = message
+
+        toast.view = v1
+        toast.setGravity(Gravity.BOTTOM or Gravity.START, 0, 0)
+        toast.show()
     }
 
     fun showKeyboard(view: View) {

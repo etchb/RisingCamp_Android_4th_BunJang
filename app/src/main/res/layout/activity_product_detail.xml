@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:fitsSystemWindows="true"
+    android:background="@color/white"
     tools:context=".src.main.detailPage.ProductDetailActivity">
     <androidx.core.widget.NestedScrollView
         android:id="@+id/detail_scr_main"
