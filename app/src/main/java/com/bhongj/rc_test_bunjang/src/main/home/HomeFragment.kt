@@ -24,6 +24,8 @@ import kotlin.math.min
 class HomeFragment :
     BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home) {
 
+    var isFront = true
+
     val AdResourseData = mutableListOf(
         R.drawable.img_home_ad1,
         R.drawable.img_home_ad2,
@@ -67,8 +69,11 @@ class HomeFragment :
         })
 
         Thread() {
+            while (!isFront) {
+                Thread.sleep(100)
+            }
             val handler = Handler(Looper.getMainLooper())
-            while (true) {
+            while (isFront) {
                 Thread.sleep(2000)
                 if (pageChanged) {
                     pageChanged = false
@@ -78,6 +83,7 @@ class HomeFragment :
                     binding.vpHomeAd.setCurrentItem(++adPageCnt % AdResourseData.size, false)
                 }
             }
+            isFront = true
         }.start()
 
         binding.appbarlayHome.addOnOffsetChangedListener(object :
@@ -122,6 +128,12 @@ class HomeFragment :
             tab.text = tabTitleArray[position]
         }.attach()
 
+    }
+
+    override fun onStop() {
+        super.onStop()
+
+        isFront = false
     }
 
     private inner class AdSlidePagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
