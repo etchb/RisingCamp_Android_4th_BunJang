@@ -1,15 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".src.main.search.SearchResultActivity">
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context=".src.main.search.SearchActivity">
 
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/tlb_home"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="SearchResultActivity"
-        android:textSize="30sp"
-        android:gravity="center"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:fitsSystemWindows="true">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/tlb_btn_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/other_login_left_angle_braket_resize"
+            android:scaleType="centerInside"
+            android:background="@drawable/ripple_background_oval"
+            android:clickable="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/tlb_edt_search"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="7dp"
+            android:layout_weight="1"
+            android:background="@drawable/background_round_light_gray_5dp"
+            android:fontFamily="@font/nanum_square_eb"
+            android:hint="검색어를 입력해주세요"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:paddingHorizontal="18dp"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textColorHint="@color/lightGray"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/tlb_btn_back"
+            app:layout_constraintRight_toLeftOf="@+id/tlb_btn_home"
+            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/tlb_btn_home"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/img_btm_home"
+            android:scaleType="centerInside"
+            android:background="@drawable/ripple_background_oval"
+            android:clickable="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/search_result_none1"/>
+    <TextView
+        android:id="@+id/txt_search_word_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:text="'안녕'"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        android:textColor="@color/edtTextHandle"
+        android:gravity="center"
+        android:fontFamily="@font/nanum_square_eb" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/search_result_none2"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/search_result_none3"/>
+</LinearLayout>

@@ -97,7 +97,8 @@ abstract class BaseActivity<B : ViewBinding>(private val inflate: (LayoutInflate
         v1.findViewById<TextView>(R.id.tvToast).text = message
 
         toast.view = v1
-        toast.setGravity(Gravity.BOTTOM or Gravity.START, 0, 0)
+//        toast.setGravity(Gravity.BOTTOM or Gravity.START, 0, 0)
+        toast.setGravity(Gravity.FILL_HORIZONTAL or Gravity.BOTTOM or Gravity.START, 0, 0);
         toast.show()
     }
 

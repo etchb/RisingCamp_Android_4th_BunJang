@@ -16,11 +16,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingHorizontal="20dp"
-            android:paddingVertical="15dp"
+            android:paddingVertical="13dp"
             android:background="@color/LightDark"
             android:text="Hello World!"
             android:textColor="@android:color/white"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:fontFamily="@font/nanum_square_eb"
             android:gravity="left|center_vertical"/>
     </androidx.cardview.widget.CardView>
