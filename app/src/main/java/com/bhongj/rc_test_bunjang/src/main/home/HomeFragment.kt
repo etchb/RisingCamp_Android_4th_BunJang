@@ -105,9 +105,9 @@ class HomeFragment :
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
 
-                if (position == 0) {
+                if (position == 0 && binding.scrBrandTab.visibility == View.VISIBLE) {
                     binding.scrBrandTab.visibility = View.GONE
-                } else if (position == 1) {
+                } else if (position == 1 && binding.scrBrandTab.visibility == View.GONE) {
                     binding.scrBrandTab.visibility = View.VISIBLE
                 }
             }

@@ -445,46 +445,42 @@
                     app:tabTextAppearance="@style/home_tbl_title_gray" />
             </com.google.android.material.appbar.CollapsingToolbarLayout>
 
-            <HorizontalScrollView
+            <LinearLayout
                 android:id="@+id/scr_brand_tab"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginVertical="15dp">
+                android:layout_marginVertical="15dp"
+                android:visibility="gone"
+                android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/background_round_black"
+                    android:fontFamily="@font/nanum_square_eb"
+                    android:gravity="center"
+                    android:paddingHorizontal="17dp"
+                    android:paddingVertical="4dp"
+                    android:text="추가"
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center_horizontal"
-                        android:background="@drawable/background_round_black"
-                        android:fontFamily="@font/nanum_square_eb"
-                        android:gravity="center"
-                        android:paddingHorizontal="17dp"
-                        android:paddingVertical="4dp"
-                        android:text="추가"
-                        android:textColor="@color/white"
-                        android:textSize="13sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginLeft="7dp"
-                        android:background="@drawable/background_round_light_gray"
-                        android:fontFamily="@font/nanum_square_eb"
-                        android:gravity="center"
-                        android:paddingHorizontal="17dp"
-                        android:paddingVertical="4dp"
-                        android:text="편집"
-                        android:textColor="@color/gray"
-                        android:textSize="13sp" />
-                </LinearLayout>
-            </HorizontalScrollView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="7dp"
+                    android:background="@drawable/background_round_light_gray"
+                    android:fontFamily="@font/nanum_square_eb"
+                    android:gravity="center"
+                    android:paddingHorizontal="17dp"
+                    android:paddingVertical="4dp"
+                    android:text="편집"
+                    android:textColor="@color/gray"
+                    android:textSize="13sp" />
+            </LinearLayout>
         </com.google.android.material.appbar.AppBarLayout>
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/vp_home_product"
