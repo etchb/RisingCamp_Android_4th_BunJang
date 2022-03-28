@@ -25,6 +25,7 @@ class HomeFragment :
     BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home) {
 
     var isFront = true
+    var threadCnt = 0
 
     val AdResourseData = mutableListOf(
         R.drawable.img_home_ad1,
@@ -69,21 +70,24 @@ class HomeFragment :
         })
 
         Thread() {
-            while (!isFront) {
-                Thread.sleep(100)
-            }
-            val handler = Handler(Looper.getMainLooper())
-            while (isFront) {
-                Thread.sleep(2000)
-                if (pageChanged) {
-                    pageChanged = false
-                    continue
+            if (threadCnt == 0) {
+                threadCnt++
+                while (!isFront) {
+                    Thread.sleep(100)
                 }
-                handler.post {
-                    binding.vpHomeAd.setCurrentItem(++adPageCnt % AdResourseData.size, false)
+                val handler = Handler(Looper.getMainLooper())
+                while (isFront) {
+                    Thread.sleep(2000)
+                    if (pageChanged) {
+                        pageChanged = false
+                        continue
+                    }
+                    handler.post {
+                        binding.vpHomeAd.setCurrentItem(++adPageCnt % AdResourseData.size, false)
+                    }
                 }
+                isFront = true
             }
-            isFront = true
         }.start()
 
         binding.appbarlayHome.addOnOffsetChangedListener(object :
