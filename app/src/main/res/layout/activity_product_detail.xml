@@ -343,7 +343,7 @@
                 android:id="@+id/view_empty_2"
                 android:layout_width="1dp"
                 android:layout_height="0dp"
-                android:background="@color/lightGray"
+                android:background="@color/lightlightGray"
                 android:layout_marginHorizontal="5dp"
                 app:layout_constraintTop_toTopOf="@+id/detail_img_shop"
                 app:layout_constraintBottom_toBottomOf="@+id/detail_img_shop"
@@ -503,40 +503,47 @@
                     android:id="@+id/view_empty_3"
                     android:layout_width="1dp"
                     android:layout_height="0dp"
-                    android:background="@color/lightGray"
+                    android:background="@color/lightlightGray"
                     android:layout_marginHorizontal="5dp"
                     app:layout_constraintTop_toTopOf="@+id/detail_card_tlb_item"
                     app:layout_constraintBottom_toBottomOf="@+id/detail_card_tlb_item"
                     app:layout_constraintLeft_toRightOf="@+id/detail_card_tlb_item"
-                    app:layout_constraintEnd_toStartOf="@+id/detail_txt_tlb_shop_rating"/>
-                <TextView
-                    android:id="@+id/detail_txt_tlb_shop_name"
+                    app:layout_constraintEnd_toStartOf="@+id/detail_tlb_linlay"/>
+                <LinearLayout
+                    android:id="@+id/detail_tlb_linlay"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="류헬"
-                    android:textSize="14sp"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/nanum_square_eb"
-                    android:paddingHorizontal="2dp"
-                    app:layout_constraintTop_toTopOf="@+id/detail_card_tlb_item"
-                    app:layout_constraintBottom_toTopOf="@+id/detail_txt_tlb_shop_rating"
-                    app:layout_constraintStart_toStartOf="@+id/detail_txt_tlb_shop_rating"
-                    app:layout_constraintRight_toRightOf="parent"/>
-                <TextView
-                    android:id="@+id/detail_txt_tlb_shop_rating"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
+                    android:orientation="vertical"
                     android:layout_marginRight="10dp"
-                    android:text="⭐ 5.0(4)"
-                    android:textSize="11sp"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/nanum_square_eb"
-                    android:gravity="center_vertical"
-                    android:drawablePadding="2dp"
-                    app:layout_constraintTop_toBottomOf="@+id/detail_txt_tlb_shop_name"
+                    app:layout_constraintTop_toTopOf="@+id/detail_card_tlb_item"
                     app:layout_constraintBottom_toBottomOf="@+id/detail_card_tlb_item"
                     app:layout_constraintLeft_toRightOf="@+id/view_empty_3"
-                    app:layout_constraintEnd_toEndOf="parent"/>
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:id="@+id/detail_txt_tlb_shop_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxWidth="100dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="류헬"
+                        android:textSize="14sp"
+                        android:textColor="@color/black"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/nanum_square_eb"
+                        android:paddingHorizontal="2dp"/>
+                    <TextView
+                        android:id="@+id/detail_txt_tlb_shop_rating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⭐ 5.0(4)"
+                        android:textSize="11sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/nanum_square_eb"
+                        android:gravity="center_vertical"
+                        android:drawablePadding="2dp"/>
+                </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
@@ -545,6 +552,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/white"
+        android:visibility="visible"
         app:layout_constraintTop_toTopOf="@+id/detail_scr_main"
         app:layout_constraintBottom_toBottomOf="@+id/detail_scr_main"
         app:layout_constraintLeft_toLeftOf="@+id/detail_scr_main"

@@ -2,7 +2,6 @@ package com.bhongj.rc_test_bunjang.src.main.detailPage
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -14,7 +13,6 @@ import com.bhongj.rc_test_bunjang.databinding.ActivityProductDetailBinding
 import com.bhongj.rc_test_bunjang.src.main.detailPage.models.DetailResponse
 import com.bhongj.rc_test_bunjang.src.main.detailPage.pay.SlidingPayFragment
 import com.bhongj.rc_test_bunjang.src.main.detailPage.pay.models.PayPageData
-import com.bhongj.rc_test_bunjang.src.main.detailPage.pay.models.PayRequest
 import me.relex.circleindicator.CircleIndicator3
 import java.text.DecimalFormat
 import kotlin.math.abs
@@ -110,12 +108,14 @@ class ProductDetailActivity :
         t_dec_up.format(result.price)
         payPageData.price = result.price
         binding.detailTxtPrice.text = t_dec_up.format(result.price).toString() + "원"
+        binding.detailTxtTlbPrice.text = t_dec_up.format(result.price).toString() + "원"
         if (result.saftyPay == 1) {
             binding.detailImgBungae.visibility = View.VISIBLE
         } else {
             binding.detailImgBungae.visibility = View.INVISIBLE
         }
         binding.detailTxtTitle.text = result.productName
+        binding.detailTxtTlbTitle.text = result.productName
         payPageData.title = result.productName
         binding.detailTxtTime.text
         binding.detailTxtEye.text = result.viewCount.toString()
@@ -130,9 +130,11 @@ class ProductDetailActivity :
         tmpStr = "$tmpStr • "
         if (result.includeFee == 0) {
             tmpStr += "배송비별도"
+            binding.detailTxtTlbShopDelivery.text = "배송비별도"
             payPageData.includeDelivery = 0
         } else {
             tmpStr += "배송비포함"
+            binding.detailTxtTlbShopDelivery.text = "배송비포함"
             payPageData.includeDelivery = 1
         }
         tmpStr = tmpStr + " • " + "총 ${result.amount}개"
@@ -140,7 +142,9 @@ class ProductDetailActivity :
         binding.detailTxtBody.text = result.productDesc
         binding.detailTxtCategory.text = result.categoryName
         binding.detailTxtShopName.text = result.shopName
+        binding.detailTxtTlbShopName.text = result.shopName
         binding.detailTxtShopFollowerCnt.text = result.follower.toString()
+        binding.detailTxtTlbShopRating.text = "⭐ 5.0(${result.follower.toString()})"
         binding.viewWhite.visibility = View.GONE
 
         val imgUrl = result.imageUrl.split(",")
