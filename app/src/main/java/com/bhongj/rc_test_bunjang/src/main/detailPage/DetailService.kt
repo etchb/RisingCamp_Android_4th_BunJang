@@ -9,11 +9,11 @@ import retrofit2.Response
 
 class DetailService(val detailActivityInterface: DetailActivityInterface) {
 
-    fun tryGetRestaurantData() {
+    fun tryGetData(idx: Int) {
         val searchRetrofitInterface =
             ApplicationClass.sRetrofit.create(DetailRetrofitInterface::class.java)
         searchRetrofitInterface.getDetailResponse(
-            1
+            idx
         )
             .enqueue(object : Callback<DetailResponse> {
                 override fun onResponse(

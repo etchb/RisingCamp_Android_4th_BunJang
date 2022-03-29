@@ -30,7 +30,8 @@ class ProductDetailActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        getDeatilData()
+        val idx = intent.getIntExtra("itemIdx", 0)
+        getDeatilData(idx)
 
         binding.detailBtnPayment.setOnClickListener {
             val slidingPayFragment = SlidingPayFragment()
@@ -82,9 +83,13 @@ class ProductDetailActivity :
         this.overridePendingTransition(R.anim.transition_none, R.anim.horizon_exit_right)
     }
 
-    fun getDeatilData() {
+    fun getDeatilData(idx: Int) {
         showLoadingDialog(this)
-        DetailService(this).tryGetRestaurantData()
+        if (idx == 0) {
+            onBackPressed()
+        } else {
+            DetailService(this).tryGetData(idx)
+        }
     }
 
     override fun onGetDataSuccess(response: DetailResponse) {
