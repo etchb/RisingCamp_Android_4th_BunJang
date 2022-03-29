@@ -130,12 +130,16 @@
                 app:layout_constraintStart_toStartOf="@+id/pay_txt_des_delivery"
                 app:layout_constraintEnd_toEndOf="@+id/pay_txt_des_delivery"
                 app:layout_constraintVertical_bias="0"/>
-            <TextView
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/pay_edt_address"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="15dp"
-                android:text="배송지를 등록해주세요"
+                android:hint="배송지를 등록해주세요"
+                android:textColorHint="@color/gray"
+                android:textColor="@color/black"
                 android:textAppearance="@style/pay_main_des_gray"
+                android:maxLines="1"
                 android:gravity="center_vertical"
                 android:background="@color/white"
                 app:layout_constraintTop_toTopOf="@+id/pay_view_delivery"

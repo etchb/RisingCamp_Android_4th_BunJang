@@ -42,4 +42,28 @@
 
 ## 22.03.26
 
-1. 
+1. add slidingPayFragment
+2. bug fix - fragment_home, del scrollview for scroll problem
+3. modify sSharedPreferences key
+
+## 22.03.27
+
+1. tmp commit
+
+## 22.03.28
+
+1. add pay layout
+2. bug fix - home fragment view visibilty
+3. bug fix - home fragment bottom navi Thread
+4. add chat layout
+5. add my page layout
+
+## 22.03.29
+
+1. add itemRegistration layout 
+2. add custom toast Gravity.FILL_HORIZONTAL
+3. add searchResultAcitivy 
+4. add home recmndItem API, unlimitted rcyView
+5. add detailPage API
+6. bug fix - home outlineProvider=none and detail naming
+7. put string from data to payPage

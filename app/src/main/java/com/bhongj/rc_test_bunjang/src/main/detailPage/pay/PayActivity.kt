@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.widget.TextViewCompat
+import androidx.core.widget.addTextChangedListener
 import com.bhongj.rc_test_bunjang.R
 import com.bhongj.rc_test_bunjang.config.ApplicationClass
 import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.MY_PAYMENT_CONTINUE
@@ -52,6 +53,16 @@ class PayActivity :
             transactionMethod = 1,
             address = "",
         )
+
+        binding.payEdtBungaePoint.addTextChangedListener {
+            if (binding.payEdtBungaePoint.text.toString() == "") {
+                binding.payPaymentBungaePoint.text = "0원"
+                binding.payPaymentPriceTotal.text = t_dec_up.format(payRequest.totalPaymentAmount) + " 원"
+            } else {
+                binding.payPaymentBungaePoint.text = "-" + t_dec_up.format(binding.payEdtBungaePoint.text.toString().toInt()) + "원"
+                binding.payPaymentPriceTotal.text = t_dec_up.format(payRequest.totalPaymentAmount - binding.payEdtBungaePoint.text.toString().toInt()) + " 원"
+            }
+        }
 
         binding.payRdbtnBungae.isChecked = true
 
