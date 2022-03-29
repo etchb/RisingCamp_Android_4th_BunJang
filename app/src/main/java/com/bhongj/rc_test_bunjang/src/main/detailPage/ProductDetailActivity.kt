@@ -28,6 +28,7 @@ class ProductDetailActivity :
     lateinit var mIndicator: CircleIndicator3
 
     val payPageData = PayPageData(
+        idx = 0,
         img = "",
         title = "",
         price = 0,
@@ -39,6 +40,7 @@ class ProductDetailActivity :
 
         val idx = intent.getIntExtra("itemIdx", 0)
         getDeatilData(idx)
+        payPageData.idx = idx
 
         binding.detailBtnPayment.setOnClickListener {
             val slidingPayFragment = SlidingPayFragment(payPageData)

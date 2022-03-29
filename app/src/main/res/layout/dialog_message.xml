@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="320dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ripple_background_round"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/dia_message"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:fontFamily="@font/nanum_square_eb"
+            android:gravity="center"
+            android:padding="16sp"
+            android:text="결제 이용약관을 동의해주세요."
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/lightlightGray" />
+
+        <Button
+            android:id="@+id/dia_btn_accept"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            android:fontFamily="@font/nanum_square_eb"
+            android:text="확인"
+            android:textColor="@color/edtTextHandle"
+            android:textSize="16sp" />
+    </LinearLayout>
+</LinearLayout>

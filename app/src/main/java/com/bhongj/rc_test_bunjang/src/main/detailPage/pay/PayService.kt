@@ -10,10 +10,10 @@ import retrofit2.Response
 
 class PayService(val payActivityInterface: PayActivityInterface) {
 
-    fun tryGetData(payRequest: PayRequest) {
+    fun tryGetData(idx: Int, payRequest: PayRequest) {
         val retrofitInterface =
             ApplicationClass.sRetrofit.create(PayRetrofitInterface::class.java)
-        retrofitInterface.postResponse(1, payRequest)
+        retrofitInterface.postResponse(idx, payRequest)
             .enqueue(object : Callback<PayResponse> {
                 override fun onResponse(
                     call: Call<PayResponse>,

@@ -20,7 +20,6 @@ import com.bhongj.rc_test_bunjang.R
 import com.bhongj.rc_test_bunjang.databinding.ProductIemRecyclerBinding
 import com.bhongj.rc_test_bunjang.src.main.detailPage.ProductDetailActivity
 import com.bhongj.rc_test_bunjang.src.main.home.recmnd.models.HomeRecmndItem
-import com.bhongj.rc_test_bunjang.src.main.home.recmnd.models.Product
 import com.bumptech.glide.Glide
 import java.text.DecimalFormat
 

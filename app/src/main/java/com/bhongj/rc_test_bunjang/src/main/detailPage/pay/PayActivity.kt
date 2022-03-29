@@ -1,21 +1,19 @@
 package com.bhongj.rc_test_bunjang.src.main.detailPage.pay
 
 import android.annotation.SuppressLint
-import android.content.SharedPreferences
+import android.content.Intent
 import android.content.res.ColorStateList
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.widget.TextViewCompat
 import androidx.core.widget.addTextChangedListener
 import com.bhongj.rc_test_bunjang.R
-import com.bhongj.rc_test_bunjang.config.ApplicationClass
 import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.MY_PAYMENT_CONTINUE
 import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.sSharedPreferences
 import com.bhongj.rc_test_bunjang.config.BaseActivity
 import com.bhongj.rc_test_bunjang.databinding.ActivityPayBinding
+import com.bhongj.rc_test_bunjang.src.main.MainActivity
 import com.bhongj.rc_test_bunjang.src.main.detailPage.pay.models.PayRequest
 import com.bhongj.rc_test_bunjang.src.main.detailPage.pay.models.PayResponse
 import com.bumptech.glide.Glide
@@ -32,6 +30,7 @@ class PayActivity :
         super.onCreate(savedInstanceState)
 
         val price = intent.getIntExtra("PAYMENT-PRICE", 0)
+        var point = 0
         val t_dec_up = DecimalFormat("#,###")
 
         isPaymentContinue = sSharedPreferences.getBoolean(MY_PAYMENT_CONTINUE, false)
@@ -56,11 +55,13 @@ class PayActivity :
 
         binding.payEdtBungaePoint.addTextChangedListener {
             if (binding.payEdtBungaePoint.text.toString() == "") {
+                point = 0
                 binding.payPaymentBungaePoint.text = "0원"
                 binding.payPaymentPriceTotal.text = t_dec_up.format(payRequest.totalPaymentAmount) + " 원"
             } else {
-                binding.payPaymentBungaePoint.text = "-" + t_dec_up.format(binding.payEdtBungaePoint.text.toString().toInt()) + "원"
-                binding.payPaymentPriceTotal.text = t_dec_up.format(payRequest.totalPaymentAmount - binding.payEdtBungaePoint.text.toString().toInt()) + " 원"
+                point = binding.payEdtBungaePoint.text.toString().toInt()
+                binding.payPaymentBungaePoint.text = "-" + t_dec_up.format(point) + "원"
+                binding.payPaymentPriceTotal.text = t_dec_up.format(payRequest.totalPaymentAmount - point) + " 원"
             }
         }
 
@@ -103,8 +104,26 @@ class PayActivity :
         binding.payPaymentPriceTmp.text = t_dec_up.format(payRequest.totalPaymentAmount) + "원"
         binding.payPaymentPriceTotal.text = t_dec_up.format(payRequest.totalPaymentAmount) + " 원"
 
-        binding.payBtnPayment.setOnClickListener {
 
+        binding.payBtnPayment.setOnClickListener {
+            if (binding.payCheckbox.isChecked) {
+                payRequest.point = point
+                payRequest.transactionMethod = 2
+                payRequest.address = binding.payEdtAddress.text.toString()
+
+                if (binding.payRdbtnBungae.isChecked) {
+                    payRequest.paymentMethod = 0
+                } else {
+                    payRequest.paymentMethod = 1
+                }
+                postPayment(intent.getIntExtra("PAYMENT-IDX", 0))
+            } else {
+                val dlg = DialogMessage(this)
+                dlg.setOnOKClickedListener{ content ->
+                    // 확인을 눌렀을 때 사용할 기능 적용 가능
+                }
+                dlg.start("결제 이용약관을 동의해주세요.")
+            }
         }
     }
 
@@ -116,18 +135,20 @@ class PayActivity :
         editor.commit()
     }
 
-    fun postPayment() {
+    fun postPayment(idx: Int) {
         showLoadingDialog(this)
-        PayService(this).tryGetData(payRequest)
+        PayService(this).tryGetData(idx, payRequest)
     }
 
     override fun onGetDataSuccess(response: PayResponse) {
-
+        dismissLoadingDialog()
+        val intent = Intent(this, MainActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
     }
 
     override fun onGetDataFailure(message: String) {
-
+        dismissLoadingDialog()
+        showCustomToast("오류 : $message")
     }
-
-
 }

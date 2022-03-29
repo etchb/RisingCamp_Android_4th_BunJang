@@ -7,9 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.bhongj.rc_test_bunjang.R
 import com.bhongj.rc_test_bunjang.databinding.FragmentSlidingPayBinding
-import com.bhongj.rc_test_bunjang.src.login.other.RegisterActivity
 import com.bhongj.rc_test_bunjang.src.main.detailPage.pay.models.PayPageData
-import com.bhongj.rc_test_bunjang.src.main.detailPage.pay.models.PayRequest
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 
@@ -32,6 +30,7 @@ class SlidingPayFragment(val payPageData: PayPageData) : BottomSheetDialogFragme
         binding.linlayDirect.setOnClickListener {
             val intent = Intent(requireContext(), PayActivity::class.java)
             intent.putExtra("PAYMENT-TPYE", "DIRECT")
+            intent.putExtra("PAYMENT-IDX", payPageData.idx)
             intent.putExtra("PAYMENT-TITLE", payPageData.title)
             intent.putExtra("PAYMENT-IMG", payPageData.img)
             intent.putExtra("PAYMENT-PRICE", payPageData.price)
@@ -43,6 +42,7 @@ class SlidingPayFragment(val payPageData: PayPageData) : BottomSheetDialogFragme
         binding.linlayParcel.setOnClickListener {
             val intent = Intent(requireContext(), PayActivity::class.java)
             intent.putExtra("PAYMENT-TPYE", "PARCEL")
+            intent.putExtra("PAYMENT-IDX", payPageData.idx)
             intent.putExtra("PAYMENT-TITLE", payPageData.title)
             intent.putExtra("PAYMENT-IMG", payPageData.img)
             intent.putExtra("PAYMENT-PRICE", payPageData.price)
