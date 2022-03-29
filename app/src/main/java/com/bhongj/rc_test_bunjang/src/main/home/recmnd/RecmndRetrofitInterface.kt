@@ -6,5 +6,5 @@ import retrofit2.http.GET
 
 interface RecmndRetrofitInterface {
     @GET("/app/home")
-    fun getRestaurantResponse(): Call<HomeRecmndResponse>
+    fun getRecmndResponse(): Call<HomeRecmndResponse>
 }

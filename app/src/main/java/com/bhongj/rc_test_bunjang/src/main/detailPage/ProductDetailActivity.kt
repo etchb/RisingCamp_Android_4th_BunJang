@@ -10,53 +10,32 @@ import androidx.viewpager2.widget.ViewPager2
 import com.bhongj.rc_test_bunjang.R
 import com.bhongj.rc_test_bunjang.config.BaseActivity
 import com.bhongj.rc_test_bunjang.databinding.ActivityProductDetailBinding
+import com.bhongj.rc_test_bunjang.src.main.detailPage.models.DetailResponse
 import com.bhongj.rc_test_bunjang.src.main.detailPage.pay.SlidingPayFragment
+import com.google.android.material.progressindicator.CircularProgressIndicator
+import me.relex.circleindicator.CircleIndicator3
+import java.text.DecimalFormat
 import kotlin.math.abs
 import kotlin.math.min
 
 class ProductDetailActivity :
-    BaseActivity<ActivityProductDetailBinding>(ActivityProductDetailBinding::inflate) {
+    BaseActivity<ActivityProductDetailBinding>(ActivityProductDetailBinding::inflate),
+    DetailActivityInterface {
 
-    val DetailItemImg = mutableListOf(
-        R.drawable.img_home_ad5,
-        R.drawable.img_home_ad6,
-        R.drawable.img_home_ad7,
-        R.drawable.img_home_ad8,
-    )
+    val DetailItemImg = mutableListOf<String>()
+    lateinit var pagerAdapter: ItemSlidePagerAdapter
+    lateinit var mIndicator: CircleIndicator3
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        getDeatilData()
 
         binding.detailBtnPayment.setOnClickListener {
             val slidingPayFragment = SlidingPayFragment()
             slidingPayFragment.show(supportFragmentManager, slidingPayFragment.tag)
         }
-
-        val pagerAdapter = ItemSlidePagerAdapter(this)
-        val mPager = binding.detailVpMainItem
-        mPager.adapter = pagerAdapter
-        mPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-
-        val mIndicator = binding.vpDesIndi
-        mIndicator.setViewPager(mPager)
-        mIndicator.createIndicators(pagerAdapter.itemCount, 0)
-        mPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageScrolled(
-                position: Int,
-                positionOffset: Float,
-                positionOffsetPixels: Int
-            ) {
-                super.onPageScrolled(position, positionOffset, positionOffsetPixels)
-                if (positionOffsetPixels == 0) {
-                    mPager.currentItem = position
-                }
-            }
-
-            override fun onPageSelected(position: Int) {
-                super.onPageSelected(position)
-                mIndicator.animatePageSelected(position % pagerAdapter.itemCount)
-            }
-        })
 
         binding.detailScrMain.setOnScrollChangeListener { view, i, i2, i3, i4 ->
             val verticalOffset = i2
@@ -85,7 +64,7 @@ class ProductDetailActivity :
         }
     }
 
-    private inner class ItemSlidePagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
+    inner class ItemSlidePagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
         override fun getItemCount(): Int = DetailItemImg.size
 
         override fun createFragment(position: Int): Fragment {
@@ -101,5 +80,82 @@ class ProductDetailActivity :
     override fun onBackPressed() {
         super.onBackPressed()
         this.overridePendingTransition(R.anim.transition_none, R.anim.horizon_exit_right)
+    }
+
+    fun getDeatilData() {
+        showLoadingDialog(this)
+        DetailService(this).tryGetRestaurantData()
+    }
+
+    override fun onGetDataSuccess(response: DetailResponse) {
+        dismissLoadingDialog()
+        val result = response.result
+
+        val t_dec_up = DecimalFormat("#,###")
+        t_dec_up.format(result.price)
+        binding.detailTxtPrice.text = t_dec_up.format(result.price).toString() + "원"
+        if (result.saftyPay == 1) {
+            binding.detailImgBungae.visibility = View.VISIBLE
+        } else {
+            binding.detailImgBungae.visibility = View.INVISIBLE
+        }
+        binding.detailTxtTitle.text = result.productName
+        binding.detailTxtTime.text
+        binding.detailTxtEye.text = result.viewCount.toString()
+        binding.detailTxtHeart.text = result.likeCount.toString()
+        binding.detailTxtRegion.text = result.directtrans
+        var tmpStr = ""
+        if (result.productCondition == 0) {
+            tmpStr = "중고"
+        } else {
+            tmpStr = "새상품"
+        }
+        tmpStr = "$tmpStr • "
+        if (result.includeFee == 0) {
+            tmpStr += "배송비별도"
+        } else {
+            tmpStr += "배송비포함"
+        }
+        tmpStr = tmpStr + " • " + "총 ${result.amount}개"
+        binding.detailTxtDelivery.text = tmpStr
+        binding.detailTxtBody.text = result.productDesc
+        binding.detailTxtCategory.text = result.categoryName
+        binding.detailTxtShopName.text = result.shopName
+        binding.detailTxtShopFollowerCnt.text = result.follower.toString()
+        binding.viewWhite.visibility = View.GONE
+
+        val imgUrl = result.imageUrl.split(",")
+        DetailItemImg.addAll(imgUrl)
+
+        pagerAdapter = ItemSlidePagerAdapter(this)
+        val mPager = binding.detailVpMainItem
+        mPager.adapter = pagerAdapter
+        mPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+
+        mIndicator = binding.vpDesIndi
+        mIndicator.setViewPager(mPager)
+        mIndicator.createIndicators(pagerAdapter.itemCount, 0)
+        mPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {
+                super.onPageScrolled(position, positionOffset, positionOffsetPixels)
+                if (positionOffsetPixels == 0) {
+                    mPager.currentItem = position
+                }
+            }
+
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                mIndicator.animatePageSelected(position % pagerAdapter.itemCount)
+            }
+        })
+    }
+
+    override fun onGetDataFailure(message: String) {
+        dismissLoadingDialog()
+        showCustomToast("오류 : $message")
     }
 }

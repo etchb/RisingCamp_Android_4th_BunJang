@@ -213,7 +213,7 @@
                 android:text="중고 • 배송비포함 • 총 1개"
                 android:textSize="11sp"
                 android:textColor="@color/gray"
-                android:fontFamily="@font/nanum_square_b"
+                android:textStyle="bold"
                 android:gravity="center_vertical"
                 app:layout_constraintTop_toBottomOf="@+id/detail_txt_region"
                 app:layout_constraintBottom_toTopOf="@+id/detail_txt_body"
@@ -540,7 +540,15 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
-
+    <View
+        android:id="@+id/view_white"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="@+id/detail_scr_main"
+        app:layout_constraintBottom_toBottomOf="@+id/detail_scr_main"
+        app:layout_constraintLeft_toLeftOf="@+id/detail_scr_main"
+        app:layout_constraintRight_toRightOf="@+id/detail_scr_main"/>
     <LinearLayout
         android:id="@+id/linlay_btm"
         android:layout_width="match_parent"
@@ -549,7 +557,7 @@
         android:orientation="horizontal"
         android:background="#F1F1F1"
         android:weightSum="10"
-        app:layout_constraintTop_toBottomOf="@+id/detail_src_main"
+        app:layout_constraintTop_toBottomOf="@+id/detail_scr_main"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">

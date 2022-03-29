@@ -12,7 +12,7 @@ class RecmndService(val recmndFragmentInterface: RecmndFragmentInterface) {
     fun tryGetRestaurantData() {
         val searchRetrofitInterface =
             ApplicationClass.sRetrofit.create(RecmndRetrofitInterface::class.java)
-        searchRetrofitInterface.getRestaurantResponse()
+        searchRetrofitInterface.getRecmndResponse()
             .enqueue(object : Callback<HomeRecmndResponse> {
                 override fun onResponse(
                     call: Call<HomeRecmndResponse>,
