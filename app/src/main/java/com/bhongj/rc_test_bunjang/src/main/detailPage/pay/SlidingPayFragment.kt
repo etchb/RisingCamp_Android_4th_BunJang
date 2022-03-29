@@ -8,10 +8,12 @@ import android.view.ViewGroup
 import com.bhongj.rc_test_bunjang.R
 import com.bhongj.rc_test_bunjang.databinding.FragmentSlidingPayBinding
 import com.bhongj.rc_test_bunjang.src.login.other.RegisterActivity
+import com.bhongj.rc_test_bunjang.src.main.detailPage.pay.models.PayPageData
+import com.bhongj.rc_test_bunjang.src.main.detailPage.pay.models.PayRequest
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 
-class SlidingPayFragment() : BottomSheetDialogFragment() {
+class SlidingPayFragment(val payPageData: PayPageData) : BottomSheetDialogFragment() {
     private lateinit var _binding: FragmentSlidingPayBinding
     private val binding get() = _binding!!
 
@@ -30,6 +32,10 @@ class SlidingPayFragment() : BottomSheetDialogFragment() {
         binding.linlayDirect.setOnClickListener {
             val intent = Intent(requireContext(), PayActivity::class.java)
             intent.putExtra("PAYMENT-TPYE", "DIRECT")
+            intent.putExtra("PAYMENT-TITLE", payPageData.title)
+            intent.putExtra("PAYMENT-IMG", payPageData.img)
+            intent.putExtra("PAYMENT-PRICE", payPageData.price)
+            intent.putExtra("PAYMENT-INCLUDE-DELIVERY", payPageData.includeDelivery)
             startActivity(intent)
             this.dismiss()
         }
@@ -37,6 +43,10 @@ class SlidingPayFragment() : BottomSheetDialogFragment() {
         binding.linlayParcel.setOnClickListener {
             val intent = Intent(requireContext(), PayActivity::class.java)
             intent.putExtra("PAYMENT-TPYE", "PARCEL")
+            intent.putExtra("PAYMENT-TITLE", payPageData.title)
+            intent.putExtra("PAYMENT-IMG", payPageData.img)
+            intent.putExtra("PAYMENT-PRICE", payPageData.price)
+            intent.putExtra("PAYMENT-INCLUDE-DELIVERY", payPageData.includeDelivery)
             startActivity(intent)
             this.dismiss()
         }

@@ -32,6 +32,7 @@ class ApplicationClass : Application() {
         val MY_NAME = "MY-NAME"
         val MY_BIRTH = "MY-BIRTH"
         val MY_PASSWORD = "MY-PASSWORD"
+        val MY_PAYMENT_CONTINUE = "MY-PAYMENT-CONTINUE"
 
         // Retrofit 인스턴스, 앱 실행시 한번만 생성하여 사용합니다.
         lateinit var sRetrofit: Retrofit

@@ -1,13 +1,122 @@
 package com.bhongj.rc_test_bunjang.src.main.detailPage.pay
 
+import android.annotation.SuppressLint
+import android.content.SharedPreferences
+import android.content.res.ColorStateList
 import android.os.Bundle
+import android.util.Log
+import android.view.View
+import android.widget.TextView
+import androidx.core.content.ContextCompat
+import androidx.core.widget.TextViewCompat
+import com.bhongj.rc_test_bunjang.R
+import com.bhongj.rc_test_bunjang.config.ApplicationClass
+import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.MY_PAYMENT_CONTINUE
+import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.sSharedPreferences
 import com.bhongj.rc_test_bunjang.config.BaseActivity
 import com.bhongj.rc_test_bunjang.databinding.ActivityPayBinding
+import com.bhongj.rc_test_bunjang.src.main.detailPage.pay.models.PayRequest
+import com.bhongj.rc_test_bunjang.src.main.detailPage.pay.models.PayResponse
+import com.bumptech.glide.Glide
+import java.text.DecimalFormat
 
 class PayActivity :
-    BaseActivity<ActivityPayBinding>(ActivityPayBinding::inflate) {
+    BaseActivity<ActivityPayBinding>(ActivityPayBinding::inflate), PayActivityInterface {
 
+    lateinit var payRequest: PayRequest
+    var isPaymentContinue = false
+
+    @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val price = intent.getIntExtra("PAYMENT-PRICE", 0)
+        val t_dec_up = DecimalFormat("#,###")
+
+        isPaymentContinue = sSharedPreferences.getBoolean(MY_PAYMENT_CONTINUE, false)
+        if (isPaymentContinue) {
+            binding.payCheckContinuePayment.setTextColor(ContextCompat.getColor(this, R.color.black))
+            val color = ContextCompat.getColor(this, R.color.bungaeRed)
+            val colorList = ColorStateList.valueOf(color)
+            TextViewCompat.setCompoundDrawableTintList(binding.payCheckContinuePayment, colorList)
+        } else {
+            binding.payCheckContinuePayment.setTextColor(ContextCompat.getColor(this, R.color.gray))
+            TextViewCompat.setCompoundDrawableTintList(binding.payCheckContinuePayment, null)
+        }
+
+        payRequest = PayRequest(
+            safetyTax = (price * 0.035).toInt(),
+            point = 0,
+            totalPaymentAmount = (price * 1.035).toInt(),
+            paymentMethod = 1,
+            transactionMethod = 1,
+            address = "",
+        )
+
+        binding.payRdbtnBungae.isChecked = true
+
+        binding.payCheckContinuePayment.setOnClickListener {
+            isPaymentContinue = !isPaymentContinue
+            if (isPaymentContinue) {
+                binding.payCheckContinuePayment.setTextColor(ContextCompat.getColor(this, R.color.black))
+                val color = ContextCompat.getColor(this, R.color.bungaeRed)
+                val colorList = ColorStateList.valueOf(color)
+                TextViewCompat.setCompoundDrawableTintList(binding.payCheckContinuePayment, colorList)
+            } else {
+                binding.payCheckContinuePayment.setTextColor(ContextCompat.getColor(this, R.color.gray))
+                TextViewCompat.setCompoundDrawableTintList(binding.payCheckContinuePayment, null)
+            }
+        }
+
+        Glide.with(this)
+            .load(intent.getStringExtra("PAYMENT-IMG"))
+            .into(binding.payImgItem)
+
+        binding.payTxtTitle.text = intent.getStringExtra("PAYMENT-TITLE")
+        binding.payPrice.text = t_dec_up.format(price) + "원"
+
+        if (intent.getStringExtra("PAYMENT-TPYE") == "DIRECT") {
+            binding.payTxtMain.text = "직거래, 안전결제로\n구매합니다"
+            binding.payLinlayIncludeDelivery.visibility = View.GONE
+        } else if (intent.getStringExtra("PAYMENT-TPYE") == "PARCEL") {
+            binding.payTxtMain.text = "택배거래, 안전결제로\n구매합니다"
+            if (intent.getIntExtra("PAYMENT-INCLUDE-DELIVERY", 0) == 0) {
+                binding.payTxtIncludeDelivery.text = "배송비별도"
+            } else {
+                binding.payTxtIncludeDelivery.text = "배송비포함"
+            }
+        }
+
+        binding.payPaymentPrice.text = t_dec_up.format(price) + "원"
+        binding.payPaymentTax.text = "+" + t_dec_up.format(payRequest.safetyTax) + "원"
+        binding.payPaymentPriceTmp.text = t_dec_up.format(payRequest.totalPaymentAmount) + "원"
+        binding.payPaymentPriceTotal.text = t_dec_up.format(payRequest.totalPaymentAmount) + " 원"
+
+        binding.payBtnPayment.setOnClickListener {
+
+        }
     }
+
+    override fun onStop() {
+        super.onStop()
+
+        val editor = sSharedPreferences.edit()
+        editor.putBoolean(MY_PAYMENT_CONTINUE, isPaymentContinue)
+        editor.commit()
+    }
+
+    fun postPayment() {
+        showLoadingDialog(this)
+        PayService(this).tryGetData(payRequest)
+    }
+
+    override fun onGetDataSuccess(response: PayResponse) {
+
+    }
+
+    override fun onGetDataFailure(message: String) {
+
+    }
+
+
 }

@@ -10,9 +10,9 @@ import retrofit2.Response
 class RecmndService(val recmndFragmentInterface: RecmndFragmentInterface) {
 
     fun tryGetRestaurantData() {
-        val searchRetrofitInterface =
+        val retrofitInterface =
             ApplicationClass.sRetrofit.create(RecmndRetrofitInterface::class.java)
-        searchRetrofitInterface.getRecmndResponse()
+        retrofitInterface.getRecmndResponse()
             .enqueue(object : Callback<HomeRecmndResponse> {
                 override fun onResponse(
                     call: Call<HomeRecmndResponse>,

@@ -218,6 +218,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/pay_txt_des_bungae_point"
                 app:layout_constraintVertical_bias="0"/>
             <EditText
+                android:id="@+id/pay_edt_bungae_point"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
@@ -325,6 +326,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"/>
                     <TextView
+                        android:id="@+id/pay_payment_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="130,000원"
@@ -348,6 +350,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"/>
                     <TextView
+                        android:id="@+id/pay_payment_tax"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="+4,550원"
@@ -371,6 +374,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"/>
                     <TextView
+                        android:id="@+id/pay_payment_price_tmp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="134,550원"
@@ -394,6 +398,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"/>
                     <TextView
+                        android:id="@+id/pay_payment_bungae_point"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0원"
@@ -401,6 +406,7 @@
                         android:gravity="center"/>
                 </LinearLayout>
                 <LinearLayout
+                    android:id="@+id/pay_linlay_include_delivery"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="10dp"
@@ -417,6 +423,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"/>
                     <TextView
+                        android:id="@+id/pay_txt_include_delivery"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="배송비별도"
@@ -447,6 +454,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"/>
                     <TextView
+                        android:id="@+id/pay_payment_price_total"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="134,550 원"
@@ -479,6 +487,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/pay_txt_main"
                 app:layout_constraintVertical_bias="0">
                 <RadioButton
+                    android:id="@+id/pay_rdbtn_bungae"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
@@ -494,6 +503,7 @@
                     android:src="@drawable/pay_img_ad"
                     android:adjustViewBounds="true"/>
                 <RadioButton
+                    android:id="@+id/pay_rdbtn_other"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
@@ -533,6 +543,7 @@
                         android:gravity="center"/>
                 </LinearLayout>
                 <TextView
+                    android:id="@+id/pay_check_continue_payment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"

@@ -12,7 +12,8 @@ import com.bhongj.rc_test_bunjang.config.BaseActivity
 import com.bhongj.rc_test_bunjang.databinding.ActivityProductDetailBinding
 import com.bhongj.rc_test_bunjang.src.main.detailPage.models.DetailResponse
 import com.bhongj.rc_test_bunjang.src.main.detailPage.pay.SlidingPayFragment
-import com.google.android.material.progressindicator.CircularProgressIndicator
+import com.bhongj.rc_test_bunjang.src.main.detailPage.pay.models.PayPageData
+import com.bhongj.rc_test_bunjang.src.main.detailPage.pay.models.PayRequest
 import me.relex.circleindicator.CircleIndicator3
 import java.text.DecimalFormat
 import kotlin.math.abs
@@ -26,6 +27,12 @@ class ProductDetailActivity :
     lateinit var pagerAdapter: ItemSlidePagerAdapter
     lateinit var mIndicator: CircleIndicator3
 
+    val payPageData = PayPageData(
+        img = "",
+        title = "",
+        price = 0,
+        includeDelivery = 0,
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +41,7 @@ class ProductDetailActivity :
         getDeatilData(idx)
 
         binding.detailBtnPayment.setOnClickListener {
-            val slidingPayFragment = SlidingPayFragment()
+            val slidingPayFragment = SlidingPayFragment(payPageData)
             slidingPayFragment.show(supportFragmentManager, slidingPayFragment.tag)
         }
 
@@ -98,6 +105,7 @@ class ProductDetailActivity :
 
         val t_dec_up = DecimalFormat("#,###")
         t_dec_up.format(result.price)
+        payPageData.price = result.price
         binding.detailTxtPrice.text = t_dec_up.format(result.price).toString() + "원"
         if (result.saftyPay == 1) {
             binding.detailImgBungae.visibility = View.VISIBLE
@@ -105,6 +113,7 @@ class ProductDetailActivity :
             binding.detailImgBungae.visibility = View.INVISIBLE
         }
         binding.detailTxtTitle.text = result.productName
+        payPageData.title = result.productName
         binding.detailTxtTime.text
         binding.detailTxtEye.text = result.viewCount.toString()
         binding.detailTxtHeart.text = result.likeCount.toString()
@@ -118,8 +127,10 @@ class ProductDetailActivity :
         tmpStr = "$tmpStr • "
         if (result.includeFee == 0) {
             tmpStr += "배송비별도"
+            payPageData.includeDelivery = 0
         } else {
             tmpStr += "배송비포함"
+            payPageData.includeDelivery = 1
         }
         tmpStr = tmpStr + " • " + "총 ${result.amount}개"
         binding.detailTxtDelivery.text = tmpStr
@@ -131,6 +142,7 @@ class ProductDetailActivity :
 
         val imgUrl = result.imageUrl.split(",")
         DetailItemImg.addAll(imgUrl)
+        payPageData.img = imgUrl[0]
 
         pagerAdapter = ItemSlidePagerAdapter(this)
         val mPager = binding.detailVpMainItem

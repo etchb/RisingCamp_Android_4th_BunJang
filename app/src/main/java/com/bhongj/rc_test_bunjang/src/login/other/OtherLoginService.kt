@@ -13,9 +13,9 @@ import retrofit2.Response
 class OtherLoginService(val otherLoginActivityInterface: OtherLoginActivityInterface) {
 
     fun tryPostLogin(postLoginRequest: PostLoginRequest) {
-        val otherLoginRetrofitInterface =
+        val retrofitInterface =
             ApplicationClass.sRetrofit.create(OtherLoginRetrofitInterface::class.java)
-        otherLoginRetrofitInterface.postLogin(postLoginRequest)
+        retrofitInterface.postLogin(postLoginRequest)
             .enqueue(object : Callback<LoginResponse> {
                 override fun onResponse(
                     call: Call<LoginResponse>,
