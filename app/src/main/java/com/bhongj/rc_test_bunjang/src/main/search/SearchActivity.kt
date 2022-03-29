@@ -13,10 +13,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.LinearLayout
+import androidx.core.content.ContextCompat
 import androidx.core.view.size
 import com.bhongj.rc_test_bunjang.R
 import com.bhongj.rc_test_bunjang.config.BaseActivity
 import com.bhongj.rc_test_bunjang.databinding.ActivitySearchBinding
+import com.bhongj.rc_test_bunjang.src.main.detailPage.ProductDetailActivity
 import com.google.android.material.chip.Chip
 
 class SearchActivity : BaseActivity<ActivitySearchBinding>(ActivitySearchBinding::inflate) {
@@ -59,7 +61,10 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(ActivitySearchBinding
                     searchWordList.remove(binding.tlbEdtSearch.text.toString())
                 }
                 searchWordList.add(binding.tlbEdtSearch.text.toString())
-                startActivity(Intent(this, SearchResultActivity::class.java))
+
+                val intent = Intent(this, SearchResultActivity::class.java)
+                ContextCompat.startActivity(this, intent, null)
+                this.overridePendingTransition(R.anim.horizon_enter_right, R.anim.transition_none)
 
                 return@setOnEditorActionListener true
             }
