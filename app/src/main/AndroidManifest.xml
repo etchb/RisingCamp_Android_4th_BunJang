@@ -58,7 +58,8 @@
             android:name=".src.main.itemRegistration.ItemRegistrationActivity"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.LoginTheme">
+            android:theme="@style/AppTheme.LoginTheme"
+            android:windowSoftInputMode="adjustResize|adjustPan">
         </activity>
         <activity
             android:name=".src.main.search.SearchActivity"
