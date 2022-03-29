@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.bhongj.rc_test_bunjang.R
 import com.bhongj.rc_test_bunjang.config.BaseFragment
 import com.bhongj.rc_test_bunjang.databinding.FragmentRecmndBinding
+import com.bhongj.rc_test_bunjang.src.main.home.recmnd.models.FavoritesResponse
 import com.bhongj.rc_test_bunjang.src.main.home.recmnd.models.HomeRecmndItem
 import com.bhongj.rc_test_bunjang.src.main.home.recmnd.models.HomeRecmndResponse
 
@@ -36,7 +37,7 @@ class RecmndFragment :
 
     fun getRecmndDataList() {
         showLoadingDialog(requireContext())
-        RecmndService(this).tryGetRestaurantData()
+        RecmndService(this).tryGetData()
     }
 
     override fun onGetDataSuccess(response: HomeRecmndResponse) {
@@ -49,5 +50,11 @@ class RecmndFragment :
     override fun onGetDataFailure(message: String) {
         dismissLoadingDialog()
         showCustomToast("오류 : $message")
+    }
+
+    override fun onPostFavoritesSuccess(response: FavoritesResponse) {
+    }
+
+    override fun onPostFavoritesFailure(message: String) {
     }
 }

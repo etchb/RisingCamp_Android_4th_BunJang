@@ -147,6 +147,23 @@ class ProductDetailActivity :
         binding.detailTxtTlbShopRating.text = "⭐ 5.0(${result.follower.toString()})"
         binding.viewWhite.visibility = View.GONE
 
+        var myLike = result.myLike
+        if (result.myLike == 0) {
+            binding.detailMyHeart.setImageResource(R.drawable.img_detail_btm_heart)
+        } else {
+            binding.detailMyHeart.setImageResource(R.drawable.img_detail_btm_heart_checked)
+        }
+
+        binding.detailMyHeart.setOnClickListener {
+            if (myLike == 0) {
+                myLike = 1
+                binding.detailMyHeart.setImageResource(R.drawable.img_detail_btm_heart)
+            } else {
+                myLike = 0
+                binding.detailMyHeart.setImageResource(R.drawable.img_detail_btm_heart_checked)
+            }
+        }
+
         val imgUrl = result.imageUrl.split(",")
         DetailItemImg.addAll(imgUrl)
         payPageData.img = imgUrl[0]

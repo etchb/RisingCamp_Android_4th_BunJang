@@ -8,6 +8,7 @@ import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
 import android.text.style.StyleSpan
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,9 +18,14 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bhongj.rc_test_bunjang.R
+import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.MY_IDX
+import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.sSharedPreferences
 import com.bhongj.rc_test_bunjang.databinding.ProductIemRecyclerBinding
 import com.bhongj.rc_test_bunjang.src.main.detailPage.ProductDetailActivity
+import com.bhongj.rc_test_bunjang.src.main.home.recmnd.models.FavoritesRequest
+import com.bhongj.rc_test_bunjang.src.main.home.recmnd.models.FavoritesResponse
 import com.bhongj.rc_test_bunjang.src.main.home.recmnd.models.HomeRecmndItem
+import com.bhongj.rc_test_bunjang.src.main.home.recmnd.models.HomeRecmndResponse
 import com.bumptech.glide.Glide
 import java.text.DecimalFormat
 
@@ -27,7 +33,7 @@ class ProductRcyAdapter(
     val rootActivity: Activity,
     private val productList: MutableList<HomeRecmndItem>
 ) :
-    RecyclerView.Adapter<ProductRcyAdapter.ViewHolder>() {
+    RecyclerView.Adapter<ProductRcyAdapter.ViewHolder>(), RecmndFragmentInterface {
     private lateinit var binding: ProductIemRecyclerBinding
 
     class ViewHolder(binding: ProductIemRecyclerBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -79,6 +85,14 @@ class ProductRcyAdapter(
             val t_dec_up = DecimalFormat("#,###")
             t_dec_up.format(item.price)
             txtPrice.text = t_dec_up.format(item.price).toString() + "원"
+
+            if (item.myLike == 0) {
+                imgHeart.setImageResource(R.drawable.img_heart)
+                imgHeart.setColorFilter(Color.argb(255, 255, 255, 255))
+            } else {
+                imgHeart.setImageResource(R.drawable.img_heart_checked)
+                imgHeart.setColorFilter(Color.argb(0, 0, 0, 0))
+            }
         }
     }
 
@@ -93,6 +107,13 @@ class ProductRcyAdapter(
         val item = productList[position]
 
         holder.imgHeart.setOnClickListener {
+            val idx = item.idx
+            RecmndService(this).tryPostData(
+                FavoritesRequest(
+                    userIdx = sSharedPreferences.getInt(MY_IDX, 0),
+                    productIdx = idx
+                )
+            )
             if (item.myLike == 1) {
                 item.myLike = 0
                 holder.imgHeart.setImageResource(R.drawable.img_heart)
@@ -118,4 +139,19 @@ class ProductRcyAdapter(
     }
 
     override fun getItemCount() = productList.size
+
+    override fun onGetDataSuccess(response: HomeRecmndResponse) {
+    }
+
+    override fun onGetDataFailure(message: String) {
+    }
+
+    override fun onPostFavoritesSuccess(response: FavoritesResponse) {
+        Log.d("TEST onPostFavoritesSuccess", response.message)
+        Log.d("TEST status", response.result.status.toString())
+    }
+
+    override fun onPostFavoritesFailure(message: String) {
+        Log.d("TEST onPostFavoritesFailure", message)
+    }
 }

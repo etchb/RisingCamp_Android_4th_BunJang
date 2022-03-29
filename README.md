@@ -67,3 +67,7 @@
 5. add detailPage API
 6. bug fix - home outlineProvider=none and detail naming
 7. put string from data to payPage
+8. payPage - apply  bungae point 
+9. apply payment API
+10. add payment done alert Toast
+11. apply detail_conlay_smmry_info
