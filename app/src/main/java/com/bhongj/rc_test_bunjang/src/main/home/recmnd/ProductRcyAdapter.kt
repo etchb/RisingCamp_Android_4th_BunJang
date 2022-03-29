@@ -19,9 +19,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bhongj.rc_test_bunjang.R
 import com.bhongj.rc_test_bunjang.databinding.ProductIemRecyclerBinding
 import com.bhongj.rc_test_bunjang.src.main.detailPage.ProductDetailActivity
+import com.bhongj.rc_test_bunjang.src.main.home.recmnd.models.HomeRecmndItem
 import com.bhongj.rc_test_bunjang.src.main.home.recmnd.models.Product
+import com.bumptech.glide.Glide
+import java.text.DecimalFormat
 
-class ProductRcyAdapter(val rootActivity:Activity, private val productList: MutableList<Product>) :
+class ProductRcyAdapter(
+    val rootActivity: Activity,
+    private val productList: MutableList<HomeRecmndItem>
+) :
     RecyclerView.Adapter<ProductRcyAdapter.ViewHolder>() {
     private lateinit var binding: ProductIemRecyclerBinding
 
@@ -39,11 +45,13 @@ class ProductRcyAdapter(val rootActivity:Activity, private val productList: Muta
             // Define click listener for the ViewHolder's View.
         }
 
-        fun bind(item: Product) {
-            imgProduct.setImageResource(item.img)
-            if (item.bungaePayEnabled) {
+        fun bind(rootActivity: Activity, item: HomeRecmndItem) {
+            Glide.with(rootActivity)
+                .load(item.imageUrl)
+                .into(imgProduct)
+            if (item.saftyPay == 1) {
                 imgBungae.visibility = View.VISIBLE
-                val spannableString = SpannableString("안전 " + item.title)
+                val spannableString = SpannableString("안전 " + item.productName)
                 spannableString.setSpan(
                     ForegroundColorSpan(Color.parseColor("#1A9C86")),
                     0,
@@ -59,16 +67,19 @@ class ProductRcyAdapter(val rootActivity:Activity, private val productList: Muta
                 txtTitle.text = spannableString
             } else {
                 imgBungae.visibility = View.GONE
-                txtTitle.text = item.title
+                txtTitle.text = item.productName
             }
-            if (item.heartCnt > 0) {
+            if (item.productLike > 0) {
                 linlaySmallHeart.visibility = View.VISIBLE
-                txtSmallHeartCnt.text = item.heartCnt.toString()
+                txtSmallHeartCnt.text = item.productLike.toString()
             } else {
                 linlaySmallHeart.visibility = View.GONE
             }
-            txtRegion.text = item.region
-            txtPrice.text = item.price
+            txtRegion.text = item.directtrans
+
+            val t_dec_up = DecimalFormat("#,###")
+            t_dec_up.format(item.price)
+            txtPrice.text = t_dec_up.format(item.price).toString() + "원"
         }
     }
 
@@ -83,12 +94,12 @@ class ProductRcyAdapter(val rootActivity:Activity, private val productList: Muta
         val item = productList[position]
 
         holder.imgHeart.setOnClickListener {
-            if (item.imgHeartCheck) {
-                item.imgHeartCheck = false
+            if (item.myLike == 1) {
+                item.myLike = 0
                 holder.imgHeart.setImageResource(R.drawable.img_heart)
                 holder.imgHeart.setColorFilter(Color.argb(255, 255, 255, 255))
             } else {
-                item.imgHeartCheck = true
+                item.myLike = 1
                 holder.imgHeart.setImageResource(R.drawable.img_heart_checked)
                 holder.imgHeart.setColorFilter(Color.argb(0, 0, 0, 0))
             }
@@ -98,10 +109,13 @@ class ProductRcyAdapter(val rootActivity:Activity, private val productList: Muta
             val intent = Intent(it.context, ProductDetailActivity::class.java)
             intent.putExtra("itemIdx", item.idx)
             ContextCompat.startActivity(it.context, intent, null)
-            rootActivity.overridePendingTransition(R.anim.horizon_enter_right, R.anim.transition_none)
+            rootActivity.overridePendingTransition(
+                R.anim.horizon_enter_right,
+                R.anim.transition_none
+            )
         }
 
-        holder.bind(item)
+        holder.bind(rootActivity, item)
     }
 
     override fun getItemCount() = productList.size

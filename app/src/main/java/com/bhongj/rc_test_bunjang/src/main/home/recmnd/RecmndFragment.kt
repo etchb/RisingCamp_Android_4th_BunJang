@@ -8,14 +8,18 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.bhongj.rc_test_bunjang.R
 import com.bhongj.rc_test_bunjang.config.BaseFragment
 import com.bhongj.rc_test_bunjang.databinding.FragmentRecmndBinding
-import com.bhongj.rc_test_bunjang.src.main.home.recmnd.models.Product
+import com.bhongj.rc_test_bunjang.src.main.home.recmnd.models.HomeRecmndItem
+import com.bhongj.rc_test_bunjang.src.main.home.recmnd.models.HomeRecmndResponse
 
 class RecmndFragment :
-    BaseFragment<FragmentRecmndBinding>(FragmentRecmndBinding::bind, R.layout.fragment_recmnd) {
-    val productList = mutableListOf<Product>()
+    BaseFragment<FragmentRecmndBinding>(FragmentRecmndBinding::bind, R.layout.fragment_recmnd),
+    RecmndFragmentInterface {
+    val productList = mutableListOf<HomeRecmndItem>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        getRecmndDataList()
 
         val adapter = ProductRcyAdapter(requireActivity(), productList)
         val productRcyView = binding.rcyHomeProduct
@@ -23,6 +27,11 @@ class RecmndFragment :
         productRcyView.setHasFixedSize(true)
         productRcyView.adapter = adapter
 
+        binding.rcyHomeProduct.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
+            if (!v.canScrollVertically(1)) {
+                getRecmndDataList()
+            }
+        }
     }
 
     override fun onCreateView(
@@ -31,63 +40,23 @@ class RecmndFragment :
         savedInstanceState: Bundle?
     ): View? {
 
-        productList.add(
-            Product(img = R.drawable.img_home_ad1,
-            bungaePayEnabled = true,
-            title = "갤럭시 GTX970",
-            price = "150,000원",
-            region = "지역정보 없음",
-            time = 1,
-            heartCnt = 0
-        )
-        )
-        productList.add(
-            Product(img = R.drawable.img_home_ad2,
-            bungaePayEnabled = true,
-            title = "이거팝니다이거팝니다이거팝니다.2",
-            price = "80,000원",
-            region = "화성시2",
-            time = 123,
-            heartCnt = 0
-        )
-        )
-        productList.add(
-            Product(img = R.drawable.img_home_ad3,
-            bungaePayEnabled = false,
-            title = "이거팝니다이거팝니다이거팝니다.3",
-            price = "30,000원",
-            region = "화성시3",
-            time = 123,
-            heartCnt = 0
-        )
-        )
-        productList.add(
-            Product(img = R.drawable.img_home_ad4,
-            bungaePayEnabled = false,
-            title = "이거팝니다.4",
-            price = "90,000원",
-            region = "화성시4",
-            time = 123,
-        )
-        )
-        productList.add(
-            Product(img = R.drawable.img_home_ad5,
-            bungaePayEnabled = true,
-            title = "이거팝니다.5",
-            price = "90,000원",
-            region = "화성시5",
-            time = 123,
-        )
-        )
-        productList.add(Product())
-        productList.add(Product())
-        productList.add(Product())
-        productList.add(Product())
-        productList.add(Product())
-        productList.add(Product())
-        productList.add(Product())
-        productList.add(Product())
-
         return super.onCreateView(inflater, container, savedInstanceState)
+    }
+
+    fun getRecmndDataList() {
+        showLoadingDialog(requireContext())
+        RecmndService(this).tryGetRestaurantData()
+    }
+
+    override fun onGetDataSuccess(response: HomeRecmndResponse) {
+        dismissLoadingDialog()
+        val result = response.result[1]
+        productList.addAll(result)
+        binding.rcyHomeProduct.adapter?.notifyDataSetChanged()
+    }
+
+    override fun onGetDataFailure(message: String) {
+        dismissLoadingDialog()
+        showCustomToast("오류 : $message")
     }
 }
