@@ -2,6 +2,7 @@ package com.bhongj.rc_test_bunjang.src.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.bhongj.rc_test_bunjang.R
 import com.bhongj.rc_test_bunjang.config.BaseActivity
@@ -20,6 +21,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         super.onCreate(savedInstanceState)
 
         initBottomNavigation()
+
+        if (intent.getBooleanExtra("isPaymentOut", false)) {
+            showCustomToast("정상적으로 구매가 완료되었습니다. 상품인덱스 : ${intent.getIntExtra("itemIdx", 0)}")
+        }
     }
 
     private fun initBottomNavigation() {

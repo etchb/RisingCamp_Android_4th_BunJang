@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.core.widget.TextViewCompat
@@ -142,8 +143,12 @@ class PayActivity :
 
     override fun onGetDataSuccess(response: PayResponse) {
         dismissLoadingDialog()
+        val itemIdx = intent.getIntExtra("PAYMENT-IDX", 0)
+
         val intent = Intent(this, MainActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        intent.putExtra("isPaymentOut", true)
+        intent.putExtra("itemIdx", itemIdx)
         startActivity(intent)
     }
 
