@@ -29,6 +29,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 
     private fun initBottomNavigation() {
         val fragmentList = arrayListOf<Fragment>()
+
         fragmentList.addAll(arrayListOf<Fragment>(HomeFragment(), ChatFragment(), MyPageFragment()))
 
         supportFragmentManager.beginTransaction()

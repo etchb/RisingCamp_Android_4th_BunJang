@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.fragment.app.Fragment
@@ -26,6 +27,8 @@ class HomeFragment :
 
     var isFront = true
     var threadCnt = 0
+
+    lateinit var adThread: Thread
 
     val AdResourseData = mutableListOf(
         R.drawable.img_home_ad1,
@@ -69,7 +72,7 @@ class HomeFragment :
             }
         })
 
-        Thread() {
+        adThread = Thread() {
             if (threadCnt == 0) {
                 threadCnt++
                 while (!isFront) {
@@ -88,7 +91,7 @@ class HomeFragment :
                 }
                 isFront = true
             }
-        }.start()
+        }
 
         binding.appbarlayHome.addOnOffsetChangedListener(object :
             AppBarLayout.OnOffsetChangedListener {
@@ -138,6 +141,14 @@ class HomeFragment :
         super.onStop()
 
         isFront = false
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        if (adThread.isAlive){
+            adThread.interrupt()
+        }
     }
 
     private inner class AdSlidePagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {

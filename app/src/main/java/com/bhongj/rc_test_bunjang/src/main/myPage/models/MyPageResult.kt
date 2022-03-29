@@ -1,6 +1,6 @@
 package com.bhongj.rc_test_bunjang.src.main.myPage.models
 
-data class MyProfileResult(
+data class MyPageResult(
     val count: Int,
     val posteddate: String,
     val productImage: String,

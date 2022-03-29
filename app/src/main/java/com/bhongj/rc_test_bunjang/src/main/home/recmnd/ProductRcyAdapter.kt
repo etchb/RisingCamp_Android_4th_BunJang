@@ -147,7 +147,6 @@ class ProductRcyAdapter(
     }
 
     override fun onPostFavoritesSuccess(response: FavoritesResponse) {
-        Log.d("TEST onPostFavoritesSuccess", response.message)
         Log.d("TEST status", response.result.status.toString())
     }
 
