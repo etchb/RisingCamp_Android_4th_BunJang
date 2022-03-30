@@ -13,6 +13,7 @@ import com.bhongj.rc_test_bunjang.databinding.ActivityProductDetailBinding
 import com.bhongj.rc_test_bunjang.src.main.detailPage.models.DetailResponse
 import com.bhongj.rc_test_bunjang.src.main.detailPage.pay.SlidingPayFragment
 import com.bhongj.rc_test_bunjang.src.main.detailPage.pay.models.PayPageData
+import com.bumptech.glide.Glide
 import me.relex.circleindicator.CircleIndicator3
 import java.text.DecimalFormat
 import kotlin.math.abs
@@ -166,7 +167,11 @@ class ProductDetailActivity :
 
         val imgUrl = result.imageUrl.split(",")
         DetailItemImg.addAll(imgUrl)
+
         payPageData.img = imgUrl[0]
+        Glide.with(this)
+            .load(imgUrl[0])
+            .into(binding.detailImgTlbItem)
 
         pagerAdapter = ItemSlidePagerAdapter(this)
         val mPager = binding.detailVpMainItem
