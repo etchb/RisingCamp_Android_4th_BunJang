@@ -15,6 +15,9 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
         <activity
+            android:name=".src.main.myPage.setting.modify.UserInfoModifyActivity"
+            android:exported="false" />
+        <activity
             android:name=".src.splash.SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait"
@@ -40,28 +43,28 @@
             android:name=".src.main.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".src.main.detailPage.ProductDetailActivity"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.LoginTheme"></activity>
+            android:theme="@style/AppTheme.LoginTheme" />
         <activity
             android:name=".src.main.detailPage.pay.PayActivity"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.LoginTheme"></activity>
+            android:theme="@style/AppTheme.LoginTheme" />
         <activity
             android:name=".src.main.itemRegistration.ItemRegistrationActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.LoginTheme"
-            android:windowSoftInputMode="adjustResize|adjustPan"></activity>
+            android:windowSoftInputMode="adjustResize|adjustPan" />
         <activity
             android:name=".src.main.search.SearchActivity"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/SearchActivityTheme"></activity>
+            android:theme="@style/SearchActivityTheme" />
         <activity
             android:name=".src.main.search.SearchResultActivity"
             android:exported="true"
@@ -71,8 +74,7 @@
             android:name=".src.main.myPage.setting.SetActivity"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.LoginTheme" >
-        </activity>
+            android:theme="@style/AppTheme.LoginTheme"></activity>
     </application>
 
 </manifest>

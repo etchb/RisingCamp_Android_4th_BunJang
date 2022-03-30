@@ -547,16 +547,6 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
-    <View
-        android:id="@+id/view_white"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@color/white"
-        android:visibility="visible"
-        app:layout_constraintTop_toTopOf="@+id/detail_scr_main"
-        app:layout_constraintBottom_toBottomOf="@+id/detail_scr_main"
-        app:layout_constraintLeft_toLeftOf="@+id/detail_scr_main"
-        app:layout_constraintRight_toRightOf="@+id/detail_scr_main"/>
     <LinearLayout
         android:id="@+id/linlay_btm"
         android:layout_width="match_parent"
@@ -604,4 +594,49 @@
             android:clickable="true"
             android:background="@drawable/ripple_background_rect_red"/>
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linlay_own"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:orientation="horizontal"
+        android:background="#F1F1F1"
+        app:layout_constraintTop_toBottomOf="@+id/detail_scr_main"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/detil_btn_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingHorizontal="60dp"
+            android:drawablePadding="10dp"
+            android:drawableLeft="@drawable/img_delete_item"
+            android:text="삭제"
+            android:textSize="17sp"
+            android:textColor="@color/gray"
+            android:fontFamily="@font/nanum_square_eb"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+    </LinearLayout>
+    <View
+        android:id="@+id/view_white"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

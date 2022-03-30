@@ -1,5 +1,6 @@
 package com.bhongj.rc_test_bunjang.src.main.detailPage
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -8,8 +9,12 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.bhongj.rc_test_bunjang.R
+import com.bhongj.rc_test_bunjang.config.ApplicationClass
+import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.MY_IDX
 import com.bhongj.rc_test_bunjang.config.BaseActivity
 import com.bhongj.rc_test_bunjang.databinding.ActivityProductDetailBinding
+import com.bhongj.rc_test_bunjang.src.main.MainActivity
+import com.bhongj.rc_test_bunjang.src.main.detailPage.models.DeleteResponse
 import com.bhongj.rc_test_bunjang.src.main.detailPage.models.DetailResponse
 import com.bhongj.rc_test_bunjang.src.main.detailPage.pay.SlidingPayFragment
 import com.bhongj.rc_test_bunjang.src.main.detailPage.pay.models.PayPageData
@@ -26,6 +31,7 @@ class ProductDetailActivity :
     val DetailItemImg = mutableListOf<String>()
     lateinit var pagerAdapter: ItemSlidePagerAdapter
     lateinit var mIndicator: CircleIndicator3
+    var itemIdx = 0
 
     val payPageData = PayPageData(
         idx = 0,
@@ -38,9 +44,13 @@ class ProductDetailActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val idx = intent.getIntExtra("itemIdx", 0)
-        getDeatilData(idx)
-        payPageData.idx = idx
+        itemIdx = intent.getIntExtra("itemIdx", 0)
+        getDeatilData(itemIdx)
+        payPageData.idx = itemIdx
+
+        binding.detilBtnDelete.setOnClickListener {
+            patchDeleteItem(itemIdx)
+        }
 
         binding.detailBtnPayment.setOnClickListener {
             val slidingPayFragment = SlidingPayFragment(payPageData)
@@ -98,6 +108,15 @@ class ProductDetailActivity :
             onBackPressed()
         } else {
             DetailService(this).tryGetData(idx)
+        }
+    }
+
+    fun patchDeleteItem(idx: Int) {
+        showLoadingDialog(this)
+        if (idx == 0) {
+            onBackPressed()
+        } else {
+            DetailService(this).tryPatchData(idx)
         }
     }
 
@@ -198,9 +217,26 @@ class ProductDetailActivity :
                 mIndicator.animatePageSelected(position % pagerAdapter.itemCount)
             }
         })
+
+        if (result.uidx == ApplicationClass.sSharedPreferences.getInt(MY_IDX, 0)) {
+            binding.linlayOwn.visibility = View.VISIBLE
+        }
     }
 
     override fun onGetDataFailure(message: String) {
+        dismissLoadingDialog()
+        showCustomToast("오류 : $message")
+    }
+
+    override fun onPatchSuccess(response: DeleteResponse) {
+        val intent = Intent(this, MainActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        intent.putExtra("isDelete", true)
+        intent.putExtra("itemIdx", itemIdx)
+        startActivity(intent)
+    }
+
+    override fun onPatchFailure(message: String) {
         dismissLoadingDialog()
         showCustomToast("오류 : $message")
     }

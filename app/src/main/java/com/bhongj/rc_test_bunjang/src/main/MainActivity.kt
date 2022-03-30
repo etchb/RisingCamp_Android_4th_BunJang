@@ -28,6 +28,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         if (intent.getBooleanExtra("isRegistration", false)) {
             showCustomToast("정상적으로 등록이 완료되었습니다. 상품이름 : ${intent.getStringExtra("itemName")}")
         }
+        if (intent.getBooleanExtra("isDelete", false)) {
+            showCustomToast("정상적으로 제품이 삭제되었습니다. 상품인덱스 : ${intent.getIntExtra("itemIdx", 0)}")
+        }
     }
 
     private fun initBottomNavigation() {
