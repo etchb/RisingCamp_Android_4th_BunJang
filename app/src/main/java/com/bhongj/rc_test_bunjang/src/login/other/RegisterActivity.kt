@@ -14,6 +14,8 @@ import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.MY_IDX
 import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.MY_NAME
 import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.MY_PASSWORD
 import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.MY_PHONE_NUMBER
+import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.MY_SEX
+import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.MY_SHOP_NAME
 import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.X_ACCESS_TOKEN
 import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.sSharedPreferences
 import com.bhongj.rc_test_bunjang.config.BaseActivity
@@ -232,6 +234,7 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(ActivityRegisterB
             editor.putString(MY_PHONE_NUMBER, binding.edtOtherLoginPhoneNum.text.toString())
             editor.putString(MY_NAME, binding.edtOtherLoginName.text.toString())
             editor.putString(MY_BIRTH, binding.edtOtherLoginRegistNumFr.text.toString())
+            editor.putString(MY_SEX, binding.edtOtherLoginRegistNumRr.text.toString())
             editor.putString(MY_PASSWORD, binding.edtOtherLoginCertify.text.toString())
             editor.commit()
 
@@ -264,7 +267,9 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(ActivityRegisterB
             editor.putString(MY_PHONE_NUMBER, binding.edtOtherLoginPhoneNum.text.toString())
             editor.putString(MY_NAME, binding.edtOtherLoginName.text.toString())
             editor.putString(MY_BIRTH, binding.edtOtherLoginRegistNumFr.text.toString())
+            editor.putString(MY_SEX, binding.edtOtherLoginRegistNumRr.text.toString())
             editor.putString(MY_PASSWORD, binding.edtOtherLoginCertify.text.toString())
+            editor.putString(MY_SHOP_NAME, binding.edtOtherLoginShopName.text.toString())
             editor.commit()
 
             val intent = Intent(this, MainActivity::class.java)

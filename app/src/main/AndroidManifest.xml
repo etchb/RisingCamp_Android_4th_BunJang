@@ -15,9 +15,6 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
         <activity
-            android:name=".src.main.myPage.setting.modify.UserInfoModifyActivity"
-            android:exported="false" />
-        <activity
             android:name=".src.splash.SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait"
@@ -75,6 +72,11 @@
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.LoginTheme"></activity>
+        <activity
+            android:name=".src.main.myPage.setting.modify.UserInfoModifyActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.LoginTheme"/>
     </application>
 
 </manifest>

@@ -31,6 +31,7 @@ class ApplicationClass : Application() {
         val MY_PHONE_NUMBER = "MY-PHONE-NUMBER"
         val MY_NAME = "MY-NAME"
         val MY_BIRTH = "MY-BIRTH"
+        val MY_SEX = "MY-SEX"
         val MY_PASSWORD = "MY-PASSWORD"
         val MY_PAYMENT_CONTINUE = "MY-PAYMENT-CONTINUE"
         val MY_SHOP_NAME = "MY-SHOP-NAME"

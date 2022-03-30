@@ -9,17 +9,17 @@ import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.MY_IDX
 import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.MY_NAME
 import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.MY_PASSWORD
 import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.MY_PHONE_NUMBER
+import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.MY_SEX
 import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.MY_SHOP_NAME
 import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.sSharedPreferences
 import com.bhongj.rc_test_bunjang.config.BaseActivity
 import com.bhongj.rc_test_bunjang.databinding.ActivitySetBinding
 import com.bhongj.rc_test_bunjang.src.login.LoginActivity
+import com.bhongj.rc_test_bunjang.src.main.myPage.setting.modify.UserInfoModifyActivity
 
 class SetActivity : BaseActivity<ActivitySetBinding>(ActivitySetBinding::inflate) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        binding.setBtnLogout.text = "로그아웃 (${intent.getStringExtra(MY_SHOP_NAME)})"
 
         binding.setBtnLogout.setOnClickListener {
             val dlg = DialogLogout(this)
@@ -32,6 +32,7 @@ class SetActivity : BaseActivity<ActivitySetBinding>(ActivitySetBinding::inflate
                     editor.putString(MY_PHONE_NUMBER, "None")
                     editor.putString(MY_NAME, "None")
                     editor.putString(MY_BIRTH, "None")
+                    editor.putString(MY_SEX, "None")
                     editor.putString(MY_PASSWORD, "None")
                     editor.commit()
                     /* init sharedPreferences */
@@ -42,6 +43,28 @@ class SetActivity : BaseActivity<ActivitySetBinding>(ActivitySetBinding::inflate
                 }
             }
             dlg.start("show Dialog")
+        }
+
+        binding.setBtnUser.setOnClickListener {
+            val intent = Intent(this, UserInfoModifyActivity::class.java)
+            startActivityForResult(intent, 1)
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        binding.setBtnLogout.text = "로그아웃 (${sSharedPreferences.getString(MY_SHOP_NAME, "none")})"
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == RESULT_OK) {
+            when (requestCode) {
+                1 -> {
+                    showCustomToast("사용자정보가 업데이트되었습니다.")
+                }
+            }
         }
     }
 }

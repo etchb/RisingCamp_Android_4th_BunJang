@@ -1,6 +1,7 @@
 package com.bhongj.rc_test_bunjang.src.main.myPage
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import com.bhongj.rc_test_bunjang.R
@@ -22,7 +23,6 @@ class MyPageFragment :
 
         binding.tlbMySetting.setOnClickListener {
             val intent = Intent(requireContext(), SetActivity::class.java)
-            intent.putExtra(MY_SHOP_NAME, binding.myPageMyShopName.text.toString())
             startActivity(intent)
         }
     }
@@ -41,6 +41,11 @@ class MyPageFragment :
         dismissLoadingDialog()
         val result = response.result[0][0]
         binding.myPageMyShopName.text = result.userShopName
+
+        val editor: SharedPreferences.Editor = ApplicationClass.sSharedPreferences.edit()
+        editor.putString(MY_SHOP_NAME, result.userShopName)
+        editor.commit()
+
         binding.viewWhite.visibility = View.GONE
     }
 
