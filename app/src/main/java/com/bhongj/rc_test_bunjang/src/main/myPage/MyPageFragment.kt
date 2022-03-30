@@ -3,13 +3,13 @@ package com.bhongj.rc_test_bunjang.src.main.myPage
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.core.content.ContextCompat
 import com.bhongj.rc_test_bunjang.R
 import com.bhongj.rc_test_bunjang.config.ApplicationClass
 import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.MY_SHOP_NAME
 import com.bhongj.rc_test_bunjang.config.BaseFragment
 import com.bhongj.rc_test_bunjang.databinding.FragmentMyPageBinding
 import com.bhongj.rc_test_bunjang.src.main.myPage.models.MyPageResponse
+import com.bhongj.rc_test_bunjang.src.main.myPage.setting.SetActivity
 
 class MyPageFragment :
     BaseFragment<FragmentMyPageBinding>(FragmentMyPageBinding::bind, R.layout.fragment_my_page),

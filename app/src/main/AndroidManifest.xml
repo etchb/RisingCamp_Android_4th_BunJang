@@ -68,7 +68,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.LoginTheme" />
         <activity
-            android:name=".src.main.myPage.SetActivity"
+            android:name=".src.main.myPage.setting.SetActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.LoginTheme" >

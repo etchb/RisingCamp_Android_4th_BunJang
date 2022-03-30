@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/lightlightGray"
-    tools:context=".src.main.myPage.SetActivity">
+    tools:context=".src.main.myPage.setting.SetActivity">
     <LinearLayout
         android:id="@+id/regi_tlb_home"
         android:layout_width="match_parent"
