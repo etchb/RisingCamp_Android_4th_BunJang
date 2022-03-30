@@ -1,9 +1,12 @@
 package com.bhongj.rc_test_bunjang.src.main.myPage
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.core.content.ContextCompat
 import com.bhongj.rc_test_bunjang.R
 import com.bhongj.rc_test_bunjang.config.ApplicationClass
+import com.bhongj.rc_test_bunjang.config.ApplicationClass.Companion.MY_SHOP_NAME
 import com.bhongj.rc_test_bunjang.config.BaseFragment
 import com.bhongj.rc_test_bunjang.databinding.FragmentMyPageBinding
 import com.bhongj.rc_test_bunjang.src.main.myPage.models.MyPageResponse
@@ -16,6 +19,12 @@ class MyPageFragment :
         super.onViewCreated(view, savedInstanceState)
 
         getDataList()
+
+        binding.tlbMySetting.setOnClickListener {
+            val intent = Intent(requireContext(), SetActivity::class.java)
+            intent.putExtra(MY_SHOP_NAME, binding.myPageMyShopName.text.toString())
+            startActivity(intent)
+        }
     }
 
     fun getDataList() {
