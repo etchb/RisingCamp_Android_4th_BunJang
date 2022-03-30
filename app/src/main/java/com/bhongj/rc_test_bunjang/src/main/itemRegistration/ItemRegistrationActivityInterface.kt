@@ -7,4 +7,8 @@ interface ItemRegistrationActivityInterface {
     fun onPostDataSuccess(response: RegistrationResponse)
 
     fun onPostDataFailure(message: String)
+
+    fun onPatchUpdateSuccess(response: RegistrationResponse)
+
+    fun onPatchUpdateFailure(message: String)
 }

@@ -31,6 +31,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         if (intent.getBooleanExtra("isDelete", false)) {
             showCustomToast("정상적으로 제품이 삭제되었습니다. 상품인덱스 : ${intent.getIntExtra("itemIdx", 0)}")
         }
+        if (intent.getBooleanExtra("isUpdate", false)) {
+            showCustomToast("정상적으로 제품이 수정되었습니다. 상품인덱스 : ${intent.getIntExtra("itemIdx", 0)}")
+        }
     }
 
     private fun initBottomNavigation() {

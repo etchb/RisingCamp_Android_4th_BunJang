@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.Paint
 import android.os.Bundle
+import android.util.Log
 import com.bhongj.rc_test_bunjang.R
 import com.bhongj.rc_test_bunjang.config.BaseActivity
 import com.bhongj.rc_test_bunjang.databinding.ActivityItemRegistrationBinding
@@ -22,6 +23,44 @@ class ItemRegistrationActivity :
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        if (intent.getBooleanExtra("U_isUpdate", false)) {
+            binding.regiEdtName.setText(intent.getStringExtra("U_itemName"))
+            binding.regiEdtCategory.setText(intent.getStringExtra("U_category"))
+            binding.regiEdtPrice.setText(intent.getIntExtra("U_price", 0).toString())
+            binding.regiEdtDesc.setText(intent.getStringExtra("U_content"))
+            binding.regiEdtLocation.setText(intent.getStringExtra("U_location"))
+
+            isExchange = intent.getIntExtra("U_isExchange", 0) > 0
+            isNew = intent.getIntExtra("U_isNew", 0) > 0
+            includeFee = intent.getIntExtra("U_includeFee", 0) > 0
+            binding.regiCheckbox.isChecked = includeFee
+            isBungaePay = intent.getIntExtra("U_isBungaePay", 0) > 0
+            if (isBungaePay) {
+                binding.regiImgBungaePayCheck.setImageResource(R.drawable.pay_checked)
+                binding.regiLinlayPayCheck.setBackgroundResource(R.drawable.ripple_item_regi_textbox_border_checked)
+                binding.regiTxtBungaePay.setTextColor(Color.BLACK)
+            }
+            itemCnt = intent.getIntExtra("U_itemCnt", 0)
+            var tmpStr = ""
+            for (tmp in intent.getStringExtra("U_tag")?.split(",")!!) {
+                tmpStr += tmp + " "
+            }
+            binding.regiEdtTag.setText(tmpStr)
+            tmpStr = ""
+            tmpStr = itemCnt.toString() + "개 • "
+            tmpStr += if (isNew) {
+                "새상품 • "
+            } else {
+                "중고상품 • "
+            }
+            tmpStr += if (isExchange) {
+                "교환가능"
+            } else {
+                "교환불가"
+            }
+            binding.regiTxtOption.text = tmpStr
+        }
 
         binding.regiCheckbox.setOnClickListener {
             includeFee = binding.regiCheckbox.isChecked
@@ -80,22 +119,58 @@ class ItemRegistrationActivity :
                 0
             }
             val directtrans = binding.regiEdtLocation.text.toString()
-            postRegistration(
-                PostRegistrationRequest(
-                    imageUrl = imageUrl,
-                    tagName = tagName,
-                    categoryIdx = categoryIdx,
-                    productName = productName,
-                    productDesc = productDesc,
-                    productCondition = productCondition,
-                    saftyPay = saftyPay,
-                    isExchange = isExchange,
-                    amount = amount,
-                    includeFee = includeFee,
-                    price = price,
-                    directtrans = directtrans,
+            if (intent.getBooleanExtra("U_isUpdate", false)) {
+                Log.d("TEST U_itemIdx", intent.getIntExtra("U_itemIdx", 0).toString())
+                Log.d("TEST PostRegistrationRequest", PostRegistrationRequest(
+                        imageUrl = imageUrl,
+                        tagName = tagName,
+                        categoryIdx = categoryIdx,
+                        productName = productName,
+                        productDesc = productDesc,
+                        productCondition = productCondition,
+                        saftyPay = saftyPay,
+                        isExchange = isExchange,
+                        amount = amount,
+                        includeFee = includeFee,
+                        price = price,
+                        directtrans = directtrans,
+                    ).toString())
+//                patchUpdate(
+//                    intent.getIntExtra("U_itemIdx", 0),
+//                    PostRegistrationRequest(
+//                        imageUrl = imageUrl,
+//                        tagName = tagName,
+//                        categoryIdx = categoryIdx,
+//                        productName = productName,
+//                        productDesc = productDesc,
+//                        productCondition = productCondition,
+//                        saftyPay = saftyPay,
+//                        isExchange = isExchange,
+//                        amount = amount,
+//                        includeFee = includeFee,
+//                        price = price,
+//                        directtrans = directtrans,
+//                    )
+//                )
+
+            } else {
+                postRegistration(
+                    PostRegistrationRequest(
+                        imageUrl = imageUrl,
+                        tagName = tagName,
+                        categoryIdx = categoryIdx,
+                        productName = productName,
+                        productDesc = productDesc,
+                        productCondition = productCondition,
+                        saftyPay = saftyPay,
+                        isExchange = isExchange,
+                        amount = amount,
+                        includeFee = includeFee,
+                        price = price,
+                        directtrans = directtrans,
+                    )
                 )
-            )
+            }
         }
     }
 
@@ -124,17 +199,45 @@ class ItemRegistrationActivity :
         ItemRegistrationService(this).tryPostData(postRegistrationRequest)
     }
 
+    fun patchUpdate(itemIdx: Int, postRegistrationRequest: PostRegistrationRequest) {
+        showLoadingDialog(this)
+        ItemRegistrationService(this).tryPatchUpdateData(itemIdx, postRegistrationRequest)
+    }
+
     override fun onPostDataSuccess(response: RegistrationResponse) {
         dismissLoadingDialog()
-        val intent = Intent(this, MainActivity::class.java)
-        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        intent.putExtra("isRegistration", true)
-        intent.putExtra("itemName", binding.regiEdtName.text.toString())
-        startActivity(intent)
+        if (response.isSuccess) {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            intent.putExtra("isRegistration", true)
+            intent.putExtra("itemName", binding.regiEdtName.text.toString())
+            startActivity(intent)
+        } else {
+            showCustomToast("등록에 실패했습니다. 다시 시도하세요.")
+        }
     }
 
     override fun onPostDataFailure(message: String) {
         dismissLoadingDialog()
         showCustomToast("오류 : $message")
     }
+
+    override fun onPatchUpdateSuccess(response: RegistrationResponse) {
+        dismissLoadingDialog()
+//        if (response.isSuccess) {
+//            val intent = Intent(this, MainActivity::class.java)
+//            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+//            intent.putExtra("isUpdate", true)
+//            intent.putExtra("itemName", binding.regiEdtName.text.toString())
+//            startActivity(intent)
+//        } else {
+//            showCustomToast("수정에 실패했습니다. 다시 시도하세요.")
+//        }
+    }
+
+    override fun onPatchUpdateFailure(message: String) {
+        dismissLoadingDialog()
+        showCustomToast("오류 : $message")
+    }
 }
+

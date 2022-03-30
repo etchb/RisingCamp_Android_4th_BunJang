@@ -29,4 +29,22 @@ class ItemRegistrationService(val itemRegistrationActivityInterface: ItemRegistr
                 }
             })
     }
+
+    fun tryPatchUpdateData(productIdx: Int, postRegistrationRequest: PostRegistrationRequest) {
+        val retrofitInterface =
+            ApplicationClass.sRetrofit.create(ItemRegistrationRetrofitInterface::class.java)
+        retrofitInterface.patchUpdateResponse(productIdx, postRegistrationRequest)
+            .enqueue(object : Callback<RegistrationResponse> {
+                override fun onResponse(
+                    call: Call<RegistrationResponse>,
+                    response: Response<RegistrationResponse>
+                ) {
+                    itemRegistrationActivityInterface.onPostDataSuccess(response.body() as RegistrationResponse)
+                }
+
+                override fun onFailure(call: Call<RegistrationResponse>, t: Throwable) {
+                    itemRegistrationActivityInterface.onPostDataFailure(t.message ?: "통신 오류")
+                }
+            })
+    }
 }

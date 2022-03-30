@@ -596,7 +596,7 @@
     </LinearLayout>
     <LinearLayout
         android:id="@+id/linlay_own"
-        android:visibility="gone"
+        android:visibility="visible"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:orientation="horizontal"
@@ -605,13 +605,26 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
-        <View
+        <TextView
+            android:id="@+id/detil_btn_update"
             android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingHorizontal="60dp"
+            android:drawablePadding="10dp"
+            android:drawableLeft="@drawable/img_update_item"
+            android:text="수정"
+            android:textSize="17sp"
+            android:textColor="@color/gray"
+            android:fontFamily="@font/nanum_square_eb"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"/>
         <TextView
             android:id="@+id/detil_btn_delete"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:gravity="center"
@@ -624,10 +637,6 @@
             android:fontFamily="@font/nanum_square_eb"
             android:background="?attr/selectableItemBackground"
             android:clickable="true"/>
-        <View
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
     </LinearLayout>
     <View
         android:id="@+id/view_white"

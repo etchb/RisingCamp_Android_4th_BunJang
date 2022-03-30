@@ -16,8 +16,10 @@ import com.bhongj.rc_test_bunjang.databinding.ActivityProductDetailBinding
 import com.bhongj.rc_test_bunjang.src.main.MainActivity
 import com.bhongj.rc_test_bunjang.src.main.detailPage.models.DeleteResponse
 import com.bhongj.rc_test_bunjang.src.main.detailPage.models.DetailResponse
+import com.bhongj.rc_test_bunjang.src.main.detailPage.models.DetailResult
 import com.bhongj.rc_test_bunjang.src.main.detailPage.pay.SlidingPayFragment
 import com.bhongj.rc_test_bunjang.src.main.detailPage.pay.models.PayPageData
+import com.bhongj.rc_test_bunjang.src.main.itemRegistration.ItemRegistrationActivity
 import com.bumptech.glide.Glide
 import me.relex.circleindicator.CircleIndicator3
 import java.text.DecimalFormat
@@ -32,6 +34,7 @@ class ProductDetailActivity :
     lateinit var pagerAdapter: ItemSlidePagerAdapter
     lateinit var mIndicator: CircleIndicator3
     var itemIdx = 0
+    lateinit var result: DetailResult
 
     val payPageData = PayPageData(
         idx = 0,
@@ -50,6 +53,24 @@ class ProductDetailActivity :
 
         binding.detilBtnDelete.setOnClickListener {
             patchDeleteItem(itemIdx)
+        }
+
+        binding.detilBtnUpdate.setOnClickListener {
+            val intent = Intent(this, ItemRegistrationActivity::class.java)
+            intent.putExtra("U_itemIdx", itemIdx)
+            intent.putExtra("U_isUpdate", true)
+            intent.putExtra("U_itemCnt", result.amount) //int
+            intent.putExtra("U_isExchange", false) //
+            intent.putExtra("U_isNew", result.productCondition-1) //int
+            intent.putExtra("U_includeFee", result.includeFee-1) //int
+            intent.putExtra("U_isBungaePay", result.saftyPay) //int
+            intent.putExtra("U_itemName", result.productName) //string
+            intent.putExtra("U_category", result.categoryName) //string
+            intent.putExtra("U_tag", result.tag) //string
+            intent.putExtra("U_price", result.price) //int
+            intent.putExtra("U_content", result.productDesc) //string
+            intent.putExtra("U_location", result.directtrans) //string
+            startActivity(intent)
         }
 
         binding.detailBtnPayment.setOnClickListener {
@@ -122,7 +143,7 @@ class ProductDetailActivity :
 
     override fun onGetDataSuccess(response: DetailResponse) {
         dismissLoadingDialog()
-        val result = response.result
+        result = response.result
 
         val t_dec_up = DecimalFormat("#,###")
         t_dec_up.format(result.price)
