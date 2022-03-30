@@ -15,6 +15,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bhongj.rc_test_bunjang.R
@@ -37,12 +38,14 @@ class ProductRcyAdapter(
     private lateinit var binding: ProductIemRecyclerBinding
 
     class ViewHolder(binding: ProductIemRecyclerBinding) : RecyclerView.ViewHolder(binding.root) {
+        var rootlay: ConstraintLayout = binding.rcyRootlay
         var imgProduct: ImageView = binding.rcyImgProduct
         var imgHeart: ImageView = binding.rcyImgHeart
         var imgBungae: ImageView = binding.rcyImgBungae
         var txtRegion: TextView = binding.rcyTxtRegion
         var txtPrice: TextView = binding.rcyTxtPrice
         var txtTitle: TextView = binding.rcyTxtTitle
+        var txtTime: TextView = binding.rcyTxtTime
         var txtSmallHeartCnt: TextView = binding.rcyTxtSmallHeartCnt
         var linlaySmallHeart: LinearLayout = binding.rcyLinlaySmallHeart
 
@@ -54,6 +57,7 @@ class ProductRcyAdapter(
             Glide.with(rootActivity)
                 .load(item.imageUrl)
                 .into(imgProduct)
+            txtTime.text = item.createAt
             if (item.saftyPay == 1) {
                 imgBungae.visibility = View.VISIBLE
                 val spannableString = SpannableString("안전 " + item.productName)
@@ -125,9 +129,10 @@ class ProductRcyAdapter(
             }
         }
 
-        binding.rcyRootlay.setOnClickListener {
+        holder.rootlay.setOnClickListener {
+            val idx = item.idx
             val intent = Intent(it.context, ProductDetailActivity::class.java)
-            intent.putExtra("itemIdx", item.idx)
+            intent.putExtra("itemIdx", idx)
             ContextCompat.startActivity(it.context, intent, null)
             rootActivity.overridePendingTransition(
                 R.anim.horizon_enter_right,
