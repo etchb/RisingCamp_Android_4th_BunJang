@@ -1,6 +1,7 @@
 package com.bhongj.rc_test_bunjang.src.main.myPage.setting.modify
 
 import com.bhongj.rc_test_bunjang.src.main.myPage.setting.modify.models.UserInfoResponse
+import com.bhongj.rc_test_bunjang.src.main.myPage.setting.modify.models.UserOutResponse
 
 interface UserInfoActiviyInterface {
 
@@ -20,7 +21,7 @@ interface UserInfoActiviyInterface {
 
     fun onPatchShopSettingFailure(message: String)
 
-    fun onPatchUserOutSuccess(response: UserInfoResponse)
+    fun onPatchUserOutSuccess(response: UserOutResponse)
 
     fun onPatchUserOutFailure(message: String)
 }

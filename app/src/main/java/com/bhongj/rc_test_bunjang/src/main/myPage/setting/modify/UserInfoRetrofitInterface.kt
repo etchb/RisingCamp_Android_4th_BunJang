@@ -35,5 +35,5 @@ interface UserInfoRetrofitInterface {
     fun patchUserOutResponse(
         @Path("userIdx") userIdx: Int,
         @Body userOutRequest: UserOutRequest
-    ): Call<UserInfoResponse>
+    ): Call<UserOutResponse>
 }

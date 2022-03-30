@@ -85,15 +85,15 @@ class UserInfoService(val layoutInterface: UserInfoActiviyInterface) {
         val retrofitInterface =
             ApplicationClass.sRetrofit.create(UserInfoRetrofitInterface::class.java)
         retrofitInterface.patchUserOutResponse(userIdx, userOutRequest)
-            .enqueue(object : Callback<UserInfoResponse> {
+            .enqueue(object : Callback<UserOutResponse> {
                 override fun onResponse(
-                    call: Call<UserInfoResponse>,
-                    response: Response<UserInfoResponse>
+                    call: Call<UserOutResponse>,
+                    response: Response<UserOutResponse>
                 ) {
-                    layoutInterface.onPatchUserOutSuccess(response.body() as UserInfoResponse)
+                    layoutInterface.onPatchUserOutSuccess(response.body() as UserOutResponse)
                 }
 
-                override fun onFailure(call: Call<UserInfoResponse>, t: Throwable) {
+                override fun onFailure(call: Call<UserOutResponse>, t: Throwable) {
                     layoutInterface.onPatchUserOutFailure(t.message ?: "통신 오류")
                 }
             })
