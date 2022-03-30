@@ -152,6 +152,7 @@
                 android:clickable="true"
                 android:background="@drawable/ripple_item_regi_textbox_border" />
             <TextView
+                android:id="@+id/regi_txt_option"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"

@@ -25,6 +25,7 @@
     <color name="DarkGray">#606060</color>
     <color name="LightDark">#303030</color>
     <color name="bungaeRed">#D80C18</color>
+    <color name="lightRed">#FFE9EA</color>
     <color name="translucent_30">#4D000000</color>
     <color name="translucent_10">#1A000000</color>
 

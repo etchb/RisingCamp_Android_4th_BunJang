@@ -40,11 +40,12 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:padding="12dp"
+                android:hint="0"
                 android:layout_weight="0.74"
                 android:background="@drawable/pay_textbox_border"
                 android:textSize="12sp"
                 android:textColor="@color/black"
-                android:fontFamily="@font/nanum_square_b"/>
+                android:fontFamily="@font/nanum_square_eb"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -66,24 +67,26 @@
                 android:padding="12dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="0.37"
-                android:background="@drawable/pay_textbox_border"
+                android:background="@drawable/option_white_border"
                 android:text="중고상품"
                 android:textSize="12sp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/nanum_square_b"
-                android:gravity="center"/>
+                android:textColor="@color/gray"
+                android:fontFamily="@font/nanum_square_eb"
+                android:gravity="center"
+                android:clickable="true"/>
             <TextView
                 android:id="@+id/option_btn_item_new"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:padding="12dp"
                 android:layout_weight="0.37"
-                android:background="@drawable/pay_textbox_border"
+                android:background="@drawable/option_white_border"
                 android:text="새상품"
                 android:textSize="12sp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/nanum_square_b"
-                android:gravity="center"/>
+                android:textColor="@color/gray"
+                android:fontFamily="@font/nanum_square_eb"
+                android:gravity="center"
+                android:clickable="true"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -105,24 +108,26 @@
                 android:padding="12dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="0.37"
-                android:background="@drawable/pay_textbox_border"
+                android:background="@drawable/option_white_border"
                 android:text="불가"
                 android:textSize="12sp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/nanum_square_b"
-                android:gravity="center"/>
+                android:textColor="@color/gray"
+                android:fontFamily="@font/nanum_square_eb"
+                android:gravity="center"
+                android:clickable="true"/>
             <TextView
                 android:id="@+id/option_btn_exchange_ok"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:padding="12dp"
                 android:layout_weight="0.37"
-                android:background="@drawable/pay_textbox_border"
+                android:background="@drawable/option_white_border"
                 android:text="가능"
                 android:textSize="12sp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/nanum_square_b"
-                android:gravity="center"/>
+                android:textColor="@color/gray"
+                android:fontFamily="@font/nanum_square_eb"
+                android:gravity="center"
+                android:clickable="true"/>
         </LinearLayout>
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/option_btn_done"
