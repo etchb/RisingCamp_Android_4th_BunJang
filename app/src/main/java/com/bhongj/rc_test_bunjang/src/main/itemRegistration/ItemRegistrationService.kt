@@ -12,7 +12,7 @@ import retrofit2.Response
 
 class ItemRegistrationService(val itemRegistrationActivityInterface: ItemRegistrationActivityInterface) {
 
-    fun tryPostData(idx: Int, postRegistrationRequest: PostRegistrationRequest) {
+    fun tryPostData(postRegistrationRequest: PostRegistrationRequest) {
         val retrofitInterface =
             ApplicationClass.sRetrofit.create(ItemRegistrationRetrofitInterface::class.java)
         retrofitInterface.postResponse(postRegistrationRequest)
