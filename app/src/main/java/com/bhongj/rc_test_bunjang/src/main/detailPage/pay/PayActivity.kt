@@ -89,6 +89,7 @@ class PayActivity :
         binding.payPrice.text = t_dec_up.format(price) + "원"
 
         if (intent.getStringExtra("PAYMENT-TPYE") == "DIRECT") {
+            binding.payConlayDelivery.visibility = View.GONE
             binding.payTxtMain.text = "직거래, 안전결제로\n구매합니다"
             binding.payLinlayIncludeDelivery.visibility = View.GONE
         } else if (intent.getStringExtra("PAYMENT-TPYE") == "PARCEL") {

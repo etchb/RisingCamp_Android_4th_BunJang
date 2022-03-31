@@ -106,96 +106,108 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintVertical_bias="0" />
 
-            <TextView
-                android:id="@+id/pay_txt_des_delivery"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/pay_conlay_delivery"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="60dp"
-                android:text="배송지"
-                android:textAppearance="@style/pay_main_des_black"
                 app:layout_constraintTop_toBottomOf="@+id/view_empty"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/pay_txt_main"
                 app:layout_constraintEnd_toEndOf="@+id/pay_txt_main"
-                app:layout_constraintVertical_bias="0"/>
+                app:layout_constraintVertical_bias="0" >
+                <TextView
+                    android:id="@+id/pay_txt_des_delivery"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="60dp"
+                    android:text="배송지"
+                    android:textAppearance="@style/pay_main_des_black"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintVertical_bias="0"/>
 
-            <View
-                android:id="@+id/pay_view_delivery"
-                android:layout_width="0dp"
-                android:layout_height="55dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/pay_textbox_border"
-                app:layout_constraintTop_toBottomOf="@+id/pay_txt_des_delivery"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/pay_txt_des_delivery"
-                app:layout_constraintEnd_toEndOf="@+id/pay_txt_des_delivery"
-                app:layout_constraintVertical_bias="0"/>
-            <EditText
-                android:id="@+id/pay_edt_address"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="15dp"
-                android:hint="배송지를 등록해주세요"
-                android:textColorHint="@color/gray"
-                android:textColor="@color/black"
-                android:textAppearance="@style/pay_main_des_gray"
-                android:maxLines="1"
-                android:gravity="center_vertical"
-                android:background="@color/white"
-                app:layout_constraintTop_toTopOf="@+id/pay_view_delivery"
-                app:layout_constraintBottom_toBottomOf="@+id/pay_view_delivery"
-                app:layout_constraintStart_toStartOf="@+id/pay_view_delivery"
-                app:layout_constraintRight_toRightOf="@+id/pay_view_delivery"
-                app:layout_constraintWidth_percent="0.7"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_marginHorizontal="20dp"
-                android:text="등록"
-                android:textSize="13sp"
-                android:textColor="@color/edtTextHandle"
-                android:fontFamily="@font/nanum_square_eb"
-                android:gravity="center"
-                app:layout_constraintTop_toTopOf="@+id/pay_view_delivery"
-                app:layout_constraintBottom_toBottomOf="@+id/pay_view_delivery"
-                app:layout_constraintLeft_toLeftOf="@+id/pay_view_delivery"
-                app:layout_constraintEnd_toEndOf="@+id/pay_view_delivery"/>
+                <View
+                    android:id="@+id/pay_view_delivery"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/pay_textbox_border"
+                    app:layout_constraintTop_toBottomOf="@+id/pay_txt_des_delivery"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/pay_txt_des_delivery"
+                    app:layout_constraintEnd_toEndOf="@+id/pay_txt_des_delivery"
+                    app:layout_constraintVertical_bias="0"/>
+                <EditText
+                    android:id="@+id/pay_edt_address"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:hint="배송지를 등록해주세요"
+                    android:textColorHint="@color/gray"
+                    android:textColor="@color/black"
+                    android:textAppearance="@style/pay_main_des_gray"
+                    android:maxLines="1"
+                    android:gravity="center_vertical"
+                    android:background="@color/white"
+                    app:layout_constraintTop_toTopOf="@+id/pay_view_delivery"
+                    app:layout_constraintBottom_toBottomOf="@+id/pay_view_delivery"
+                    app:layout_constraintStart_toStartOf="@+id/pay_view_delivery"
+                    app:layout_constraintRight_toRightOf="@+id/pay_view_delivery"
+                    app:layout_constraintWidth_percent="0.7"/>
+                <TextView
+                    android:id="@+id/pay_btn_regi_delivery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="0dp"
+                    android:paddingHorizontal="20dp"
+                    android:text="등록"
+                    android:textSize="13sp"
+                    android:textColor="@color/edtTextHandle"
+                    android:fontFamily="@font/nanum_square_eb"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:background="?attr/selectableItemBackground"
+                    app:layout_constraintTop_toTopOf="@+id/pay_view_delivery"
+                    app:layout_constraintBottom_toBottomOf="@+id/pay_view_delivery"
+                    app:layout_constraintLeft_toLeftOf="@+id/pay_view_delivery"
+                    app:layout_constraintEnd_toEndOf="@+id/pay_view_delivery"/>
 
-            <View
-                android:id="@+id/pay_view_delivery_request"
-                android:layout_width="0dp"
-                android:layout_height="55dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/pay_textbox_border"
-                app:layout_constraintTop_toBottomOf="@+id/pay_view_delivery"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/pay_view_delivery"
-                app:layout_constraintEnd_toEndOf="@+id/pay_view_delivery"
-                app:layout_constraintVertical_bias="0"/>
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="15dp"
-                android:text="배송 요청사항 (선택)"
-                android:textAppearance="@style/pay_main_des_gray"
-                android:gravity="center_vertical"
-                android:background="@color/white"
-                app:layout_constraintTop_toTopOf="@+id/pay_view_delivery_request"
-                app:layout_constraintBottom_toBottomOf="@+id/pay_view_delivery_request"
-                app:layout_constraintStart_toStartOf="@+id/pay_view_delivery_request"
-                app:layout_constraintRight_toRightOf="@+id/pay_view_delivery_request"/>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_marginHorizontal="20dp"
-                android:src="@drawable/other_login_down_angle_braket_resize"
-                android:gravity="center"
-                app:layout_constraintTop_toTopOf="@+id/pay_view_delivery_request"
-                app:layout_constraintBottom_toBottomOf="@+id/pay_view_delivery_request"
-                app:layout_constraintLeft_toLeftOf="@+id/pay_view_delivery_request"
-                app:layout_constraintEnd_toEndOf="@+id/pay_view_delivery_request"/>
-
-
+                <View
+                    android:id="@+id/pay_view_delivery_request"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/pay_textbox_border"
+                    app:layout_constraintTop_toBottomOf="@+id/pay_view_delivery"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/pay_view_delivery"
+                    app:layout_constraintEnd_toEndOf="@+id/pay_view_delivery"
+                    app:layout_constraintVertical_bias="0"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:text="배송 요청사항 (선택)"
+                    android:textAppearance="@style/pay_main_des_gray"
+                    android:gravity="center_vertical"
+                    android:background="@color/white"
+                    app:layout_constraintTop_toTopOf="@+id/pay_view_delivery_request"
+                    app:layout_constraintBottom_toBottomOf="@+id/pay_view_delivery_request"
+                    app:layout_constraintStart_toStartOf="@+id/pay_view_delivery_request"
+                    app:layout_constraintRight_toRightOf="@+id/pay_view_delivery_request"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:src="@drawable/other_login_down_angle_braket_resize"
+                    android:gravity="center"
+                    app:layout_constraintTop_toTopOf="@+id/pay_view_delivery_request"
+                    app:layout_constraintBottom_toBottomOf="@+id/pay_view_delivery_request"
+                    app:layout_constraintLeft_toLeftOf="@+id/pay_view_delivery_request"
+                    app:layout_constraintEnd_toEndOf="@+id/pay_view_delivery_request"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
                 android:id="@+id/pay_txt_des_bungae_point"
@@ -204,7 +216,7 @@
                 android:layout_marginTop="60dp"
                 android:text="번개포인트"
                 android:textAppearance="@style/pay_main_des_black"
-                app:layout_constraintTop_toBottomOf="@+id/pay_view_delivery_request"
+                app:layout_constraintTop_toBottomOf="@+id/pay_conlay_delivery"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/pay_txt_main"
                 app:layout_constraintEnd_toEndOf="@+id/pay_txt_main"
