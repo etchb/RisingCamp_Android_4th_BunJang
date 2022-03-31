@@ -4,7 +4,6 @@ import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.fragment.app.Fragment
@@ -26,7 +25,6 @@ class HomeFragment :
     BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home) {
 
     var isFront = true
-    var threadCnt = 0
 
     lateinit var adThread: Thread
 
@@ -44,7 +42,6 @@ class HomeFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         var adPageCnt = 0
-        var pageChanged = false
 
         binding.scrSubCategory.setOnScrollChangeListener { view, i, i2, i3, i4 ->
             val maxWidthScroll =
@@ -67,31 +64,21 @@ class HomeFragment :
                 binding.txtHomeAdIdx.text =
                     "${binding.vpHomeAd.currentItem + 1}/${AdResourseData.size}"
                 adPageCnt = binding.vpHomeAd.currentItem
-                pageChanged = true
                 super.onPageSelected(position)
             }
         })
 
         adThread = Thread() {
-            if (threadCnt == 0) {
-                threadCnt++
-                while (!isFront) {
-                    Thread.sleep(100)
+            val handler = Handler(Looper.getMainLooper())
+            while (isFront) {
+                handler.post {
+                    binding.vpHomeAd.setCurrentItem(adPageCnt++ % AdResourseData.size, false)
                 }
-                val handler = Handler(Looper.getMainLooper())
-                while (isFront) {
-                    Thread.sleep(2000)
-                    if (pageChanged) {
-                        pageChanged = false
-                        continue
-                    }
-                    handler.post {
-                        binding.vpHomeAd.setCurrentItem(++adPageCnt % AdResourseData.size, false)
-                    }
-                }
-                isFront = true
+                Thread.sleep(2000)
             }
         }
+        isFront = true
+        adThread.start()
 
         binding.appbarlayHome.addOnOffsetChangedListener(object :
             AppBarLayout.OnOffsetChangedListener {
@@ -137,18 +124,10 @@ class HomeFragment :
 
     }
 
-    override fun onStop() {
-        super.onStop()
-
-        isFront = false
-    }
-
     override fun onDestroy() {
         super.onDestroy()
 
-        if (adThread.isAlive){
-            adThread.interrupt()
-        }
+        isFront = false
     }
 
     private inner class AdSlidePagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {

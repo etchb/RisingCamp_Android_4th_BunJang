@@ -31,7 +31,7 @@ interface UserInfoRetrofitInterface {
         @Body udShopSettingRequest: UdShopSettingRequest
     ): Call<UserInfoResponse>
 
-    @PATCH("/app/users/{userIdx}/delete")
+    @PATCH("/app/users/delete/{userIdx}")
     fun patchUserOutResponse(
         @Path("userIdx") userIdx: Int,
         @Body userOutRequest: UserOutRequest

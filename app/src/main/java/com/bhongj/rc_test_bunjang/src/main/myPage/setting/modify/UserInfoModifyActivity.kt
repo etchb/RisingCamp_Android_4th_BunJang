@@ -68,9 +68,10 @@ class UserInfoModifyActivity :
             dlg.setOnClickedListener { content ->
                 if (content == "확인을 눌렀습니다") {
                     Log.d("TEST content", content)
+                    showLoadingDialog(this)
                     UserInfoService(this).tryPatchUserOut(
                         myIdx,
-                        UserOutRequest(binding.edtUserOutReason.text.toString())
+                        UserOutRequest(closingReason = binding.edtUserOutReason.text.toString())
                     )
                 }
             }
@@ -87,7 +88,7 @@ class UserInfoModifyActivity :
 
         if (response.isSuccess) {
             val editor: SharedPreferences.Editor = sSharedPreferences.edit()
-            editor.putString(MY_SEX, binding.edtRegistNumFr.text.toString())
+            editor.putString(MY_SEX, binding.edtRegistNumRr.text.toString())
             editor.commit()
             successCnt++
             if (successCnt == 4) {
@@ -95,7 +96,7 @@ class UserInfoModifyActivity :
                 finish()
             }
         } else {
-            binding.edtRegistNumFr.setText(response.message)
+            binding.edtRegistNumRr.setText(response.message)
         }
     }
 
