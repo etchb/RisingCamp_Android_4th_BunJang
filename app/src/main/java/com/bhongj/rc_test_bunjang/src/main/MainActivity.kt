@@ -2,9 +2,11 @@ package com.bhongj.rc_test_bunjang.src.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.bhongj.rc_test_bunjang.R
+import com.bhongj.rc_test_bunjang.config.ApplicationClass
 import com.bhongj.rc_test_bunjang.config.BaseActivity
 import com.bhongj.rc_test_bunjang.databinding.ActivityMainBinding
 import com.bhongj.rc_test_bunjang.src.main.chat.ChatFragment
@@ -23,17 +25,20 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         initBottomNavigation()
 
         if (intent.getBooleanExtra("isPaymentOut", false)) {
-            showCustomToast("정상적으로 구매가 완료되었습니다. 상품인덱스 : ${intent.getIntExtra("itemIdx", 0)}")
+            showCustomToast("정상적으로 구매가 완료되었습니다. 상품이름 : ${intent.getStringExtra("itemName")}")
         }
         if (intent.getBooleanExtra("isRegistration", false)) {
             showCustomToast("정상적으로 등록이 완료되었습니다. 상품이름 : ${intent.getStringExtra("itemName")}")
         }
         if (intent.getBooleanExtra("isDelete", false)) {
-            showCustomToast("정상적으로 제품이 삭제되었습니다. 상품인덱스 : ${intent.getIntExtra("itemIdx", 0)}")
+            showCustomToast("정상적으로 제품이 삭제되었습니다. 상품이름 : ${intent.getStringExtra("itemName")}")
         }
         if (intent.getBooleanExtra("isUpdate", false)) {
-            showCustomToast("정상적으로 제품이 수정되었습니다. 상품인덱스 : ${intent.getIntExtra("itemIdx", 0)}")
+            showCustomToast("정상적으로 제품이 수정되었습니다. 상품이름 : ${intent.getStringExtra("itemName")}")
         }
+
+        ApplicationClass.sSharedPreferences.getString(ApplicationClass.X_ACCESS_TOKEN, "")
+            ?.let { Log.d("TEST X_ACCESS_TOKEN", it) }
     }
 
     private fun initBottomNavigation() {

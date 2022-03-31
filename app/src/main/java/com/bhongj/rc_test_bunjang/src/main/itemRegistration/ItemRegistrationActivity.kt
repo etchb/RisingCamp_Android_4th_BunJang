@@ -11,6 +11,7 @@ import com.bhongj.rc_test_bunjang.databinding.ActivityItemRegistrationBinding
 import com.bhongj.rc_test_bunjang.src.main.MainActivity
 import com.bhongj.rc_test_bunjang.src.main.itemRegistration.models.PostRegistrationRequest
 import com.bhongj.rc_test_bunjang.src.main.itemRegistration.models.RegistrationResponse
+import com.bhongj.rc_test_bunjang.src.main.itemRegistration.models.UpdateDataResponse
 
 class ItemRegistrationActivity :
     BaseActivity<ActivityItemRegistrationBinding>(ActivityItemRegistrationBinding::inflate),
@@ -44,8 +45,11 @@ class ItemRegistrationActivity :
             itemCnt = intent.getIntExtra("U_itemCnt", 0)
             var tmpStr = ""
             for (tmp in intent.getStringExtra("U_tag")?.split(",")!!) {
-                tmpStr += tmp + " "
+                tmpStr += "$tmp "
             }
+            tmpStr = tmpStr.trimStart()
+            tmpStr = tmpStr.trimEnd()
+
             binding.regiEdtTag.setText(tmpStr)
             tmpStr = ""
             tmpStr = itemCnt.toString() + "개 • "
@@ -88,7 +92,10 @@ class ItemRegistrationActivity :
 
         binding.regiBtnRegist.setOnClickListener {
             val imageUrl = listOf("imageUrl1", "imageUrl2")
-            val tagName = binding.regiEdtTag.text.toString().split(" ")
+            var tmpStr = binding.regiEdtTag.text.toString()
+            tmpStr = tmpStr.trimStart()
+            tmpStr = tmpStr.trimEnd()
+            val tagName = tmpStr.split(" ")
             val categoryIdx = 1
             val productName = binding.regiEdtName.text.toString()
             val productDesc = binding.regiEdtDesc.text.toString()
@@ -135,23 +142,23 @@ class ItemRegistrationActivity :
                         price = price,
                         directtrans = directtrans,
                     ).toString())
-//                patchUpdate(
-//                    intent.getIntExtra("U_itemIdx", 0),
-//                    PostRegistrationRequest(
-//                        imageUrl = imageUrl,
-//                        tagName = tagName,
-//                        categoryIdx = categoryIdx,
-//                        productName = productName,
-//                        productDesc = productDesc,
-//                        productCondition = productCondition,
-//                        saftyPay = saftyPay,
-//                        isExchange = isExchange,
-//                        amount = amount,
-//                        includeFee = includeFee,
-//                        price = price,
-//                        directtrans = directtrans,
-//                    )
-//                )
+                patchUpdate(
+                    intent.getIntExtra("U_itemIdx", 0),
+                    PostRegistrationRequest(
+                        imageUrl = imageUrl,
+                        tagName = tagName,
+                        categoryIdx = categoryIdx,
+                        productName = productName,
+                        productDesc = productDesc,
+                        productCondition = productCondition,
+                        saftyPay = saftyPay,
+                        isExchange = isExchange,
+                        amount = amount,
+                        includeFee = includeFee,
+                        price = price,
+                        directtrans = directtrans,
+                    )
+                )
 
             } else {
                 postRegistration(
@@ -222,17 +229,17 @@ class ItemRegistrationActivity :
         showCustomToast("오류 : $message")
     }
 
-    override fun onPatchUpdateSuccess(response: RegistrationResponse) {
+    override fun onPatchUpdateSuccess(response: UpdateDataResponse) {
         dismissLoadingDialog()
-//        if (response.isSuccess) {
-//            val intent = Intent(this, MainActivity::class.java)
-//            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-//            intent.putExtra("isUpdate", true)
-//            intent.putExtra("itemName", binding.regiEdtName.text.toString())
-//            startActivity(intent)
-//        } else {
-//            showCustomToast("수정에 실패했습니다. 다시 시도하세요.")
-//        }
+        if (response.isSuccess) {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            intent.putExtra("isUpdate", true)
+            intent.putExtra("itemName", binding.regiEdtName.text.toString())
+            startActivity(intent)
+        } else {
+            showCustomToast("수정에 실패했습니다. 다시 시도하세요.")
+        }
     }
 
     override fun onPatchUpdateFailure(message: String) {

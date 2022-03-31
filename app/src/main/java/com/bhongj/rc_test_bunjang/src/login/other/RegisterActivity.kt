@@ -220,7 +220,7 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(ActivityRegisterB
         binding.txtOtherLoginShopNameDes.visibility = View.VISIBLE
         binding.txtOtherLoginShopName.visibility = View.VISIBLE
         binding.edtOtherLoginShopName.requestFocus()
-        showKeyboard(binding.edtOtherLoginCertify)
+        showKeyboard(binding.edtOtherLoginShopName)
     }
 
     override fun onPostLoginSuccess(response: LoginResponse) {

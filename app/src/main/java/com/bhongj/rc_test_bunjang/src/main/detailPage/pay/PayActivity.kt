@@ -144,11 +144,11 @@ class PayActivity :
     override fun onGetDataSuccess(response: PayResponse) {
         dismissLoadingDialog()
         val itemIdx = intent.getIntExtra("PAYMENT-IDX", 0)
-
+        val itemName = intent.getStringExtra("PAYMENT-TITLE")
         val intent = Intent(this, MainActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         intent.putExtra("isPaymentOut", true)
-        intent.putExtra("itemIdx", itemIdx)
+        intent.putExtra("itemName", itemName)
         startActivity(intent)
     }
 

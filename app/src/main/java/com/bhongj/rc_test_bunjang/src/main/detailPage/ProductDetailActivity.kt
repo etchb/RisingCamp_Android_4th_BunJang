@@ -250,10 +250,11 @@ class ProductDetailActivity :
     }
 
     override fun onPatchSuccess(response: DeleteResponse) {
+        dismissLoadingDialog()
         val intent = Intent(this, MainActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         intent.putExtra("isDelete", true)
-        intent.putExtra("itemIdx", itemIdx)
+        intent.putExtra("itemName", result.productName)
         startActivity(intent)
     }
 

@@ -1,6 +1,7 @@
 package com.bhongj.rc_test_bunjang.src.main.itemRegistration
 
 import com.bhongj.rc_test_bunjang.src.main.itemRegistration.models.RegistrationResponse
+import com.bhongj.rc_test_bunjang.src.main.itemRegistration.models.UpdateDataResponse
 
 interface ItemRegistrationActivityInterface {
 
@@ -8,7 +9,7 @@ interface ItemRegistrationActivityInterface {
 
     fun onPostDataFailure(message: String)
 
-    fun onPatchUpdateSuccess(response: RegistrationResponse)
+    fun onPatchUpdateSuccess(response: UpdateDataResponse)
 
     fun onPatchUpdateFailure(message: String)
 }
