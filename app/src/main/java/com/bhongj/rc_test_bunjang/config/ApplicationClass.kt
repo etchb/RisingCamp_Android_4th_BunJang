@@ -26,7 +26,6 @@ class ApplicationClass : Application() {
         // JWT Token Header 키 값
         val X_ACCESS_TOKEN = "X-ACCESS-TOKEN"
 
-
         val MY_IDX = "MY-IDX"
         val MY_PHONE_NUMBER = "MY-PHONE-NUMBER"
         val MY_NAME = "MY-NAME"

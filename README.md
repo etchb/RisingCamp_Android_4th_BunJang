@@ -71,3 +71,30 @@
 9. apply payment API
 10. add payment done alert Toast
 11. apply detail_conlay_smmry_info
+
+## 22.03.30
+
+1. apply Favorites API
+2. bug fix - Thread, UserOut
+3. add option sliding fragment
+4. maintain registration option data
+5. apply itemRegistration API
+6. bug fix - ProductDetailActivity tlb item img
+7. add setting layout
+
+## 22.03.31
+
+1. apply logout
+2. bug fix - home rcyView idx
+3. apply itemDelete API
+4. recommit - apply itemDelete API
+5. apply userInfo patch
+6. apply userOut API
+7. apply itemEdit API
+8. bug fix - itemUpdate, Log debug
+9. bug fix - payPage delivery layout gone
+10. bug fix - Thread, UserOut
+
+## 22.03.32
+
+1. Project Finish
